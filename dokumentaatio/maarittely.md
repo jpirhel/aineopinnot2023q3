@@ -4,7 +4,7 @@
 ## Yleistä
 
 - Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti (TKT)
-- Käytettävä ohjelmointikieli: Java, mahdollisesti Python, shell (skriptit)
+- Käytettävä ohjelmointikieli: Java, Kotlin (gradle-skriptit)
 - Käytettävät kielet: Englanti (lähdekoodi), Suomi (lähdekoodin kommentit, dokumentaatio, muut)
 - Laajojen kielimallien käyttö: Ei käytössä projektin missään osassa
 
