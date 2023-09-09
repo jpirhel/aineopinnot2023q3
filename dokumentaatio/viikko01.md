@@ -3,9 +3,9 @@
 ## Käytetty aika:
 
 - 2023-09-05 ti: 1h (ideointi)
-- 2023-09-09 la: 6h (dokumentaatio, Java-projektin luonti)
+- 2023-09-09 la: 3h (dokumentaatio, Java-projektin luonti)
 
-viikko yht. 7h, kurssin alusta: 7h
+viikko yht. 4h, kurssin alusta: 4h
 
 
 ## Mitä olen tehnyt tällä viikolla?
