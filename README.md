@@ -1,6 +1,6 @@
 # Aineopintojen harjoitustyö
 
-## Algoritmit ja tekoäly 2023 periodi 1
+### Algoritmit ja tekoäly 2023 periodi 1
 
 
 ## Dokumentaatio
