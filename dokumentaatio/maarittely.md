@@ -33,7 +33,7 @@ Datasetissä lentokentistä on koordinaatit. Näistä koordinaateista muodosteta
 - Cessna Citation Longitude (liikesuihkukone, kantama: 6500km)
 - Airbus A380 (isorunkoinen suihkukone, kantama: 14800km)
 
-Etsittäessä reittiä lentokenttien välillä otetaan huomioon ainoastaan etäisyys, eikä muita lentämiseen vaikuttavia tekijöitä (esim. lentokentän kiitoradan soveltuvuus ko. lentokoneelle jne.). Lentokenttien välisten puurakenteiden ohjelmointi suoritetaan tätä sovellusta varten, käyttäen relevantteja tietorakenteita ja algoritmeja. Mikäli puun generoinnissa käytetään ulkopuolisia algoritmeja, näistä laitetaan mukaan viittet.
+Etsittäessä reittiä lentokenttien välillä otetaan huomioon ainoastaan etäisyys, eikä muita lentämiseen vaikuttavia tekijöitä (esim. lentokentän kiitoradan soveltuvuus ko. lentokoneelle jne.). Lentokenttien välisten puurakenteiden ohjelmointi suoritetaan tätä sovellusta varten, käyttäen relevantteja tietorakenteita ja algoritmeja. Mikäli puun generoinnissa käytetään ulkopuolisia algoritmeja, näistä laitetaan mukaan viitteet.
 
 
 ### Dijkstran algoritmi
