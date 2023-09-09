@@ -1,9 +1,9 @@
-# Aineopintojen harjoitustyö ja tekoÃ¤ly 2023 periodi 1.
+# Aineopintojen harjoitustyö - Algoritmit ja tekoäly 2023 periodi 1.
 
 
-## Dokumentaatio:
+## Dokumentaatio
 
-[MÃ¤Ã¤rittelydokumentti](dokumentaatio/maarittely.md)
+[Määrittelydokumentti](dokumentaatio/maarittely.md)
 
 
 ## Viikkoraportit
