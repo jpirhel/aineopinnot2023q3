@@ -49,6 +49,7 @@ public class Coord {
         return Objects.equals(getLat(), coord.getLat()) && Objects.equals(getLon(), coord.getLon());
     }
 
+    @ExcludeFromGeneratedJacocoReport
     @Override
     public int hashCode() {
         return Objects.hash(getLat(), getLon());
