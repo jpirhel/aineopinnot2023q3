@@ -13,6 +13,12 @@ public class AirportData {
 
     private final HashMap<String, Airport> icaoIndex;
 
+    /**
+     * @param airports
+     * @param airportMap
+     * @param airportDistances
+     * @param icaoIndex
+     */
     public AirportData(
             ArrayList<Airport> airports,
             HashMap<Integer, Airport> airportMap,

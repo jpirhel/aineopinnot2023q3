@@ -1,12 +1,12 @@
 package org.example.data;
 
+//CHECKSTYLE.OFF: AvoidStarImport
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+//CHECKSTYLE.ON: AvoidStarImport
 
 import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
 
 class AirportDataGeneratorTest {
     private final AirportDataGenerator airportDataGenerator;
@@ -37,9 +37,14 @@ class AirportDataGeneratorTest {
     void generateAirportGraph() {
         int maxDistanceInKm = 200;
 
-        Airport testAirport = airportDataGenerator.getAirportData().getAirportMap().get(417); // Helsinki-Vantaa
+        Airport testAirport = airportDataGenerator
+                .getAirportData()
+                .getAirportMap()
+                .get(417); // Helsinki-Vantaa
 
-        AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(testAirport, maxDistanceInKm);
+        AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
+                testAirport,
+                maxDistanceInKm);
 
         assertNotNull(airportGraph);
 

@@ -1,19 +1,21 @@
 package org.example.data;
 
+//CHECKSTYLE.OFF: AvoidStarImport
 import static org.junit.jupiter.api.Assertions.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 import org.example.geo.Coord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AirportTest {
-    @SuppressWarnings("checkstyle:LineLength")
+    @SuppressWarnings({"checkstyle:LineLength"})
     private final String airportDataLine = "421,\"Helsinki Vantaa Airport\",\"Helsinki\",\"Finland\",\"HEL\",\"EFHK\",60.317199707031,24.963300704956,179,2,\"E\",\"Europe/Helsinki\",\"airport\",\"OurAirports\"";
 
-    @SuppressWarnings("checkstyle:LineLength")
+    @SuppressWarnings({"checkstyle:LineLength", "FieldCanBeLocal"})
     private final String notAirportDataLine = "421,\"Helsinki Vantaa Airport\",\"Helsinki\",\"Finland\",\"HEL\",\"EFHK\",60.317199707031,24.963300704956,179,2,\"E\",\"Europe/Helsinki\",\"not_airport\",\"OurAirports\"";
 
-    @SuppressWarnings("checkstyle:LineLength")
+    @SuppressWarnings({"checkstyle:LineLength", "FieldCanBeLocal"})
     private final String longAirportDataLine = "641,\"Harstad/Narvik Airport, Evenes\",\"Harstad/Narvik\",\"Norway\",\"EVE\",\"ENEV\",68.491302490234,16.678100585938,84,1,\"E\",\"Europe/Oslo\",\"airport\",\"OurAirports\"";
 
     private Airport airport;
@@ -44,6 +46,7 @@ class AirportTest {
 
         Airport airport5 = Airport.fromLine(1, longAirportDataLine);
 
+        @SuppressWarnings({"checkstyle:LineLength"})
         Airport airport5correct = new Airport(1, 641, "Harstad/Narvik Airport, Evenes", "Harstad/Narvik", "Norway", "ENEV", 68.491302490234, 16.678100585938);
 
         assertEquals(airport5, airport5correct);

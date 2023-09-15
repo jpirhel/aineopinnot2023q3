@@ -15,6 +15,9 @@ public class Importer {
 
     private ArrayList<Airport> airports;
 
+    /**
+     * @param filename
+     */
     public Importer(String filename) {
         this.airportDataFilename = filename;
     }

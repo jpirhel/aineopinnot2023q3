@@ -1,13 +1,16 @@
 package org.example.data;
 
-import org.junit.jupiter.api.Test;
+//CHECKSTYLE.OFF: AvoidStarImport
+import static org.junit.jupiter.api.Assertions.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 import java.util.ArrayList;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class AirportDataTest {
+    @SuppressWarnings({"checkstyle:MemberName", "checkstyle:AbbreviationAsWordInName"})
     private final int AIRPORT_DATASET_SIZE = 7698;
 
     private final AirportData airportData;

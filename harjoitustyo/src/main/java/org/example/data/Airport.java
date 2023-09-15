@@ -75,6 +75,16 @@ public class Airport {
     private final Double latitude;
     private final Double longitude;
 
+    /**
+     * @param id
+     * @param dataId
+     * @param name
+     * @param city
+     * @param country
+     * @param icao
+     * @param latitude
+     * @param longitude
+     */
     public Airport(
             int id,
             int dataId,
@@ -182,8 +192,8 @@ public class Airport {
         return getId() == airport.getId() && dataId == airport.dataId && Objects.equals(getName(), airport.getName()) && Objects.equals(getCity(), airport.getCity()) && Objects.equals(getCountry(), airport.getCountry()) && Objects.equals(getIcao(), airport.getIcao()) && Objects.equals(getLatitude(), airport.getLatitude()) && Objects.equals(getLongitude(), airport.getLongitude());
     }
 
-    @SuppressWarnings("checkstyle")
     @ExcludeFromGeneratedJacocoReport
+    @SuppressWarnings("checkstyle:LineLength")
     @Override
     public int hashCode() {
         return Objects.hash(getId(), dataId, getName(), getCity(), getCountry(), getIcao(), getLatitude(), getLongitude());

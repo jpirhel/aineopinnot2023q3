@@ -1,10 +1,12 @@
 package org.example.data;
 
-import org.junit.jupiter.api.Test;
+//CHECKSTYLE.OFF: AvoidStarImport
+import static org.junit.jupiter.api.Assertions.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class AirportGraphTest {
     private final AirportDataGenerator airportDataGenerator;
@@ -23,9 +25,14 @@ class AirportGraphTest {
 
     @Test
     void getGraph() {
-        Airport testAirport = airportDataGenerator.getAirportData().getAirportMap().get(417); // Helsinki-Vantaa
+        Airport testAirport = airportDataGenerator
+                .getAirportData()
+                .getAirportMap()
+                .get(417); // Helsinki-Vantaa
 
-        AirportGraph graph =  airportDataGenerator.generateAirportGraph(testAirport, 200);
+        AirportGraph graph =  airportDataGenerator.generateAirportGraph(
+                testAirport,
+                200);
 
         assertNotNull(graph);
 

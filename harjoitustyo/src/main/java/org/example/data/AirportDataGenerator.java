@@ -18,6 +18,9 @@ public class AirportDataGenerator {
     private AirportData airportData;
     private HashMap<String, Airport> icaoIndex;
 
+    /**
+     * @param airports
+     */
     public AirportDataGenerator(ArrayList<Airport> airports) {
         this.airports = airports;
 

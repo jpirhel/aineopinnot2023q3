@@ -1,6 +1,8 @@
 package org.example.data;
 
+//CHECKSTYLE.OFF: AvoidStarImport
 import static org.junit.jupiter.api.Assertions.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +12,7 @@ class AirportDistanceTest {
     private Airport airportFrom;
     private Airport airportTo;
 
-    @SuppressWarnings("checkstyle:LineLength")
+    @SuppressWarnings({"checkstyle:LineLength"})
     @BeforeEach
     void setUp() {
         Airport airportFrom = Airport.fromLine(1, "421,\"Helsinki Vantaa Airport\",\"Helsinki\",\"Finland\",\"HEL\",\"EFHK\",60.317199707031,24.963300704956,179,2,\"E\",\"Europe/Helsinki\",\"airport\",\"OurAirports\"");
@@ -22,12 +24,14 @@ class AirportDistanceTest {
         this.airportDistance = new AirportDistance(airportFrom, airportTo, 143);
     }
 
+    @SuppressWarnings({"checkstyle:LineLength"})
     @Test
     void getFromAirport() {
         Airport airportFromCorrect = new Airport(1, 421, "Helsinki Vantaa Airport", "Helsinki", "Finland", "EFHK", 60.317199707031,24.963300704956);
         assertEquals(airportFromCorrect, airportDistance.getFromAirport());
     }
 
+    @SuppressWarnings({"checkstyle:LineLength"})
     @Test
     void getToAirport() {
         Airport airportFromCorrect = new Airport(2, 458, "Tampere-Pirkkala Airport", "Tampere", "Finland", "EFTP", 61.414100646973,23.604400634766);
