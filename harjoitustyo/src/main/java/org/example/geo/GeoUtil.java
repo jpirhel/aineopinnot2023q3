@@ -4,6 +4,9 @@ package org.example.geo;
  * Geographic utility functions
  */
 public class GeoUtil {
+    // needed for Jacoco coverage
+    private GeoUtil() {}
+
     private static final Long EARTH_RADIUS = 6371000L; // meters
 
     /**
