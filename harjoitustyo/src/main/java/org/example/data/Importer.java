@@ -1,5 +1,6 @@
 package org.example.data;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -49,7 +50,7 @@ public class Importer {
                 Airport airport = Airport.fromLine(i, line);
                 airports.add(airport);
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
