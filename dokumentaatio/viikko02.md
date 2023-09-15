@@ -22,7 +22,7 @@ Ohjelmaan on tullut aika iso läjä uutta koodia, joskaan en ole vielä päässyt var
 
 ## Mitä opin tällä viikolla?
 
-CheckStyle:n konfigurointia ja testien kirjoitusta. Testit ovat vielä aika raakileita, mutta tarkoitus on laajentaa niitä testaamaan oikeita asioita lähiaikoina. Myös lentokenttien verkon generoiminen on jotain, millaista en ole aiemmin tehnyt.
+CheckStyle:n konfigurointia ja testien kirjoitusta. Testit ovat vielä aika raakileita, mutta tarkoitus on laajentaa niitä testaamaan oikeita asioita lähiaikoina. Myös lentokenttien verkon generoiminen on jotain, millaista en ole aiemmin tehnyt. Integroin gradleen myös Jacoco-testikattavuusraportin HTML-generoinnin.
 
 
 ## Mikä jäi epäselväksi tai tuottanut vaikeuksia?
