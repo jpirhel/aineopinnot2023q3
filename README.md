@@ -11,3 +11,5 @@
 ## Viikkoraportit
 
 [Viikko 1](dokumentaatio/viikko01.md)
+
+[Viikko 2](dokumentaatio/viikko02.md)
