@@ -20,12 +20,7 @@ public class AirportDataGenerator {
 
     public AirportDataGenerator(ArrayList<Airport> airports) {
         this.airports = airports;
-    }
 
-    /**
-     * Main method for generatig data relating to airports.
-     */
-    public void generate() {
         generateAirportMapAndIcaoIndex();
         generateDistanceArray();
 

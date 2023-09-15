@@ -11,6 +11,7 @@ import org.example.data.Importer;
 public class Main {
     /**
      * Main entry point to the program.
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -20,7 +21,6 @@ public class Main {
         ArrayList<Airport> airports = importer.importAirports();
 
         AirportDataGenerator airportDataGenerator = new AirportDataGenerator(airports);
-        airportDataGenerator.generate();
 
         int helsinkiId = 417; // 421?
 

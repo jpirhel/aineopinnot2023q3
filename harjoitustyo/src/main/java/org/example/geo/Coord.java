@@ -41,6 +41,7 @@ public class Coord {
     }
 
     @ExcludeFromGeneratedJacocoReport
+    @SuppressWarnings("checkstyle:NeedBraces")
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

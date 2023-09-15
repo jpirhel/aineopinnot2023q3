@@ -1,9 +1,9 @@
 package org.example.data;
 
+import java.util.Objects;
+
 import org.example.annotation.ExcludeFromGeneratedJacocoReport;
 import org.example.geo.Coord;
-
-import java.util.Objects;
 
 /**
  * Airport data class.
@@ -172,8 +172,8 @@ public class Airport {
                 + ", longitude=" + longitude + '}';
     }
 
-    @SuppressWarnings("checkstyle")
     @ExcludeFromGeneratedJacocoReport
+    @SuppressWarnings({"checkstyle:LineLength", "checkstyle:NeedBraces"})
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
