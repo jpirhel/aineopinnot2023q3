@@ -25,8 +25,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+    // implementation(platform("org.jxmapviewer:jxmapviewer2:2.5"))
+
+    implementation("org.jxmapviewer:jxmapviewer2:2.5")
+
     testImplementation("org.junit.jupiter:junit-jupiter")
+
+    testImplementation(platform("org.junit:junit-bom:5.9.1"))
 }
 
 tasks.test {
