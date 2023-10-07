@@ -2,11 +2,14 @@ package org.example;
 
 import java.util.ArrayList;
 
+import javax.swing.*;
+
 import org.example.data.Airport;
 import org.example.data.AirportData;
 import org.example.data.AirportDataGenerator;
 import org.example.data.AirportGraph;
 import org.example.data.Importer;
+import org.example.gui.MainWindow;
 
 public class Main {
     /**
@@ -46,5 +49,13 @@ public class Main {
         AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
                 airportFrom,
                 testRange);
+
+        Main main = new Main();
+        main.initGui();
+    }
+
+    private void initGui() {
+        MainWindow mainWindow = new MainWindow();
+        mainWindow.show();
     }
 }
