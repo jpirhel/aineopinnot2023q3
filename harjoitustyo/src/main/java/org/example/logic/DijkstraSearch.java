@@ -110,6 +110,10 @@ public class DijkstraSearch {
             return null; // No path found
         }
 
+        // re-initialize after check
+
+        currId = destAirportId;
+
         int pathPosition = 1;
 
         // add destination airport to path
