@@ -48,9 +48,6 @@ public class DijkstraSearch {
 
         int distanceBetweenStartAndDest = directDistances[destAirportId];
 
-        System.out.println("distanceBetweenStartAndDest: " + distanceBetweenStartAndDest);
-        System.out.println("maxDistance: " + maxDistance);
-
         int[] path = new int[numAirports];
 
         if (distanceBetweenStartAndDest <= maxDistance) {

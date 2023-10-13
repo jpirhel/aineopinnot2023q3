@@ -1,7 +1,6 @@
 package org.example.logic;
 
 //CHECKSTYLE.OFF: AvoidStarImport
-
 import org.example.data.*;
 //CHECKSTYLE.ON: AvoidStarImport
 
