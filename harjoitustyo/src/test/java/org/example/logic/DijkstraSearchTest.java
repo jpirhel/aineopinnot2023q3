@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DijkstraSearchTest {
-    private AirportDataGenerator airportDataGenerator;
-    private AirportData airportData;
+    private final AirportDataGenerator airportDataGenerator;
+    private final AirportData airportData;
 
-    private Airport airportFrom;
-    private Airport airportTo;
+    private final Airport airportFrom;
+    private final Airport airportTo;
 
     public DijkstraSearchTest() {
         String filename = "../data/airports.dat";
