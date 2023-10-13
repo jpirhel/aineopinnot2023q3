@@ -38,11 +38,12 @@ public class DijkstraSearch {
         int distanceBetweenStartAndDest = directDistances[destAirportId];
 
         int[] path = new int[numAirports];
-        int currentPathPosition = 0;
 
         if (distanceBetweenStartAndDest <= maxDistance) {
             // the path contains only a direct flight to the destination airport
-            path[currentPathPosition] = destAirportId;
+
+            path[0] = startAirportId;
+            path[1] = destAirportId;
 
             return path;
         }
@@ -121,15 +122,13 @@ public class DijkstraSearch {
         path[0] = destAirportId;
 
         while (true) {
-            if (pathPosition > 100) {
-                break;
-            }
-
             try {
                 currId = prev[currId];
             } catch (Exception ex) {
                 break;
             }
+
+            // destination found - path ends
 
             if (currId == startAirportId) {
                 break;
@@ -157,14 +156,28 @@ public class DijkstraSearch {
      * @param airportGraph
      * @return ArrayList of path airports
      */
-    public ArrayList<Airport> normalizedSearch(int startAirportId, int destAirportId, int testRangeInKm, AirportGraph airportGraph) {
-        int[] path = search(startAirportId, destAirportId, testRangeInKm, airportGraph);
+    public ArrayList<Airport> normalizedSearch(
+            int startAirportId,
+            int destAirportId,
+            int testRangeInKm,
+            AirportGraph airportGraph) {
+        // search using own implementation of Dijkstra's algorithm
+
+        int[] path = search(
+                startAirportId,
+                destAirportId,
+                testRangeInKm,
+                airportGraph);
+
+        // check if path is empty
 
         if (path == null) {
             return null;
         }
 
         ArrayList<Airport> normalizedPath = new ArrayList<>();
+
+        // add airports to ArrayList - break on zero (path ends here)
 
         for (int airport : path) {
             if (airport == 0) {
