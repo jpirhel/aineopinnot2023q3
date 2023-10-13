@@ -2,7 +2,9 @@ package org.example;
 
 import java.util.ArrayList;
 
+//CHECKSTYLE.OFF: AvoidStarImport
 import javax.swing.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 import org.example.data.Airport;
 import org.example.data.AirportData;
@@ -41,20 +43,20 @@ public class Main {
         // testRangeInKm = 1500; // reachableCount: 7668
         // testRangeInKm = 18000; // reachableCount: 7679
 
-        testRangeInKm = 5000; // kilometers
+        testRangeInKm = 300; // kilometers
 
         // int cessna152Range = 768; // reachableCount: 7521
         // int airbusA350XWBUltraLongRangeDistance = 18000; // reachableCount: 7697
 
         AirportData airportData = airportDataGenerator.getAirportData();
-        Airport airportFrom = airportData.getAirportMap().get(helsinkiId);
+        Airport airportFrom = airportData.getAirports().get(helsinkiId);
 
         AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
                 airportFrom,
                 testRangeInKm);
 
-//        Main main = new Main();
-//        main.initGui();
+        // Main main = new Main();
+        // main.initGui();
 
         DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
@@ -78,9 +80,11 @@ public class Main {
             for (Airport airport : normalizedPath) {
                 System.out.println(airport);
             }
+            System.out.println("normalizedPath size: " + normalizedPath.size());
         } else {
             System.out.println("NO PATH FOUND!");
         }
+
 
         System.out.println("=============================================");
     }

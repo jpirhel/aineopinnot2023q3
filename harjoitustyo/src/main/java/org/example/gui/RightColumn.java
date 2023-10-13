@@ -1,8 +1,9 @@
 package org.example.gui;
 
-import javax.swing.*;
+//CHECKSTYLE.OFF: AvoidStarImport
 import java.awt.*;
-
+import javax.swing.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 public class RightColumn {
     JPanel panel;

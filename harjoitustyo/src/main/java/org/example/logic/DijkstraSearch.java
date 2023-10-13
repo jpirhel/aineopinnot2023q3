@@ -1,6 +1,8 @@
 package org.example.logic;
 
+//CHECKSTYLE.OFF: AvoidStarImport
 import java.util.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 import org.example.data.Airport;
 import org.example.data.AirportDistance;

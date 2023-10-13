@@ -1,8 +1,10 @@
 package org.example.gui;
 
+//CHECKSTYLE.OFF: AvoidStarImport
 import javax.swing.*;
-import javax.swing.border.EtchedBorder;
 import java.awt.*;
+//CHECKSTYLE.ON: AvoidStarImport
+import javax.swing.border.EtchedBorder;
 
 public class MainWindow {
     JFrame frame;
