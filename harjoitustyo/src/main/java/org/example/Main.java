@@ -10,6 +10,7 @@ import org.example.data.AirportDataGenerator;
 import org.example.data.AirportGraph;
 import org.example.data.Importer;
 import org.example.gui.MainWindow;
+import org.example.logic.DijkstraSearch;
 
 public class Main {
     /**
@@ -27,18 +28,20 @@ public class Main {
 
         int helsinkiId = 417; // 421?
 
-        int testRange;
+        int testRangeInKm;
 
-        // testRange = 60; // reachableCount: 6
-        // testRange = 100; // reachableCount: 60
-        // testRange = 150; // reachableCount: 1727
-        // testRange = 200; // reachableCount: 1880
-        // testRange = 300; // reachableCount: 3626
-        // testRange = 400; // reachableCount: 3912
-        // testRange = 500; // reachableCount: 7433
-        // testRange = 768; // reachableCount: 7521
-        // testRange = 1500; // reachableCount: 7668
-        testRange = 18000; // reachableCount: 7679
+        // testRangeInKm = 60; // reachableCount: 6
+        // testRangeInKm = 100; // reachableCount: 60
+        // testRangeInKm = 150; // reachableCount: 1727
+        // testRangeInKm = 200; // reachableCount: 1880
+        // testRangeInKm = 300; // reachableCount: 3626
+        // testRangeInKm = 400; // reachableCount: 3912
+        // testRangeInKm = 500; // reachableCount: 7433
+        // testRangeInKm = 768; // reachableCount: 7521
+        // testRangeInKm = 1500; // reachableCount: 7668
+        // testRangeInKm = 18000; // reachableCount: 7679
+
+        testRangeInKm = 5000; // kilometers
 
         // int cessna152Range = 768; // reachableCount: 7521
         // int airbusA350XWBUltraLongRangeDistance = 18000; // reachableCount: 7697
@@ -48,10 +51,38 @@ public class Main {
 
         AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
                 airportFrom,
-                testRange);
+                testRangeInKm);
 
-        Main main = new Main();
-        main.initGui();
+//        Main main = new Main();
+//        main.initGui();
+
+        DijkstraSearch dijkstraSearch = new DijkstraSearch(
+                airportData.getAirports(),
+                airportData.getAirportDistances());
+
+        int startAirportId = 417; // Helsinki-Vantaa Airport
+        // int destAirportId = 232; // Biskra Airport
+        // int destAirportId = 339; // Berlin-Tempelhof International airport
+        int destAirportId = 154; // Vancouver International Airport
+
+        ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
+                startAirportId,
+                destAirportId,
+                testRangeInKm,
+                airportGraph);
+
+        System.out.println("=============================================");
+        System.out.println("normalizedPath:");
+
+        if (normalizedPath != null) {
+            for (Airport airport : normalizedPath) {
+                System.out.println(airport);
+            }
+        } else {
+            System.out.println("NO PATH FOUND!");
+        }
+
+        System.out.println("=============================================");
     }
 
     private void initGui() {
