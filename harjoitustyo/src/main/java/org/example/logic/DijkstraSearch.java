@@ -1,15 +1,24 @@
 package org.example.logic;
 
+import java.util.*;
+
 import org.example.data.Airport;
 import org.example.data.AirportDistance;
 import org.example.data.AirportGraph;
-
-import java.util.*;
 
 public class DijkstraSearch {
     private final ArrayList<Airport> airports;
     private final int[][] airportDistances;
 
+
+    /**
+     * Implementation of Dijkstra's algorithm to find shortest path between airports.
+     *
+     * Uses a priority queue.
+     *
+     * @param airports
+     * @param airportDistances
+     */
     public DijkstraSearch(ArrayList<Airport> airports, int[][] airportDistances) {
         this.airports = airports;
         this.airportDistances = airportDistances;
@@ -24,7 +33,7 @@ public class DijkstraSearch {
      * @param airportGraph
      * @return path of airports between start and destination
      */
-    public int[] search(
+    private int[] search(
             int startAirportId,
             int destAirportId,
             int maxDistance,
@@ -36,6 +45,9 @@ public class DijkstraSearch {
         // check if the plane can fly directly to the destination
 
         int distanceBetweenStartAndDest = directDistances[destAirportId];
+
+        System.out.println("distanceBetweenStartAndDest: " + distanceBetweenStartAndDest);
+        System.out.println("maxDistance: " + maxDistance);
 
         int[] path = new int[numAirports];
 
@@ -61,22 +73,22 @@ public class DijkstraSearch {
 
         // priority queue to hold distance-weighted airports in the search queue
 
-        PriorityQueue<AirportDistance> Q = new PriorityQueue<>();
+        PriorityQueue<AirportDistance> queue = new PriorityQueue<>();
 
         // start airport
 
         Airport startAirport = airports.get(startAirportId);
         AirportDistance start = new AirportDistance(startAirport, startAirport, 0);
 
-        Q.add(start);
+        queue.add(start);
 
         ArrayList<AirportDistance>[] graph = airportGraph.getGraph();
 
         // implement Dijkstra's algorithm as per [1]
         // [1]: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Using_a_priority_queue
 
-        while (! Q.isEmpty()) {
-            AirportDistance curr = Q.poll();
+        while (! queue.isEmpty()) {
+            AirportDistance curr = queue.poll();
 
             int fromId = curr.getToAirport().getId();
             Airport fromAirport = curr.getToAirport();
@@ -97,7 +109,7 @@ public class DijkstraSearch {
                     prev[toId] = fromId;
 
                     AirportDistance next = new AirportDistance(fromAirport, toAirport, altDistance);
-                    Q.add(next);
+                    queue.add(next);
                 }
             }
         }
@@ -107,7 +119,7 @@ public class DijkstraSearch {
         // check if there is a path
         try {
             currId = prev[currId];
-        } catch (Exception ex) {
+        } catch (NullPointerException ex) {
             return null; // No path found
         }
 
@@ -124,8 +136,8 @@ public class DijkstraSearch {
         while (true) {
             try {
                 currId = prev[currId];
-            } catch (Exception ex) {
-                break;
+            } catch (NullPointerException ex) {
+                return null; // No path found
             }
 
             // destination found - path ends
