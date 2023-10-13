@@ -4,7 +4,7 @@
 
 - 2023-10-12 1h vertaisarviointi #2
 - 2023-10-13 6h ohjelmointi (Dijkstra)
-- 2023-10-14 6h ohjelmointi (IDA*) [arvio]
+- 2023-10-14 6h ohjelmointi (IDA*) (käytetty aika on arvio)
 
 ## Mitä olet tehnyt tällä viikolla
 
