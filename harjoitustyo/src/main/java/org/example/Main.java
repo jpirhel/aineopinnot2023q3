@@ -43,7 +43,7 @@ public class Main {
         // testRangeInKm = 1500; // reachableCount: 7668
         // testRangeInKm = 18000; // reachableCount: 7679
 
-        testRangeInKm = 300; // kilometers
+        testRangeInKm = 10000; // kilometers
 
         // int cessna152Range = 768; // reachableCount: 7521
         // int airbusA350XWBUltraLongRangeDistance = 18000; // reachableCount: 7697

@@ -44,20 +44,7 @@ public class DijkstraSearch {
 
         int numAirports = directDistances.length;
 
-        // check if the plane can fly directly to the destination
-
-        int distanceBetweenStartAndDest = directDistances[destAirportId];
-
         int[] path = new int[numAirports];
-
-        if (distanceBetweenStartAndDest <= maxDistance) {
-            // the path contains only a direct flight to the destination airport
-
-            path[0] = startAirportId;
-            path[1] = destAirportId;
-
-            return path;
-        }
 
         // array of distances calculated by the Dijkstra algorithm
         Integer[] dist = new Integer[numAirports];
