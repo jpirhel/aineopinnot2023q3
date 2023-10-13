@@ -21,3 +21,5 @@ Sekä Dijkstra että IDA* on jäänyt toiminnaltaan hieman epäselväksi. Kun GU
 ## Mitä teen seuraavaksi
 
 Jatkan GUI:n parissa työskentelyä ja projektin kiinni kirimistä edelleen. Seuraavana vuorossa on karttapohjan implementointi sekä lentokenttien piirtäminen kartalle, käyttöliittymän tekeminen 
+
+Tehtävänä on myös prioriteettijonon oma implementaatio Dijkstraa varten.
