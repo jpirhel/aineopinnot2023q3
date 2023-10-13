@@ -1,6 +1,7 @@
 package org.example.logic;
 
 //CHECKSTYLE.OFF: AvoidStarImport
+
 import org.example.data.*;
 //CHECKSTYLE.ON: AvoidStarImport
 
@@ -56,7 +57,7 @@ class DijkstraSearchTest {
 
         AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
 
-        DijkstraSearch  dijkstraSearch = new DijkstraSearch(
+        DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
@@ -75,7 +76,7 @@ class DijkstraSearchTest {
 
         AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
 
-        DijkstraSearch  dijkstraSearch = new DijkstraSearch(
+        DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
@@ -94,7 +95,7 @@ class DijkstraSearchTest {
 
         AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
 
-        DijkstraSearch  dijkstraSearch = new DijkstraSearch(
+        DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
@@ -113,7 +114,7 @@ class DijkstraSearchTest {
 
         AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
 
-        DijkstraSearch  dijkstraSearch = new DijkstraSearch(
+        DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
@@ -132,7 +133,7 @@ class DijkstraSearchTest {
 
         AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
 
-        DijkstraSearch  dijkstraSearch = new DijkstraSearch(
+        DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
