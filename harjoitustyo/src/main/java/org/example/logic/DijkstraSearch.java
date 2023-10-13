@@ -128,7 +128,6 @@ public class DijkstraSearch {
             try {
                 currId = prev[currId];
             } catch (Exception ex) {
-                System.out.println(Arrays.toString(ex.getStackTrace()));
                 break;
             }
 
