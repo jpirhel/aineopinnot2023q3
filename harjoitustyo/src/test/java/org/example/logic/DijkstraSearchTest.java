@@ -1,15 +1,17 @@
 package org.example.logic;
 
 //CHECKSTYLE.OFF: AvoidStarImport
+import static org.junit.jupiter.api.Assertions.*;
+//CHECKSTYLE.ON: AvoidStarImport
+
+import java.util.ArrayList;
+
+//CHECKSTYLE.OFF: AvoidStarImport
 import org.example.data.*;
 //CHECKSTYLE.ON: AvoidStarImport
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DijkstraSearchTest {
     private final AirportDataGenerator airportDataGenerator;
@@ -45,7 +47,9 @@ class DijkstraSearchTest {
 
     private AirportGraph generateAirportGraph(int testRangeInKm) {
         //noinspection UnnecessaryLocalVariable
-        AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(airportFrom, testRangeInKm);
+        AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
+                airportFrom,
+                testRangeInKm);
 
         return airportGraph;
     }

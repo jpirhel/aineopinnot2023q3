@@ -31,14 +31,14 @@ public class DijkstraSearch {
      *
      * @param startAirportId
      * @param destAirportId
-     * @param maxDistance
+     * @param rangeInKm
      * @param airportGraph
      * @return path of airports between start and destination
      */
     private int[] search(
             int startAirportId,
             int destAirportId,
-            int maxDistance,
+            int rangeInKm,
             AirportGraph airportGraph) {
         int[] directDistances = airportDistances[startAirportId];
 
@@ -150,21 +150,21 @@ public class DijkstraSearch {
      *
      * @param startAirportId
      * @param destAirportId
-     * @param testRangeInKm
+     * @param rangeInKm
      * @param airportGraph
      * @return ArrayList of path airports
      */
     public ArrayList<Airport> normalizedSearch(
             int startAirportId,
             int destAirportId,
-            int testRangeInKm,
+            int rangeInKm,
             AirportGraph airportGraph) {
         // search using own implementation of Dijkstra's algorithm
 
         int[] path = search(
                 startAirportId,
                 destAirportId,
-                testRangeInKm,
+                rangeInKm,
                 airportGraph);
 
         // check if path is empty

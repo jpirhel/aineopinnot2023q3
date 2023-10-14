@@ -3,7 +3,6 @@ package org.example;
 import java.util.ArrayList;
 
 //CHECKSTYLE.OFF: AvoidStarImport
-import javax.swing.*;
 //CHECKSTYLE.ON: AvoidStarImport
 
 import org.example.data.Airport;
@@ -15,12 +14,58 @@ import org.example.gui.MainWindow;
 import org.example.logic.DijkstraSearch;
 
 public class Main {
+    private AirportData airportData;
+    private AirportGraph airportGraph;
+    private MainWindow mainWindow;
+
     /**
      * Main entry point to the program.
      *
      * @param args
      */
     public static void main(String[] args) {
+        Main main = new Main();
+
+        // generate initial dataset
+        main.generateData(417,500);
+
+        main.initGui();
+
+        main.testDijkstraSearch();
+    }
+
+    private void testDijkstraSearch() {
+        int startAirportId = 417; // Helsinki-Vantaa Airport
+
+        // int destAirportId = 154; // Vancouver International Airport (Canada)
+        int destAirportId = 2222; // Hamatsu Airport (Japan)
+
+        // int destAirportId = 232; // Biskra Airport
+        // int destAirportId = 339; // Berlin-Tempelhof International airport
+
+        Airport startAirport = airportData.getAirports().get(startAirportId);
+        Airport destAirport = airportData.getAirports().get(destAirportId);
+
+        int rangeInKm;
+
+        rangeInKm = 450;
+        rangeInKm = 768;
+        rangeInKm = 1000;
+        rangeInKm = 2000;
+        // rangeInKm = 300;
+
+
+        generateData(startAirportId, rangeInKm);
+        ArrayList<Airport> route = dijkstraSearch(startAirport, destAirport, rangeInKm);
+
+        System.out.println("==========================================================");
+        System.out.println("ROUTE: " + route);
+        System.out.println("==========================================================");
+
+        mainWindow.setMapRoute(route);
+    }
+
+    private void generateData(int fromAirportId, int rangeInKm) {
         String filename = "../data/airports.dat";
 
         Importer importer = new Importer(filename);
@@ -28,49 +73,34 @@ public class Main {
 
         AirportDataGenerator airportDataGenerator = new AirportDataGenerator(airports);
 
-        int helsinkiId = 417; // 421?
-
-        int testRangeInKm;
-
-        // testRangeInKm = 60; // reachableCount: 6
-        // testRangeInKm = 100; // reachableCount: 60
-        // testRangeInKm = 150; // reachableCount: 1727
-        // testRangeInKm = 200; // reachableCount: 1880
-        // testRangeInKm = 300; // reachableCount: 3626
-        // testRangeInKm = 400; // reachableCount: 3912
-        // testRangeInKm = 500; // reachableCount: 7433
-        // testRangeInKm = 768; // reachableCount: 7521
-        // testRangeInKm = 1500; // reachableCount: 7668
-        // testRangeInKm = 18000; // reachableCount: 7679
-
-        testRangeInKm = 10000; // kilometers
-
-        // int cessna152Range = 768; // reachableCount: 7521
-        // int airbusA350XWBUltraLongRangeDistance = 18000; // reachableCount: 7697
-
         AirportData airportData = airportDataGenerator.getAirportData();
-        Airport airportFrom = airportData.getAirports().get(helsinkiId);
+
+        Airport airportFrom = airportData.getAirports().get(fromAirportId);
 
         AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
                 airportFrom,
-                testRangeInKm);
+                rangeInKm);
 
-        // Main main = new Main();
-        // main.initGui();
+        this.airportData = airportData;
+        this.airportGraph = airportGraph;
+    }
 
+    private void initGui() {
+        MainWindow mainWindow = new MainWindow(airportData);
+        mainWindow.show();
+
+        this.mainWindow = mainWindow;
+    }
+
+    private ArrayList<Airport> dijkstraSearch(Airport startAirport, Airport destAirport, int rangeInKm) {
         DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
-        int startAirportId = 417; // Helsinki-Vantaa Airport
-        // int destAirportId = 232; // Biskra Airport
-        // int destAirportId = 339; // Berlin-Tempelhof International airport
-        int destAirportId = 154; // Vancouver International Airport
-
         ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
-                startAirportId,
-                destAirportId,
-                testRangeInKm,
+                startAirport.getId(),
+                destAirport.getId(),
+                rangeInKm,
                 airportGraph);
 
         System.out.println("=============================================");
@@ -85,12 +115,8 @@ public class Main {
             System.out.println("NO PATH FOUND!");
         }
 
-
         System.out.println("=============================================");
-    }
 
-    private void initGui() {
-        MainWindow mainWindow = new MainWindow();
-        mainWindow.show();
+        return normalizedPath;
     }
 }

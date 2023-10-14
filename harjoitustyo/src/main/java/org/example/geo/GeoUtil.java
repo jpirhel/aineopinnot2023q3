@@ -1,5 +1,9 @@
 package org.example.geo;
 
+import org.example.data.Airport;
+
+import java.util.ArrayList;
+
 /**
  * Geographic utility functions
  */
@@ -47,5 +51,9 @@ public class GeoUtil {
         double kilometers = Math.round(meters / 1000.0);
 
         return (int) kilometers;
+    }
+
+    public int routeLengthInKm(ArrayList<Airport> route) {
+        return 42; // FIXME
     }
 }
