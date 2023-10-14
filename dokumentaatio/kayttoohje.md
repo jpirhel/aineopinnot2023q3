@@ -5,7 +5,7 @@ Ohjelma suoritetaan seuraavasti:
 ```
 ./gradlew run --args='icao <lentokentan_nimi>'
 ```
-Etsii lentokentän ICAO-koodin nimen perusteella (case insensitive). (EI VIELÄ IMPLEMENTOITU)
+(EI VIELÄ IMPLEMENTOITU) Etsii lentokentän ICAO-koodin nimen perusteella (case insensitive) 
 
 ```
 ./gradlew run --args='dijkstra <lähtokentän_ICAO> <kohdekentän_ICAO> <kantama_kilometreissä>' 
@@ -17,7 +17,7 @@ Etsii lyhimmän reitin käyttäen Dijkstran algoritmia lähtökentältä kohdeke
 ./gradlew run --args='idastar <lähtokentän_ICAO> <kohdekentän_ICAO> <kantama_kilometreissä>' 
 ```
 
-Etsii lyhimmän reitin käyttäen IDA*-algoritmia lähtökentältä kohdekentälle. Kentät annetaan käyttäen ICAO-koodeja. Kantama annetaan kilometreissä.
+(EI VIELÄ IMPLEMENTOITU) Etsii lyhimmän reitin käyttäen IDA*-algoritmia lähtökentältä kohdekentälle. Kentät annetaan käyttäen ICAO-koodeja. Kantama annetaan kilometreissä.
 
 Eri lentokoneiden kantamia kilometreissä:
 
