@@ -31,6 +31,8 @@ Esimerkki:
 
 (EI VIELÄ IMPLEMENTOITU) Etsii lyhimmän reitin käyttäen IDA*-algoritmia lähtökentältä kohdekentälle. Kentät annetaan käyttäen ICAO-koodeja. Kantama annetaan kilometreissä.
 
+## Lentokoneet
+
 Eri lentokoneiden kantamia kilometreissä:
 
 - Cessna 152 (pienkone, kantama: 768km)
