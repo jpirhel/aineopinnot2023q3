@@ -7,6 +7,7 @@
 
 [Määrittelydokumentti](dokumentaatio/maarittely.md)
 
+[Käyttöohje](dokumentaatio/kayttoohje.md)
 
 ## Viikkoraportit
 
