@@ -10,8 +10,6 @@ import java.util.Set;
 
 import javax.swing.*;
 
-//CHECKSTYLE.ON: AvoidStarImport
-
 import javax.swing.event.MouseInputListener;
 
 import org.example.data.Airport;
@@ -22,8 +20,9 @@ import org.jxmapviewer.OSMTileFactoryInfo;
 import org.jxmapviewer.input.PanKeyListener;
 import org.jxmapviewer.input.PanMouseInputListener;
 import org.jxmapviewer.input.ZoomMouseWheelListenerCursor;
-//CHECKSTYLE.OFF: AvoidStarImport
+
 import org.jxmapviewer.viewer.*;
+
 //CHECKSTYLE.ON: AvoidStarImport
 
 public class Map {
