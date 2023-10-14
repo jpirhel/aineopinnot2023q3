@@ -1,17 +1,16 @@
 package org.example.logic;
 
 //CHECKSTYLE.OFF: AvoidStarImport
+
 import static org.junit.jupiter.api.Assertions.*;
-//CHECKSTYLE.ON: AvoidStarImport
 
 import java.util.ArrayList;
 
-//CHECKSTYLE.OFF: AvoidStarImport
 import org.example.data.*;
-//CHECKSTYLE.ON: AvoidStarImport
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+//CHECKSTYLE.ON: AvoidStarImport
 
 class DijkstraSearchTest {
     private final AirportDataGenerator airportDataGenerator;
@@ -40,11 +39,6 @@ class DijkstraSearchTest {
         this.airportTo = airportData.getAirports().get(destAirportId);
     }
 
-    @BeforeEach
-    void setUp() {
-
-    }
-
     private AirportGraph generateAirportGraph(int testRangeInKm) {
         //noinspection UnnecessaryLocalVariable
         AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
@@ -54,21 +48,27 @@ class DijkstraSearchTest {
         return airportGraph;
     }
 
-    @Test
-    void normalizedSearch400() {
-        int testRangeInKm = 400;
-
-        AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
+    private ArrayList<Airport> normalizedSearch(int rangeInKm) {
+        AirportGraph airportGraph = generateAirportGraph(rangeInKm);
 
         DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
+        //noinspection UnnecessaryLocalVariable
         ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
                 airportFrom.getId(),
                 airportTo.getId(),
-                testRangeInKm,
                 airportGraph);
+
+        return normalizedPath;
+    }
+
+    @Test
+    void normalizedSearch400() {
+        int testRangeInKm = 400;
+
+        ArrayList<Airport> normalizedPath = normalizedSearch(testRangeInKm);
 
         assertNull(normalizedPath);
     }
@@ -77,17 +77,7 @@ class DijkstraSearchTest {
     void normalizedSearch450() {
         int testRangeInKm = 450;
 
-        AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
-
-        DijkstraSearch dijkstraSearch = new DijkstraSearch(
-                airportData.getAirports(),
-                airportData.getAirportDistances());
-
-        ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
-                airportFrom.getId(),
-                airportTo.getId(),
-                testRangeInKm,
-                airportGraph);
+        ArrayList<Airport> normalizedPath = normalizedSearch(testRangeInKm);
 
         assertEquals(39, normalizedPath.size());
     }
@@ -96,17 +86,7 @@ class DijkstraSearchTest {
     void normalizedSearch500() {
         int testRangeInKm = 500;
 
-        AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
-
-        DijkstraSearch dijkstraSearch = new DijkstraSearch(
-                airportData.getAirports(),
-                airportData.getAirportDistances());
-
-        ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
-                airportFrom.getId(),
-                airportTo.getId(),
-                testRangeInKm,
-                airportGraph);
+        ArrayList<Airport> normalizedPath = normalizedSearch(testRangeInKm);
 
         assertEquals(34, normalizedPath.size());
     }
@@ -115,17 +95,7 @@ class DijkstraSearchTest {
     void normalizedSearch1000() {
         int testRangeInKm = 1000;
 
-        AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
-
-        DijkstraSearch dijkstraSearch = new DijkstraSearch(
-                airportData.getAirports(),
-                airportData.getAirportDistances());
-
-        ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
-                airportFrom.getId(),
-                airportTo.getId(),
-                testRangeInKm,
-                airportGraph);
+        ArrayList<Airport> normalizedPath = normalizedSearch(testRangeInKm);
 
         assertEquals(13, normalizedPath.size());
     }
@@ -134,17 +104,7 @@ class DijkstraSearchTest {
     void normalizedSearch2000() {
         int testRangeInKm = 2000;
 
-        AirportGraph airportGraph = generateAirportGraph(testRangeInKm);
-
-        DijkstraSearch dijkstraSearch = new DijkstraSearch(
-                airportData.getAirports(),
-                airportData.getAirportDistances());
-
-        ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
-                airportFrom.getId(),
-                airportTo.getId(),
-                testRangeInKm,
-                airportGraph);
+        ArrayList<Airport> normalizedPath = normalizedSearch(testRangeInKm);
 
         assertEquals(7, normalizedPath.size());
     }
