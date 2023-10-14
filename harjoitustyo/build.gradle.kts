@@ -32,6 +32,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
+
+    implementation(files("lib/jxmapviewer2-2.6.jar"))
 }
 
 tasks.test {
