@@ -13,6 +13,12 @@ Ohjelma suoritetaan seuraavasti:
 
 Etsii lyhimmän reitin käyttäen Dijkstran algoritmia lähtökentältä kohdekentälle. Kentät annetaan käyttäen ICAO-koodeja. Kantama annetaan kilometreissä.
 
+Esimerkki: 
+
+```
+./gradlew run --args='dijkstra EFHK RJNH 500'
+```
+
 ```
 ./gradlew run --args='idastar <lähtokentän_ICAO> <kohdekentän_ICAO> <kantama_kilometreissä>' 
 ```
