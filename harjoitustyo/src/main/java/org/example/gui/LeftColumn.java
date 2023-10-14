@@ -1,17 +1,17 @@
 package org.example.gui;
 
-import javafx.scene.Group;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import org.example.data.Airport;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
+//CHECKSTYLE.OFF: AvoidStarImport
 
 import static org.example.gui.GuiUtil.BUTTON_HEIGHT;
 import static org.example.gui.GuiUtil.LEFT_COLUMN_WIDTH;
+
+import java.awt.*;
+import java.util.ArrayList;
+import javax.swing.*;
+
+import org.example.data.Airport;
+
+//CHECKSTYLE.ON: AvoidStarImport
 
 public class LeftColumn {
     JPanel panel;

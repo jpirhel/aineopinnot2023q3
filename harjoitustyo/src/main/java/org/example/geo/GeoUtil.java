@@ -1,8 +1,8 @@
 package org.example.geo;
 
-import org.example.data.Airport;
-
 import java.util.ArrayList;
+
+import org.example.data.Airport;
 
 /**
  * Geographic utility functions

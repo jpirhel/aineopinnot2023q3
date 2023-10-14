@@ -1,6 +1,8 @@
 package org.example;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import org.example.data.Airport;
 import org.example.data.AirportData;
@@ -26,35 +28,59 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
 
-        // generate initial dataset
+        // generate initial dataset - this is unfortunately redundant
         main.generateData(417, 500);
 
-        System.out.println("Calculating Dijkstra route...");
+        String command = "";
+        String startIcao = "";
+        String destIcao = "";
+        int rangeInKm = 0;
 
-        main.testDijkstraSearch();
+        try {
+            command = args[0];
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            usage();
+            System.exit(1);
+        }
 
-        main.initGui();
+        if (command.equals("dijkstra")) {
+            try {
+                startIcao = args[1];
+                destIcao = args[2];
+                rangeInKm = Integer.parseInt(args[3]);
+            } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
+                usage();
+                System.exit(1);
+            }
+
+            main.dijkstraSearchIcao(startIcao, destIcao, rangeInKm);
+            main.initGui();
+        }
+
+        if (command.equals("airports")) {
+            main.initGuiWithAirports();
+        }
+
+
     }
 
-    private void testDijkstraSearch() {
-        int startAirportId = 417; // Helsinki-Vantaa Airport
 
-        // int destAirportId = 154; // Vancouver International Airport (Canada)
-        int destAirportId = 2222; // Hamatsu Airport (Japan)
 
-        // int destAirportId = 232; // Biskra Airport
-        // int destAirportId = 339; // Berlin-Tempelhof International airport
+    private static void usage() {
+        //CHECKSTYLE.OFF: LineLength
+        System.out.println("Usage:");
+        System.out.println("./gradlew run --args='dijkstra <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
+        System.out.println("./gradlew run --args='idastar <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
+        System.out.println("./gradlew run --args='airports'");
+        //CHECKSTYLE.ON: LineLength
+    }
+
+    private void dijkstraSearchIcao(String startIcao, String destIcao, int rangeInKm) {
+        int startAirportId = airportData.getIcaoIndex().get(startIcao).getId();
+        int destAirportId = airportData.getIcaoIndex().get(destIcao).getId();
 
         Airport startAirport = airportData.getAirports().get(startAirportId);
         Airport destAirport = airportData.getAirports().get(destAirportId);
-
-        int rangeInKm;
-
-        rangeInKm = 450;
-        rangeInKm = 768;
-        rangeInKm = 1000;
-        rangeInKm = 250;
-        // rangeInKm = 300;
 
         generateData(startAirportId, rangeInKm);
         route = dijkstraSearch(startAirport, destAirport, rangeInKm);
@@ -64,6 +90,8 @@ public class Main {
 
     private void printRoute(ArrayList<Airport> route) {
         System.out.println("Route:");
+
+        //CHECKSTYLE.OFF: LineLength
 
         if (route != null) {
             int totalDistance = 0;
@@ -83,10 +111,12 @@ public class Main {
             }
             System.out.println("ICAO: " + destAirport.getIcao() + ", " + destAirport.getName() + ", " + destAirport.getCity() + ", " + destAirport.getCountry() + ", coordinates: " + destAirport.getCoord());
             System.out.println();
-            System.out.println("total distance: " + totalDistance + " km");
+            System.out.println("total distance: " + totalDistance + " km" + ", number of hops: " + route.size());
         } else {
             System.out.println("No route found!");
         }
+
+        //CHECKSTYLE.ON: LineLength
     }
 
     private void generateData(int fromAirportId, int rangeInKm) {
@@ -109,16 +139,24 @@ public class Main {
         this.airportGraph = airportGraph;
     }
 
+    private void initGuiWithAirports() {
+        MainWindow mainWindow = new MainWindow(airportData, route, true);
+        mainWindow.show();
+    }
+
     private void initGui() {
         if (route == null) {
             return;
         }
 
-        MainWindow mainWindow = new MainWindow(airportData, route);
+        MainWindow mainWindow = new MainWindow(airportData, route, false);
         mainWindow.show();
     }
 
-    private ArrayList<Airport> dijkstraSearch(Airport startAirport, Airport destAirport, int rangeInKm) {
+    private ArrayList<Airport> dijkstraSearch(
+            Airport startAirport,
+            Airport destAirport,
+            int rangeInKm) {
         DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());

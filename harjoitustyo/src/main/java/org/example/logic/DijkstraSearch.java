@@ -44,8 +44,6 @@ public class DijkstraSearch {
 
         int numAirports = directDistances.length;
 
-        int[] path = new int[numAirports];
-
         // array of distances calculated by the Dijkstra algorithm
         Integer[] dist = new Integer[numAirports];
 
@@ -116,6 +114,8 @@ public class DijkstraSearch {
         int pathPosition = 1;
 
         // add destination airport to path
+
+        int[] path = new int[numAirports];
 
         path[0] = destAirportId;
 
