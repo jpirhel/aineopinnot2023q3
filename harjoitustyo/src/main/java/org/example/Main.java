@@ -1,8 +1,6 @@
 package org.example;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 
 import org.example.data.Airport;
 import org.example.data.AirportData;
@@ -16,14 +14,12 @@ import org.example.logic.DijkstraSearch;
 public class Main {
     private AirportData airportData;
     private AirportGraph airportGraph;
-    private MainWindow mainWindow;
-
     private ArrayList<Airport> route;
 
     /**
      * Main entry point to the program.
      *
-     * @param args
+     * @param args Command line arguments.
      */
     public static void main(String[] args) {
         Main main = new Main();
@@ -64,14 +60,14 @@ public class Main {
 
     }
 
-
-
     private static void usage() {
         //CHECKSTYLE.OFF: LineLength
+
         System.out.println("Usage:");
         System.out.println("./gradlew run --args='dijkstra <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
         System.out.println("./gradlew run --args='idastar <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
         System.out.println("./gradlew run --args='airports'");
+
         //CHECKSTYLE.ON: LineLength
     }
 
@@ -165,7 +161,6 @@ public class Main {
         ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
                 startAirport.getId(),
                 destAirport.getId(),
-                rangeInKm,
                 airportGraph);
 
         return normalizedPath;

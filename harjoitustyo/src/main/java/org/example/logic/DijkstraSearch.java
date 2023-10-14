@@ -1,12 +1,14 @@
 package org.example.logic;
 
 //CHECKSTYLE.OFF: AvoidStarImport
+
 import java.util.*;
-//CHECKSTYLE.ON: AvoidStarImport
 
 import org.example.data.Airport;
 import org.example.data.AirportDistance;
 import org.example.data.AirportGraph;
+
+//CHECKSTYLE.ON: AvoidStarImport
 
 public class DijkstraSearch {
     private final ArrayList<Airport> airports;
@@ -15,11 +17,10 @@ public class DijkstraSearch {
 
     /**
      * Implementation of Dijkstra's algorithm to find shortest path between airports.
-     *
      * Uses a priority queue.
      *
-     * @param airports
-     * @param airportDistances
+     * @param airports List of airports
+     * @param airportDistances Calculated airport distances
      */
     public DijkstraSearch(ArrayList<Airport> airports, int[][] airportDistances) {
         this.airports = airports;
@@ -29,16 +30,14 @@ public class DijkstraSearch {
     /**
      * Dijkstra algorithm search of shortest path between two airports.
      *
-     * @param startAirportId
-     * @param destAirportId
-     * @param rangeInKm
-     * @param airportGraph
+     * @param startAirportId Start airport ID
+     * @param destAirportId Destination airport ID
+     * @param airportGraph Generated graph of reachable airports
      * @return path of airports between start and destination
      */
     private int[] search(
             int startAirportId,
             int destAirportId,
-            int rangeInKm,
             AirportGraph airportGraph) {
         int[] directDistances = airportDistances[startAirportId];
 
@@ -148,23 +147,20 @@ public class DijkstraSearch {
     /**
      * Dijkstra search of path between airports.
      *
-     * @param startAirportId
-     * @param destAirportId
-     * @param rangeInKm
-     * @param airportGraph
+     * @param startAirportId Start airport ID.
+     * @param destAirportId Destination airport ID.
+     * @param airportGraph Generated graph of reachable airports
      * @return ArrayList of path airports
      */
     public ArrayList<Airport> normalizedSearch(
             int startAirportId,
             int destAirportId,
-            int rangeInKm,
             AirportGraph airportGraph) {
         // search using own implementation of Dijkstra's algorithm
 
         int[] path = search(
                 startAirportId,
                 destAirportId,
-                rangeInKm,
                 airportGraph);
 
         // check if path is empty

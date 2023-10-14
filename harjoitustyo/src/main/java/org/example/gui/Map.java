@@ -1,15 +1,15 @@
 package org.example.gui;
 
 //CHECKSTYLE.OFF: AvoidStarImport
+
 import java.awt.*;
-//CHECKSTYLE.ON: AvoidStarImport
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-//CHECKSTYLE.OFF: AvoidStarImport
 import javax.swing.*;
+
 //CHECKSTYLE.ON: AvoidStarImport
 
 import javax.swing.event.MouseInputListener;
