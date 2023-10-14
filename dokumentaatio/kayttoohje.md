@@ -5,7 +5,7 @@ Ohjelma suoritetaan seuraavasti:
 ```
 ./gradlew run --args='icao <lentokentan_nimi>'
 ```
-Etsii lentokentän ICAO-koodin nimen perusteella (case insensitive).
+Etsii lentokentän ICAO-koodin nimen perusteella (case insensitive). (EI VIELÄ IMPLEMENTOITU)
 
 ```
 ./gradlew run --args='dijkstra <lähtokentän_ICAO> <kohdekentän_ICAO> <kantama_kilometreissä>' 
