@@ -2,10 +2,14 @@
 
 Ohjelma suoritetaan seuraavasti:
 
+## ICAO
+
 ```
 ./gradlew run --args='icao <lentokentan_nimi>'
 ```
 (EI VIELÄ IMPLEMENTOITU) Etsii lentokentän ICAO-koodin nimen perusteella (case insensitive) 
+
+## Dijkstra
 
 ```
 ./gradlew run --args='dijkstra <lähtokentän_ICAO> <kohdekentän_ICAO> <kantama_kilometreissä>' 
@@ -18,6 +22,8 @@ Esimerkki:
 ```
 ./gradlew run --args='dijkstra EFHK RJNH 500'
 ```
+
+## IDA*
 
 ```
 ./gradlew run --args='idastar <lähtokentän_ICAO> <kohdekentän_ICAO> <kantama_kilometreissä>' 
