@@ -17,7 +17,6 @@ import org.jxmapviewer.OSMTileFactoryInfo;
 import org.jxmapviewer.input.PanKeyListener;
 import org.jxmapviewer.input.PanMouseInputListener;
 import org.jxmapviewer.input.ZoomMouseWheelListenerCursor;
-import org.jxmapviewer.painter.CompoundPainter;
 import org.jxmapviewer.viewer.*;
 
 public class Map {
@@ -30,12 +29,14 @@ public class Map {
     // center on zero meridian
     private static final double DEFAULT_MAP_LONGITUDE = 0;
     private final AirportData airportData;
+    private final ArrayList<Airport> route;
 
     private JXMapViewer mapViewer;
     private Set<Waypoint> waypoints;
 
-    public Map(AirportData airportData) {
+    public Map(AirportData airportData, ArrayList<Airport> route) {
         this.airportData = airportData;
+        this.route = route;
     }
 
     public void initMap() {
@@ -43,18 +44,19 @@ public class Map {
         initMapTileset();
         initMapEvents();
         initMapPosition();
-
-        // addAirports(); // FIXME add back
+        initRoute();
     }
 
-    public void setRoute(ArrayList<Airport> route) {
+    public void initRoute() {
+        if (route == null) {
+            return;
+        }
+
         ArrayList<GeoPosition> positions = new ArrayList<>();
 
         for (Airport airport : route) {
             positions.add(getAirportGeoPosition(airport));
         }
-
-        System.out.println(positions);
 
         Set<Waypoint> waypoints = new HashSet<>();
 
@@ -73,42 +75,9 @@ public class Map {
         waypointPainter.setWaypoints(waypoints);
 
         mapViewer.setOverlayPainter(waypointPainter);
-
-    }
-
-    private void addAirports() {
-        ArrayList<GeoPosition> airportGeoPositions = new ArrayList<>();
-
-        for (Airport airport : airportData.getAirports()) {
-            GeoPosition airportGeoPosition = getAirportGeoPosition(airport);
-            airportGeoPositions.add(airportGeoPosition);
-        }
-
-        WaypointPainter<Waypoint> waypointPainter = new WaypointPainter<>();
-
-        Set<Waypoint> waypoints = new HashSet<>();
-
-        airportGeoPositions.forEach(geoPosition -> {
-            Waypoint waypoint = new DefaultWaypoint(geoPosition);
-            waypoints.add(waypoint);
-        });
-
-        waypointPainter.setWaypoints(waypoints);
-
-//        ArrayList<Painter> painters = new ArrayList<>();
-//        painters.add((Painter) waypointPainter);
-//
-////        ArrayList<Painter<JXMapViewer>> painters = new ArrayList<Painter<JXMapViewer>>();
-////        painters.add(waypointPainter);
-//        Painter compoundPainter = (Painter) new CompoundPainter(waypointPainter);
-//        //noinspection unchecked
-//        compoundPainter.setPainters(waypointPainter);
-
-        // mapViewer.setOverlayPainter(waypointPainter);
     }
 
     private void initMapPosition() {
-        // GeoPosition helsinki = new GeoPosition(60.182243, 24.952940);
         GeoPosition defaultMapCenter = new GeoPosition(DEFAULT_MAP_LATITUDE, DEFAULT_MAP_LONGITUDE);
         mapViewer.setZoom(DEFAULT_ZOOM_LEVEL);
         mapViewer.setAddressLocation(defaultMapCenter);
@@ -119,9 +88,6 @@ public class Map {
         TileFactory osmInfoFactory = new DefaultTileFactory(osmInfo);
 
         mapViewer.setLayout(new BorderLayout());
-
-//        JLabel labelAttr = new JLabel("FOO123");
-//        mapViewer.add(labelAttr, BorderLayout.SOUTH);
 
         mapViewer.setTileFactory(osmInfoFactory);
 

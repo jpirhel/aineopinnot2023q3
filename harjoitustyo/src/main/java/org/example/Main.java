@@ -2,14 +2,12 @@ package org.example;
 
 import java.util.ArrayList;
 
-//CHECKSTYLE.OFF: AvoidStarImport
-//CHECKSTYLE.ON: AvoidStarImport
-
 import org.example.data.Airport;
 import org.example.data.AirportData;
 import org.example.data.AirportDataGenerator;
 import org.example.data.AirportGraph;
 import org.example.data.Importer;
+import org.example.geo.GeoUtil;
 import org.example.gui.MainWindow;
 import org.example.logic.DijkstraSearch;
 
@@ -17,6 +15,8 @@ public class Main {
     private AirportData airportData;
     private AirportGraph airportGraph;
     private MainWindow mainWindow;
+
+    private ArrayList<Airport> route;
 
     /**
      * Main entry point to the program.
@@ -27,11 +27,13 @@ public class Main {
         Main main = new Main();
 
         // generate initial dataset
-        main.generateData(417,500);
+        main.generateData(417, 500);
 
-        main.initGui();
+        System.out.println("Calculating Dijkstra route...");
 
         main.testDijkstraSearch();
+
+        main.initGui();
     }
 
     private void testDijkstraSearch() {
@@ -51,18 +53,40 @@ public class Main {
         rangeInKm = 450;
         rangeInKm = 768;
         rangeInKm = 1000;
-        rangeInKm = 2000;
+        rangeInKm = 250;
         // rangeInKm = 300;
 
-
         generateData(startAirportId, rangeInKm);
-        ArrayList<Airport> route = dijkstraSearch(startAirport, destAirport, rangeInKm);
+        route = dijkstraSearch(startAirport, destAirport, rangeInKm);
 
-        System.out.println("==========================================================");
-        System.out.println("ROUTE: " + route);
-        System.out.println("==========================================================");
+        printRoute(route);
+    }
 
-        mainWindow.setMapRoute(route);
+    private void printRoute(ArrayList<Airport> route) {
+        System.out.println("Route:");
+
+        if (route != null) {
+            int totalDistance = 0;
+
+            Airport destAirport = route.get(route.size() - 1);
+
+            for (int i = 0; i < route.size() - 1; i++) {
+                Airport curr = route.get(i);
+                Airport next = route.get(i + 1);
+
+                int distance = GeoUtil.distanceInKm(curr.getCoord(), next.getCoord());
+
+                System.out.println("ICAO: " + curr.getIcao() + ", " + curr.getName() + ", " + curr.getCity() + ", " + curr.getCountry() + ", coordinates: " + curr.getCoord());
+                System.out.println("-> distance to next hop: " + distance + " km");
+
+                totalDistance += distance;
+            }
+            System.out.println("ICAO: " + destAirport.getIcao() + ", " + destAirport.getName() + ", " + destAirport.getCity() + ", " + destAirport.getCountry() + ", coordinates: " + destAirport.getCoord());
+            System.out.println();
+            System.out.println("total distance: " + totalDistance + " km");
+        } else {
+            System.out.println("No route found!");
+        }
     }
 
     private void generateData(int fromAirportId, int rangeInKm) {
@@ -86,10 +110,12 @@ public class Main {
     }
 
     private void initGui() {
-        MainWindow mainWindow = new MainWindow(airportData);
-        mainWindow.show();
+        if (route == null) {
+            return;
+        }
 
-        this.mainWindow = mainWindow;
+        MainWindow mainWindow = new MainWindow(airportData, route);
+        mainWindow.show();
     }
 
     private ArrayList<Airport> dijkstraSearch(Airport startAirport, Airport destAirport, int rangeInKm) {
@@ -97,25 +123,12 @@ public class Main {
                 airportData.getAirports(),
                 airportData.getAirportDistances());
 
+        //noinspection UnnecessaryLocalVariable
         ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
                 startAirport.getId(),
                 destAirport.getId(),
                 rangeInKm,
                 airportGraph);
-
-        System.out.println("=============================================");
-        System.out.println("normalizedPath:");
-
-        if (normalizedPath != null) {
-            for (Airport airport : normalizedPath) {
-                System.out.println(airport);
-            }
-            System.out.println("normalizedPath size: " + normalizedPath.size());
-        } else {
-            System.out.println("NO PATH FOUND!");
-        }
-
-        System.out.println("=============================================");
 
         return normalizedPath;
     }
