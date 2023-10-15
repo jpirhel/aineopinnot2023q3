@@ -12,10 +12,9 @@ class ImporterTest {
     private final Importer importer;
 
     public ImporterTest() {
-        String filename = "../data/airports.dat";
-
+        RawAirportData rawAirportData = new RawAirportData();
         //noinspection UnnecessaryLocalVariable
-        Importer importer = new Importer(filename);
+        Importer importer = new Importer(rawAirportData);
 
         this.importer = importer;
     }
@@ -24,13 +23,5 @@ class ImporterTest {
     void importAirports() {
         ArrayList<Airport> airports = importer.importAirports();
         assertEquals(7698, airports.size());
-    }
-
-    @Test
-    void failedImportAirports() {
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            Importer failingImporter = new Importer("filename_does_not_exist");
-            ArrayList<Airport> airports = failingImporter.importAirports();
-        });
     }
 }

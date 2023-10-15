@@ -20,9 +20,8 @@ class DijkstraSearchTest {
     private final Airport airportTo;
 
     public DijkstraSearchTest() {
-        String filename = "../data/airports.dat";
-
-        Importer importer = new Importer(filename);
+        RawAirportData rawAirportData = new RawAirportData();
+        Importer importer = new Importer(rawAirportData);
         ArrayList<Airport> airports = importer.importAirports();
 
         AirportDataGenerator airportDataGenerator = new AirportDataGenerator(airports);

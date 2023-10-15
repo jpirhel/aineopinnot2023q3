@@ -2,11 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 
-import org.example.data.Airport;
-import org.example.data.AirportData;
-import org.example.data.AirportDataGenerator;
-import org.example.data.AirportGraph;
-import org.example.data.Importer;
+import org.example.data.*;
 import org.example.geo.GeoUtil;
 import org.example.gui.MainWindow;
 import org.example.logic.DijkstraSearch;
@@ -116,9 +112,7 @@ public class Main {
     }
 
     private void generateData(int fromAirportId, int rangeInKm) {
-        String filename = "../data/airports.dat";
-
-        Importer importer = new Importer(filename);
+        Importer importer = new Importer(new RawAirportData());
         ArrayList<Airport> airports = importer.importAirports();
 
         AirportDataGenerator airportDataGenerator = new AirportDataGenerator(airports);

@@ -16,9 +16,9 @@ class AirportDataTest {
     private final AirportData airportData;
 
     public AirportDataTest() {
-        String filename = "../data/airports.dat";
+        RawAirportData rawAirportData = new RawAirportData();
+        Importer importer = new Importer(rawAirportData);
 
-        Importer importer = new Importer(filename);
         ArrayList<Airport> airports = importer.importAirports();
 
         AirportDataGenerator airportDataGenerator = new AirportDataGenerator(airports);
