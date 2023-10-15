@@ -41,11 +41,12 @@ public class Main {
         // the range of the plane used
         int rangeInKm = 0;
 
+        String icaoSearch = "";
+
         try {
             command = args[0];
         } catch (ArrayIndexOutOfBoundsException ex) {
-            usage();
-            System.exit(1);
+            exitUsage();
         }
 
         // show all airports on a map
@@ -62,8 +63,7 @@ public class Main {
                 destIcao = args[2];
                 rangeInKm = Integer.parseInt(args[3]);
             } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
-                usage();
-                System.exit(1);
+                exitUsage();
             }
         }
 
@@ -84,6 +84,70 @@ public class Main {
         if (command.equals("dijkstra") || command.equals("idastar")) {
             main.initGui();
         }
+
+        // perform a string search of airports (name, city, country) to get the ICAO code
+
+        if (command.equals("icao")) {
+            try {
+                icaoSearch = args[1];
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                exitUsage();
+            }
+
+            main.icaoSearch(icaoSearch);
+        }
+    }
+
+    /**
+     * Performs a search of the airport database to find the ICAO code.
+     *
+     * @param icaoSearch The search string for finding the relevant airports.
+     */
+    private void icaoSearch(String icaoSearch) {
+        if (icaoSearch == null) {
+            exitUsage();
+        }
+
+        assert icaoSearch != null;
+
+        if (icaoSearch.isEmpty()) {
+            exitUsage();
+        }
+
+        RawAirportData rawAirportData = new RawAirportData();
+
+        String search = icaoSearch.toLowerCase();
+
+        int id = 0;
+
+        ArrayList<Airport> found = new ArrayList<>();
+
+        for (String line : rawAirportData.getRawData()) {
+            id += 1;
+
+            Airport airport = Airport.fromLine(id, line);
+
+            if (airport.getName().toLowerCase().contains(search)
+                    || airport.getCity().toLowerCase().contains(search)
+                    || airport.getCountry().toLowerCase().contains(search)) {
+                found.add(airport);
+            }
+        }
+
+        for (Airport airport : found) {
+            //CHECKSTYLE.OFF: LineLength
+            System.out.println(airport.getIcao() + " " + airport.getName() + ", " + airport.getCity() + ", " + airport.getCountry() + " " + airport.getCoord());
+            //CHECKSTYLE.ON: LineLength
+        }
+
+        if (found.isEmpty()) {
+            System.out.println("No matches for search keyword '" + icaoSearch + "'.");
+        }
+    }
+
+    private static void exitUsage() {
+        usage();
+        System.exit(1);
     }
 
     private void idastarSearchIcao(String startIcao, String destIcao, int rangeInKm) {
@@ -109,7 +173,7 @@ public class Main {
      * Performs a search of the shortest route between airports using Dijkstra's algorithm.
      *
      * @param startIcao ICAO code of start airport
-     * @param destIcao ICAO code of destination airport
+     * @param destIcao  ICAO code of destination airport
      * @param rangeInKm Range of plane (in kilometers)
      */
     private void dijkstraSearchIcao(String startIcao, String destIcao, int rangeInKm) {
@@ -166,7 +230,7 @@ public class Main {
      * Generates airport dataset & graph used by the program.
      *
      * @param fromAirportId The start airport ID.
-     * @param rangeInKm The range of the plane in kilometers.
+     * @param rangeInKm     The range of the plane in kilometers.
      */
     private void generateData(int fromAirportId, int rangeInKm) {
         Importer importer = new Importer(new RawAirportData());
@@ -210,7 +274,7 @@ public class Main {
      * Performs the actual Dijkstra's algoritm search for the shortest route between airports.
      *
      * @param startAirport The start Airport object
-     * @param destAirport The destination Airport object
+     * @param destAirport  The destination Airport object
      * @return ArrayList of airports from the start to the destination
      */
     private ArrayList<Airport> dijkstraSearch(
