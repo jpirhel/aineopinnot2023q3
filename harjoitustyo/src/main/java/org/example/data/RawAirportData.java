@@ -2,6 +2,8 @@ package org.example.data;
 
 import java.util.ArrayList;
 
+//CHECKSTYLE.OFF: LineLength
+
 /**
  * Holds raw data for airports. Needed for gradle fat jar creation.
  */
@@ -9,12 +11,17 @@ public class RawAirportData {
     private final ArrayList<String> rawData;
 
 
+    /**
+     * The Constructor for the RawAirportData object.
+     */
     public RawAirportData() {
         rawData = new ArrayList<>();
 
         // NOTE This is an ugly hack to get around Java's 65k bytes method size limitation.
         //      There was no time to figure out gradle's way to import a data file into a JAR,
-        //      so this class is used.
+        //      so this class is used. In a real program that file would be read by the program.
+        //
+        //      Previously the program did include a parser for the airports.dat file.
 
         add1();
         add1000();
@@ -185,7 +192,7 @@ public class RawAirportData {
         rawData.add("150,\"La Ronge Airport\",\"La Ronge\",\"Canada\",\"YVC\",\"CYVC\",55.151401519800004,-105.262001038,1242,-6,\"N\",\"America/Regina\",\"airport\",\"OurAirports\"");
         rawData.add("151,\"Vermilion Airport\",\"Vermillion\",\"Canada\",\"YVG\",\"CYVG\",53.355800628699996,-110.823997498,2025,-7,\"A\",\"America/Edmonton\",\"airport\",\"OurAirports\"");
         rawData.add("152,\"Qikiqtarjuaq Airport\",\"Broughton Island\",\"Canada\",\"YVM\",\"CYVM\",67.5457992554,-64.03140258789999,21,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
-        rawData.add("153,\"Val-d\'Or Airport\",\"Val D\'or\",\"Canada\",\"YVO\",\"CYVO\",48.0532989502,-77.7827987671,1107,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
+        rawData.add("153,\"Val-d'Or Airport\",\"Val D'or\",\"Canada\",\"YVO\",\"CYVO\",48.0532989502,-77.7827987671,1107,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("154,\"Kuujjuaq Airport\",\"Quujjuaq\",\"Canada\",\"YVP\",\"CYVP\",58.096099853515625,-68.4269027709961,129,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("155,\"Norman Wells Airport\",\"Norman Wells\",\"Canada\",\"YVQ\",\"CYVQ\",65.28160095214844,-126.7979965209961,238,-7,\"A\",\"America/Edmonton\",\"airport\",\"OurAirports\"");
         rawData.add("156,\"Vancouver International Airport\",\"Vancouver\",\"Canada\",\"YVR\",\"CYVR\",49.193901062,-123.183998108,14,-8,\"A\",\"America/Vancouver\",\"airport\",\"OurAirports\"");
@@ -221,7 +228,7 @@ public class RawAirportData {
         rawData.add("186,\"Swift Current Airport\",\"Swift Current\",\"Canada\",\"YYN\",\"CYYN\",50.291900634799994,-107.691001892,2680,-6,\"N\",\"America/Regina\",\"airport\",\"OurAirports\"");
         rawData.add("187,\"Churchill Airport\",\"Churchill\",\"Canada\",\"YYQ\",\"CYYQ\",58.739200592041016,-94.06500244140625,94,-6,\"A\",\"America/Winnipeg\",\"airport\",\"OurAirports\"");
         rawData.add("188,\"Goose Bay Airport\",\"Goose Bay\",\"Canada\",\"YYR\",\"CYYR\",53.3191986084,-60.4258003235,160,-4,\"A\",\"America/Halifax\",\"airport\",\"OurAirports\"");
-        rawData.add("189,\"St. John\'s International Airport\",\"St. John\'s\",\"Canada\",\"YYT\",\"CYYT\",47.618598938,-52.7518997192,461,-3.5,\"A\",\"America/St_Johns\",\"airport\",\"OurAirports\"");
+        rawData.add("189,\"St. John's International Airport\",\"St. John's\",\"Canada\",\"YYT\",\"CYYT\",47.618598938,-52.7518997192,461,-3.5,\"A\",\"America/St_Johns\",\"airport\",\"OurAirports\"");
         rawData.add("190,\"Kapuskasing Airport\",\"Kapuskasing\",\"Canada\",\"YYU\",\"CYYU\",49.41389846801758,-82.46749877929688,743,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("191,\"Armstrong Airport\",\"Armstrong\",\"Canada\",\"YYW\",\"CYYW\",50.29029846191406,-88.90969848632812,1058,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("192,\"Mont Joli Airport\",\"Mont Joli\",\"Canada\",\"YYY\",\"CYYY\",48.60860061645508,-68.20809936523438,172,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
@@ -255,7 +262,7 @@ public class RawAirportData {
         rawData.add("220,\"Rabah Bitat Airport\",\"Annaba\",\"Algeria\",\"AAE\",\"DABB\",36.822201,7.809174,16,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
         rawData.add("221,\"Mohamed Boudiaf International Airport\",\"Constantine\",\"Algeria\",\"CZL\",\"DABC\",36.2760009765625,6.620389938354492,2265,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
         rawData.add("222,\"Cheikh Larbi Tébessi Airport\",\"Tebessa\",\"Algeria\",\"TEE\",\"DABS\",35.4315986633,8.12071990967,2661,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
-        rawData.add("224,\"Hassi R\'Mel Airport\",\"Tilrempt\",\"Algeria\",\"HRM\",\"DAFH\",32.93040084838867,3.311539888381958,2540,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
+        rawData.add("224,\"Hassi R'Mel Airport\",\"Tilrempt\",\"Algeria\",\"HRM\",\"DAFH\",32.93040084838867,3.311539888381958,2540,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
         rawData.add("225,\"Bou Chekif Airport\",\"Tiaret\",\"Algeria\",\"TID\",\"DAOB\",35.3410987854,1.46315002441,3245,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
         rawData.add("226,\"Bou Sfer Airport\",\"Bou Sfer\",\"Algeria\",\\N,\"DAOE\",35.73540115356445,-0.8053889870643616,187,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
         rawData.add("227,\"Tindouf Airport\",\"Tindouf\",\"Algeria\",\"TIN\",\"DAOF\",27.7003993988,-8.167099952700001,1453,1,\"N\",\"Africa/Algiers\",\"airport\",\"OurAirports\"");
@@ -284,13 +291,13 @@ public class RawAirportData {
         rawData.add("250,\"Wa Airport\",\"Wa\",\"Ghana\",\\N,\"DGLW\",10.0826997756958,-2.507689952850342,1060,0,\"N\",\"Africa/Accra\",\"airport\",\"OurAirports\"");
         rawData.add("251,\"Sunyani Airport\",\"Sunyani\",\"Ghana\",\"NYI\",\"DGSN\",7.361830234527588,-2.3287599086761475,1014,0,\"N\",\"Africa/Accra\",\"airport\",\"OurAirports\"");
         rawData.add("252,\"Takoradi Airport\",\"Takoradi\",\"Ghana\",\"TKD\",\"DGTK\",4.896059989929199,-1.7747600078582764,21,0,\"N\",\"Africa/Accra\",\"airport\",\"OurAirports\"");
-        rawData.add("253,\"Port Bouet Airport\",\"Abidjan\",\"Cote d\'Ivoire\",\"ABJ\",\"DIAP\",5.261390209197998,-3.9262900352478027,21,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
-        rawData.add("254,\"Bouaké Airport\",\"Bouake\",\"Cote d\'Ivoire\",\"BYK\",\"DIBK\",7.738800048828125,-5.073669910430908,1230,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
-        rawData.add("255,\"Daloa Airport\",\"Daloa\",\"Cote d\'Ivoire\",\"DJO\",\"DIDL\",6.792809963226318,-6.473189830780029,823,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
-        rawData.add("256,\"Korhogo Airport\",\"Korhogo\",\"Cote d\'Ivoire\",\"HGO\",\"DIKO\",9.38718032837,-5.55666017532,1214,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
-        rawData.add("257,\"Man Airport\",\"Man\",\"Cote d\'Ivoire\",\"MJC\",\"DIMN\",7.272069931030273,-7.58735990524292,1089,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
-        rawData.add("258,\"San Pedro Airport\",\"San Pedro\",\"Cote d\'Ivoire\",\"SPY\",\"DISP\",4.746719837188721,-6.660820007324219,26,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
-        rawData.add("259,\"Yamoussoukro Airport\",\"Yamoussoukro\",\"Cote d\'Ivoire\",\"ASK\",\"DIYO\",6.9031701088,-5.36558008194,699,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
+        rawData.add("253,\"Port Bouet Airport\",\"Abidjan\",\"Cote d'Ivoire\",\"ABJ\",\"DIAP\",5.261390209197998,-3.9262900352478027,21,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
+        rawData.add("254,\"Bouaké Airport\",\"Bouake\",\"Cote d'Ivoire\",\"BYK\",\"DIBK\",7.738800048828125,-5.073669910430908,1230,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
+        rawData.add("255,\"Daloa Airport\",\"Daloa\",\"Cote d'Ivoire\",\"DJO\",\"DIDL\",6.792809963226318,-6.473189830780029,823,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
+        rawData.add("256,\"Korhogo Airport\",\"Korhogo\",\"Cote d'Ivoire\",\"HGO\",\"DIKO\",9.38718032837,-5.55666017532,1214,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
+        rawData.add("257,\"Man Airport\",\"Man\",\"Cote d'Ivoire\",\"MJC\",\"DIMN\",7.272069931030273,-7.58735990524292,1089,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
+        rawData.add("258,\"San Pedro Airport\",\"San Pedro\",\"Cote d'Ivoire\",\"SPY\",\"DISP\",4.746719837188721,-6.660820007324219,26,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
+        rawData.add("259,\"Yamoussoukro Airport\",\"Yamoussoukro\",\"Cote d'Ivoire\",\"ASK\",\"DIYO\",6.9031701088,-5.36558008194,699,0,\"N\",\"Africa/Abidjan\",\"airport\",\"OurAirports\"");
         rawData.add("260,\"Nnamdi Azikiwe International Airport\",\"Abuja\",\"Nigeria\",\"ABV\",\"DNAA\",9.006790161132812,7.263169765472412,1123,1,\"N\",\"Africa/Lagos\",\"airport\",\"OurAirports\"");
         rawData.add("261,\"Akure Airport\",\"Akure\",\"Nigeria\",\"AKR\",\"DNAK\",7.246739864349365,5.3010101318359375,1100,1,\"N\",\"Africa/Lagos\",\"airport\",\"OurAirports\"");
         rawData.add("262,\"Benin Airport\",\"Benin\",\"Nigeria\",\"BNI\",\"DNBE\",6.316979885101318,5.5995001792907715,258,1,\"N\",\"Africa/Lagos\",\"airport\",\"OurAirports\"");
@@ -863,7 +870,7 @@ public class RawAirportData {
         rawData.add("846,\"Potchefstroom Airport\",\"Potchefstroom\",\"South Africa\",\"PCF\",\"FAPS\",-26.670999527,27.0818996429,4520,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("847,\"Parys Airport\",\"Parys\",\"South Africa\",\\N,\"FAPY\",-26.889299392700195,27.503400802612305,4740,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("848,\"Queenstown Airport\",\"Queenstown\",\"South Africa\",\"UTW\",\"FAQT\",-31.92020034790039,26.882200241088867,3637,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
-        rawData.add("849,\"Richards Bay Airport\",\"Richard\'s Bay\",\"South Africa\",\"RCB\",\"FARB\",-28.740999221800003,32.0920982361,109,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
+        rawData.add("849,\"Richards Bay Airport\",\"Richard's Bay\",\"South Africa\",\"RCB\",\"FARB\",-28.740999221800003,32.0920982361,109,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("850,\"Rustenburg Airport\",\"Rustenburg\",\"South Africa\",\\N,\"FARG\",-25.6443004608,27.271099090599996,3700,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("851,\"Robertson Airport\",\"Robertson\",\"South Africa\",\"ROD\",\"FARS\",-33.812198638916016,19.902799606323242,640,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("852,\"Springbok Airport\",\"Springbok\",\"South Africa\",\"SBU\",\"FASB\",-29.689300537109375,17.939599990844727,2690,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
@@ -874,7 +881,7 @@ public class RawAirportData {
         rawData.add("857,\"Sishen Airport\",\"Sishen\",\"South Africa\",\"SIS\",\"FASS\",-27.6485996246,22.9993000031,3848,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("858,\"Hendrik Swellengrebel Airport\",\"Swellendam\",\"South Africa\",\\N,\"FASX\",-34.04819869995117,20.474599838256836,407,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("859,\"Skukuza Airport\",\"Skukuza\",\"South Africa\",\"SZK\",\"FASZ\",-24.960899353,31.5886993408,1020,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
-        rawData.add("860,\"Tommys Field Airport\",\"Tommy\'s Field\",\"South Africa\",\\N,\"FATF\",-28.260000228881836,22.993200302124023,4360,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
+        rawData.add("860,\"Tommys Field Airport\",\"Tommy's Field\",\"South Africa\",\\N,\"FATF\",-28.260000228881836,22.993200302124023,4360,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("861,\"New Tempe Airport\",\"Bloemfontein\",\"South Africa\",\\N,\"FATP\",-29.032899856567383,26.15760040283203,4547,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("862,\"Tutuka Power Station Airport\",\"Tutuka\",\"South Africa\",\\N,\"FATT\",-26.776599884,29.3388004303,5313,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
         rawData.add("863,\"Tzaneen Airport\",\"Tzaneen\",\"South Africa\",\"LTA\",\"FATZ\",-23.8243999481,30.329299926799997,1914,2,\"U\",\"Africa/Johannesburg\",\"airport\",\"OurAirports\"");
@@ -902,7 +909,7 @@ public class RawAirportData {
         rawData.add("885,\"Ouesso Airport\",\"Ouesso\",\"Congo (Kinshasa)\",\"OUE\",\"FCOU\",1.6159900426899998,16.0379009247,1158,1,\"N\",\"Africa/Brazzaville\",\"airport\",\"OurAirports\"");
         rawData.add("886,\"Pointe Noire Airport\",\"Pointe-noire\",\"Congo (Brazzaville)\",\"PNR\",\"FCPP\",-4.816030025482178,11.88659954071045,55,1,\"N\",\"Africa/Brazzaville\",\"airport\",\"OurAirports\"");
         rawData.add("887,\"Matsapha Airport\",\"Manzini\",\"Swaziland\",\"MTS\",\"FDMS\",-26.52899932861328,31.3075008392334,2075,2,\"U\",\"Africa/Mbabane\",\"airport\",\"OurAirports\"");
-        rawData.add("888,\"Bangui M\'Poko International Airport\",\"Bangui\",\"Central African Republic\",\"BGF\",\"FEFF\",4.39847993850708,18.518800735473633,1208,1,\"N\",\"Africa/Bangui\",\"airport\",\"OurAirports\"");
+        rawData.add("888,\"Bangui M'Poko International Airport\",\"Bangui\",\"Central African Republic\",\"BGF\",\"FEFF\",4.39847993850708,18.518800735473633,1208,1,\"N\",\"Africa/Bangui\",\"airport\",\"OurAirports\"");
         rawData.add("889,\"Berbérati Airport\",\"Berberati\",\"Central African Republic\",\"BBT\",\"FEFT\",4.2215800285339355,15.786399841308594,1929,1,\"N\",\"Africa/Bangui\",\"airport\",\"OurAirports\"");
         rawData.add("890,\"Bata Airport\",\"Bata\",\"Equatorial Guinea\",\"BSG\",\"FGBT\",1.9054700136184692,9.805680274963379,13,1,\"N\",\"Africa/Malabo\",\"airport\",\"OurAirports\"");
         rawData.add("891,\"Malabo Airport\",\"Malabo\",\"Equatorial Guinea\",\"SSG\",\"FGSL\",3.755270004272461,8.708720207214355,76,1,\"N\",\"Africa/Malabo\",\"airport\",\"OurAirports\"");
@@ -914,7 +921,7 @@ public class RawAirportData {
         rawData.add("897,\"Douala International Airport\",\"Douala\",\"Cameroon\",\"DLA\",\"FKKD\",4.0060801506,9.719479560849999,33,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
         rawData.add("898,\"Salak Airport\",\"Maroua\",\"Cameroon\",\"MVR\",\"FKKL\",10.451399803161621,14.257399559020996,1390,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
         rawData.add("899,\"Foumban Nkounja Airport\",\"Foumban\",\"Cameroon\",\"FOM\",\"FKKM\",5.636919975280762,10.750800132751465,3963,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
-        rawData.add("900,\"N\'Gaoundéré Airport\",\"N\'gaoundere\",\"Cameroon\",\"NGE\",\"FKKN\",7.3570098876953125,13.559200286865234,3655,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
+        rawData.add("900,\"N'Gaoundéré Airport\",\"N'gaoundere\",\"Cameroon\",\"NGE\",\"FKKN\",7.3570098876953125,13.559200286865234,3655,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
         rawData.add("901,\"Garoua International Airport\",\"Garoua\",\"Cameroon\",\"GOU\",\"FKKR\",9.33588981628418,13.370100021362305,794,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
         rawData.add("902,\"Bafoussam Airport\",\"Bafoussam\",\"Cameroon\",\"BFX\",\"FKKU\",5.536920070650001,10.354599952700001,4347,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
         rawData.add("903,\"Bamenda Airport\",\"Bamenda\",\"Cameroon\",\"BPC\",\"FKKV\",6.039239883422852,10.122599601745605,4065,1,\"N\",\"Africa/Douala\",\"airport\",\"OurAirports\"");
@@ -958,7 +965,7 @@ public class RawAirportData {
         rawData.add("941,\"Mananjary Airport\",\"Mananjary\",\"Madagascar\",\"MNJ\",\"FMSM\",-21.201799392700195,48.358299255371094,20,3,\"U\",\"Indian/Antananarivo\",\"airport\",\"OurAirports\"");
         rawData.add("942,\"Morombe Airport\",\"Morombe\",\"Madagascar\",\"MXM\",\"FMSR\",-21.7539005279541,43.3754997253418,16,3,\"U\",\"Indian/Antananarivo\",\"airport\",\"OurAirports\"");
         rawData.add("943,\"Toliara Airport\",\"Toliara\",\"Madagascar\",\"TLE\",\"FMST\",-23.383399963378906,43.72850036621094,29,3,\"U\",\"Indian/Antananarivo\",\"airport\",\"OurAirports\"");
-        rawData.add("944,\"Mbanza Congo Airport\",\"M\'banza-congo\",\"Angola\",\"SSY\",\"FNBC\",-6.269899845123291,14.246999740600586,1860,1,\"N\",\"Africa/Luanda\",\"airport\",\"OurAirports\"");
+        rawData.add("944,\"Mbanza Congo Airport\",\"M'banza-congo\",\"Angola\",\"SSY\",\"FNBC\",-6.269899845123291,14.246999740600586,1860,1,\"N\",\"Africa/Luanda\",\"airport\",\"OurAirports\"");
         rawData.add("945,\"Benguela Airport\",\"Benguela\",\"Angola\",\"BUG\",\"FNBG\",-12.609000206,13.4036998749,118,1,\"N\",\"Africa/Luanda\",\"airport\",\"OurAirports\"");
         rawData.add("946,\"Cabinda Airport\",\"Cabinda\",\"Angola\",\"CAB\",\"FNCA\",-5.59699010848999,12.188400268554688,66,1,\"N\",\"Africa/Luanda\",\"airport\",\"OurAirports\"");
         rawData.add("948,\"Nova Lisboa Airport\",\"Huambo\",\"Angola\",\"NOV\",\"FNHU\",-12.808899879455566,15.760499954223633,5587,1,\"N\",\"Africa/Luanda\",\"airport\",\"OurAirports\"");
@@ -982,8 +989,8 @@ public class RawAirportData {
         rawData.add("967,\"Port Gentil Airport\",\"Port Gentil\",\"Gabon\",\"POG\",\"FOOG\",-0.7117390036582947,8.754380226135254,13,1,\"N\",\"Africa/Libreville\",\"airport\",\"OurAirports\"");
         rawData.add("968,\"Omboue Hopital Airport\",\"Omboue Hospial\",\"Gabon\",\"OMB\",\"FOOH\",-1.5747300386428833,9.262689590454102,33,1,\"N\",\"Africa/Libreville\",\"airport\",\"OurAirports\"");
         rawData.add("969,\"Makokou Airport\",\"Makokou\",\"Gabon\",\"MKU\",\"FOOK\",0.5792109966278076,12.890899658203125,1726,1,\"N\",\"Africa/Libreville\",\"airport\",\"OurAirports\"");
-        rawData.add("970,\"Libreville Leon M\'ba International Airport\",\"Libreville\",\"Gabon\",\"LBV\",\"FOOL\",0.458600014448,9.412280082699999,39,1,\"N\",\"Africa/Libreville\",\"airport\",\"OurAirports\"");
-        rawData.add("971,\"M\'Vengue El Hadj Omar Bongo Ondimba International Airport\",\"Franceville\",\"Gabon\",\"MVB\",\"FOON\",-1.6561599969863892,13.437999725341797,1450,1,\"N\",\"Africa/Libreville\",\"airport\",\"OurAirports\"");
+        rawData.add("970,\"Libreville Leon M'ba International Airport\",\"Libreville\",\"Gabon\",\"LBV\",\"FOOL\",0.458600014448,9.412280082699999,39,1,\"N\",\"Africa/Libreville\",\"airport\",\"OurAirports\"");
+        rawData.add("971,\"M'Vengue El Hadj Omar Bongo Ondimba International Airport\",\"Franceville\",\"Gabon\",\"MVB\",\"FOON\",-1.6561599969863892,13.437999725341797,1450,1,\"N\",\"Africa/Libreville\",\"airport\",\"OurAirports\"");
         rawData.add("972,\"Principe Airport\",\"Principe\",\"Sao Tome and Principe\",\"PCP\",\"FPPR\",1.6629400253295898,7.411739826202393,591,0,\"N\",\"Africa/Sao_Tome\",\"airport\",\"OurAirports\"");
         rawData.add("973,\"São Tomé International Airport\",\"Sao Tome\",\"Sao Tome and Principe\",\"TMS\",\"FPST\",0.3781749904155731,6.7121500968933105,33,0,\"N\",\"Africa/Sao_Tome\",\"airport\",\"OurAirports\"");
         rawData.add("974,\"Beira Airport\",\"Beira\",\"Mozambique\",\"BEW\",\"FQBR\",-19.79640007019043,34.90760040283203,33,2,\"U\",\"Africa/Maputo\",\"airport\",\"OurAirports\"");
@@ -1010,7 +1017,7 @@ public class RawAirportData {
         rawData.add("996,\"Coetivy Airport\",\"Coetivy\",\"Seychelles\",\\N,\"FSSC\",-7.13457,56.278198,10,4,\"U\",\"Indian/Mahe\",\"airport\",\"OurAirports\"");
         rawData.add("997,\"Abeche Airport\",\"Abeche\",\"Chad\",\"AEH\",\"FTTC\",13.847000122070312,20.84429931640625,1788,1,\"N\",\"Africa/Ndjamena\",\"airport\",\"OurAirports\"");
         rawData.add("998,\"Moundou Airport\",\"Moundou\",\"Chad\",\"MQQ\",\"FTTD\",8.624409675598145,16.071399688720703,1407,1,\"N\",\"Africa/Ndjamena\",\"airport\",\"OurAirports\"");
-        rawData.add("999,\"N\'Djamena International Airport\",\"N\'djamena\",\"Chad\",\"NDJ\",\"FTTJ\",12.1337,15.034,968,1,\"N\",\"Africa/Ndjamena\",\"airport\",\"OurAirports\"");
+        rawData.add("999,\"N'Djamena International Airport\",\"N'djamena\",\"Chad\",\"NDJ\",\"FTTJ\",12.1337,15.034,968,1,\"N\",\"Africa/Ndjamena\",\"airport\",\"OurAirports\"");
     }
 
     private void add1000() {
@@ -1091,7 +1098,7 @@ public class RawAirportData {
         rawData.add("1076,\"Kenitra Airport\",\"Kentira\",\"Morocco\",\"NNA\",\"GMMY\",34.29890060424805,-6.595880031585693,16,0,\"N\",\"Africa/Casablanca\",\"airport\",\"OurAirports\"");
         rawData.add("1077,\"Ouarzazate Airport\",\"Ouarzazate\",\"Morocco\",\"OZZ\",\"GMMZ\",30.9391002655,-6.909430027010001,3782,0,\"N\",\"Africa/Casablanca\",\"airport\",\"OurAirports\"");
         rawData.add("1078,\"Cherif Al Idrissi Airport\",\"Al Hociema\",\"Morocco\",\"AHU\",\"GMTA\",35.177101135253906,-3.83951997756958,95,0,\"N\",\"Africa/Casablanca\",\"airport\",\"OurAirports\"");
-        rawData.add("1079,\"Saniat R\'mel Airport\",\"Tetouan\",\"Morocco\",\"TTU\",\"GMTN\",35.594299316406,-5.320020198822,10,0,\"N\",\"Africa/Casablanca\",\"airport\",\"OurAirports\"");
+        rawData.add("1079,\"Saniat R'mel Airport\",\"Tetouan\",\"Morocco\",\"TTU\",\"GMTN\",35.594299316406,-5.320020198822,10,0,\"N\",\"Africa/Casablanca\",\"airport\",\"OurAirports\"");
         rawData.add("1080,\"Ibn Batouta Airport\",\"Tanger\",\"Morocco\",\"TNG\",\"GMTT\",35.726898193400004,-5.91689014435,62,0,\"N\",\"Africa/Casablanca\",\"airport\",\"OurAirports\"");
         rawData.add("1081,\"Ziguinchor Airport\",\"Ziguinchor\",\"Senegal\",\"ZIG\",\"GOGG\",12.5556,-16.281799,75,0,\"N\",\"Africa/Dakar\",\"airport\",\"OurAirports\"");
         rawData.add("1082,\"Cap Skirring Airport\",\"Cap Skiring\",\"Senegal\",\"CSK\",\"GOGS\",12.39533,-16.748,52,0,\"N\",\"Africa/Dakar\",\"airport\",\"OurAirports\"");
@@ -1247,7 +1254,7 @@ public class RawAirportData {
         rawData.add("1241,\"San Luis Airport\",\"San Luis\",\"Spain\",\\N,\"LESL\",39.86220169067383,4.25832986831665,197,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
         rawData.add("1242,\"San Sebastian Airport\",\"San Sebastian\",\"Spain\",\"EAS\",\"LESO\",43.35649871826172,-1.7906099557876587,16,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
         rawData.add("1243,\"Santiago de Compostela Airport\",\"Santiago\",\"Spain\",\"SCQ\",\"LEST\",42.89630126953125,-8.415140151977539,1213,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
-        rawData.add("1244,\"Pirineus - la Seu d\'Urgel Airport\",\"Seo De Urgel\",\"Spain\",\"LEU\",\"LESU\",42.3386,1.40917,2625,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
+        rawData.add("1244,\"Pirineus - la Seu d'Urgel Airport\",\"Seo De Urgel\",\"Spain\",\"LEU\",\"LESU\",42.3386,1.40917,2625,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
         rawData.add("1245,\"Torrejón Airport\",\"Madrid\",\"Spain\",\"TOJ\",\"LETO\",40.496700286865234,-3.4458699226379395,2026,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
         rawData.add("1246,\"Valencia Airport\",\"Valencia\",\"Spain\",\"VLC\",\"LEVC\",39.4893,-0.481625,240,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
         rawData.add("1247,\"Valladolid Airport\",\"Valladolid\",\"Spain\",\"VLL\",\"LEVD\",41.7061004639,-4.85194015503,2776,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
@@ -1259,9 +1266,9 @@ public class RawAirportData {
         rawData.add("1254,\"Calais-Dunkerque Airport\",\"Calais\",\"France\",\"CQF\",\"LFAC\",50.962100982666016,1.954759955406189,12,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1255,\"Péronne-Saint-Quentin Airport\",\"Peronne\",\"France\",\\N,\"LFAG\",49.8685,3.02958,295,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1256,\"Nangis-Les Loges Airport\",\"Nangis\",\"France\",\\N,\"LFAI\",48.59619903564453,3.0067899227142334,428,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
-        rawData.add("1257,\"Bagnoles-de-l\'Orne-Couterne Airport\",\"Bagnole-de-l\'orne\",\"France\",\\N,\"LFAO\",48.545799255371094,-0.38744398951530457,718,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
+        rawData.add("1257,\"Bagnoles-de-l'Orne-Couterne Airport\",\"Bagnole-de-l'orne\",\"France\",\\N,\"LFAO\",48.545799255371094,-0.38744398951530457,718,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1258,\"Albert-Bray Airport\",\"Albert\",\"France\",\"BYF\",\"LFAQ\",49.9715003967,2.69765996933,364,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
-        rawData.add("1259,\"Le Touquet-Côte d\'Opale Airport\",\"Le Tourquet\",\"France\",\"LTQ\",\"LFAT\",50.517398834228516,1.6205899715423584,36,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
+        rawData.add("1259,\"Le Touquet-Côte d'Opale Airport\",\"Le Tourquet\",\"France\",\"LTQ\",\"LFAT\",50.517398834228516,1.6205899715423584,36,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1260,\"Valenciennes-Denain Airport\",\"Valenciennes\",\"France\",\"XVS\",\"LFAV\",50.325801849365234,3.4612600803375244,177,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1261,\"Amiens-Glisy Airport\",\"Amiens\",\"France\",\\N,\"LFAY\",49.873004,2.387074,208,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1262,\"Agen-La Garenne Airport\",\"Agen\",\"France\",\"AGF\",\"LFBA\",44.17470169067383,0.5905560255050659,204,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
@@ -1296,7 +1303,7 @@ public class RawAirportData {
         rawData.add("1291,\"Villeneuve-sur-Lot Airport\",\"Villeneuve-sur-lot\",\"France\",\\N,\"LFCW\",44.39690017700195,0.7588890194892883,190,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1292,\"Royan-Médis Airport\",\"Royan\",\"France\",\"RYN\",\"LFCY\",45.62810134887695,-0.9725000262260437,72,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1293,\"Mimizan Airport\",\"Mimizan\",\"France\",\\N,\"LFCZ\",44.145928,-1.16432,164,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
-        rawData.add("1294,\"Aire-sur-l\'Adour Airport\",\"Aire-sur-l\'adour\",\"France\",\\N,\"LFDA\",43.70940017700195,-0.245278000831604,259,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
+        rawData.add("1294,\"Aire-sur-l'Adour Airport\",\"Aire-sur-l'adour\",\"France\",\\N,\"LFDA\",43.70940017700195,-0.245278000831604,259,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1295,\"Montauban Airport\",\"Montauban\",\"France\",\"XMW\",\"LFDB\",44.025699615478516,1.3780399560928345,351,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1296,\"Auch-Lamothe Airport\",\"Auch\",\"France\",\\N,\"LFDH\",43.687801,0.601667,411,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1297,\"Libourne-Artigues-de-Lussac Airport\",\"Libourne\",\"France\",\\N,\"LFDI\",44.982498,-0.134722,157,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
@@ -1355,7 +1362,7 @@ public class RawAirportData {
         rawData.add("1351,\"Istres Le Tubé/Istres Air Base (BA 125) Airport\",\"Istres\",\"France\",\\N,\"LFMI\",43.522701,4.92384,82,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1352,\"Carcassonne Airport\",\"Carcassonne\",\"France\",\"CCF\",\"LFMK\",43.215999603271484,2.3063199520111084,433,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1353,\"Marseille Provence Airport\",\"Marseille\",\"France\",\"MRS\",\"LFML\",43.439271922,5.22142410278,74,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
-        rawData.add("1354,\"Nice-Côte d\'Azur Airport\",\"Nice\",\"France\",\"NCE\",\"LFMN\",43.6584014893,7.215869903560001,12,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
+        rawData.add("1354,\"Nice-Côte d'Azur Airport\",\"Nice\",\"France\",\"NCE\",\"LFMN\",43.6584014893,7.215869903560001,12,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1355,\"Orange-Caritat (BA 115) Air Base\",\"Orange\",\"France\",\"XOG\",\"LFMO\",44.140499114990234,4.866720199584961,197,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1356,\"Perpignan-Rivesaltes (Llabanère) Airport\",\"Perpignan\",\"France\",\"PGF\",\"LFMP\",42.74039840698242,2.8706700801849365,144,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1357,\"Le Castellet Airport\",\"Le Castellet\",\"France\",\"CTT\",\"LFMQ\",43.252498626708984,5.785190105438232,1391,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
@@ -1380,7 +1387,7 @@ public class RawAirportData {
         rawData.add("1376,\"Tours-Val-de-Loire Airport\",\"Tours\",\"France\",\"TUF\",\"LFOT\",47.4322013855,0.727605998516,357,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1377,\"Cholet Le Pontreau Airport\",\"Cholet\",\"France\",\"CET\",\"LFOU\",47.08209991455078,-0.8770639896392822,443,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1378,\"Laval-Entrammes Airport\",\"Laval\",\"France\",\"LVA\",\"LFOV\",48.03139877319336,-0.7429860234260559,330,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
-        rawData.add("1379,\"Orléans-Saint-Denis-de-l\'Hôtel Airport\",\"Orleans\",\"France\",\\N,\"LFOZ\",47.8969,2.16333,396,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
+        rawData.add("1379,\"Orléans-Saint-Denis-de-l'Hôtel Airport\",\"Orleans\",\"France\",\\N,\"LFOZ\",47.8969,2.16333,396,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1380,\"Paris-Le Bourget Airport\",\"Paris\",\"France\",\"LBG\",\"LFPB\",48.969398498535156,2.441390037536621,218,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1381,\"Creil Air Base\",\"Creil\",\"France\",\"CSF\",\"LFPC\",49.253501892089844,2.5191400051116943,291,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("1382,\"Charles de Gaulle International Airport\",\"Paris\",\"France\",\"CDG\",\"LFPG\",49.012798,2.55,392,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
@@ -1524,7 +1531,7 @@ public class RawAirportData {
         rawData.add("1524,\"Malpensa International Airport\",\"Milano\",\"Italy\",\"MXP\",\"LIMC\",45.6306,8.72811,768,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1525,\"Il Caravaggio International Airport\",\"Bergamo\",\"Italy\",\"BGY\",\"LIME\",45.673901,9.70417,782,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1526,\"Turin Airport\",\"Torino\",\"Italy\",\"TRN\",\"LIMF\",45.200802,7.64963,989,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
-        rawData.add("1527,\"Villanova D\'Albenga International Airport\",\"Albenga\",\"Italy\",\"ALL\",\"LIMG\",44.050598,8.12743,148,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
+        rawData.add("1527,\"Villanova D'Albenga International Airport\",\"Albenga\",\"Italy\",\"ALL\",\"LIMG\",44.050598,8.12743,148,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1528,\"Genoa Cristoforo Colombo Airport\",\"Genoa\",\"Italy\",\"GOA\",\"LIMJ\",44.4133,8.8375,13,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1529,\"Milano Linate Airport\",\"Milan\",\"Italy\",\"LIN\",\"LIML\",45.445099,9.27674,353,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1530,\"Cameri Air Base [MIL]\",\"Cameri\",\"Italy\",\\N,\"LIMN\",45.529598,8.66922,586,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
@@ -1535,7 +1542,7 @@ public class RawAirportData {
         rawData.add("1536,\"Bolzano Airport\",\"Bolzano\",\"Italy\",\"BZO\",\"LIPB\",46.460201,11.3264,789,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1537,\"Cervia Air Base\",\"Cervia\",\"Italy\",\\N,\"LIPC\",44.224201,12.3072,18,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1538,\"Bologna Guglielmo Marconi Airport\",\"Bologna\",\"Italy\",\"BLQ\",\"LIPE\",44.5354,11.2887,123,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
-        rawData.add("1539,\"Treviso-Sant\'Angelo Airport\",\"Treviso\",\"Italy\",\"TSF\",\"LIPH\",45.648399,12.1944,59,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
+        rawData.add("1539,\"Treviso-Sant'Angelo Airport\",\"Treviso\",\"Italy\",\"TSF\",\"LIPH\",45.648399,12.1944,59,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1540,\"Rivolto Air Base\",\"Rivolto\",\"Italy\",\\N,\"LIPI\",45.978699,13.0493,179,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1541,\"Forlì Airport\",\"Forli\",\"Italy\",\"FRL\",\"LIPK\",44.194801,12.0701,97,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1542,\"Ghedi Air Base\",\"Ghedi\",\"Italy\",\\N,\"LIPL\",45.432201,10.2677,333,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
@@ -1562,7 +1569,7 @@ public class RawAirportData {
         rawData.add("1564,\"Grosseto Air Base\",\"Grosseto\",\"Italy\",\"GRS\",\"LIRS\",42.759701,11.0719,17,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1565,\"Urbe Airport\",\"Rome\",\"Italy\",\\N,\"LIRU\",41.9519,12.4989,55,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1566,\"Viterbo Airport\",\"Viterbo\",\"Italy\",\\N,\"LIRV\",42.430199,12.0642,992,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
-        rawData.add("1567,\"Perugia San Francesco d\'Assisi – Umbria International Airport\",\"Perugia\",\"Italy\",\"PEG\",\"LIRZ\",43.095901,12.5132,697,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
+        rawData.add("1567,\"Perugia San Francesco d'Assisi – Umbria International Airport\",\"Perugia\",\"Italy\",\"PEG\",\"LIRZ\",43.095901,12.5132,697,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("1568,\"Cerklje Airport\",\"Cerklje\",\"Slovenia\",\\N,\"LJCE\",45.900001525879,15.530200004578,510,1,\"E\",\"Europe/Ljubljana\",\"airport\",\"OurAirports\"");
         rawData.add("1569,\"Ljubljana Jože Pučnik Airport\",\"Ljubljana\",\"Slovenia\",\"LJU\",\"LJLJ\",46.223701,14.4576,1273,1,\"E\",\"Europe/Ljubljana\",\"airport\",\"OurAirports\"");
         rawData.add("1570,\"Maribor Airport\",\"Maribor\",\"Slovenia\",\"MBX\",\"LJMB\",46.47990036010742,15.686100006103516,876,1,\"E\",\"Europe/Ljubljana\",\"airport\",\"OurAirports\"");
@@ -1593,7 +1600,7 @@ public class RawAirportData {
         rawData.add("1595,\"Ein Yahav Airfield\",\"Eyn-yahav\",\"Israel\",\"EIY\",\"LLEY\",30.621700286865234,35.20330047607422,-164,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
         rawData.add("1596,\"Haifa International Airport\",\"Haifa\",\"Israel\",\"HFA\",\"LLHA\",32.80939865112305,35.04309844970703,28,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
         rawData.add("1597,\"Hatzor Air Base\",\"Haztor\",\"Israel\",\\N,\"LLHS\",31.7625007629,34.727199554399995,148,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
-        rawData.add("1598,\"Ben Ya\'akov Airport\",\"Rosh Pina\",\"Israel\",\"RPN\",\"LLIB\",32.98099899291992,35.5718994140625,922,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
+        rawData.add("1598,\"Ben Ya'akov Airport\",\"Rosh Pina\",\"Israel\",\"RPN\",\"LLIB\",32.98099899291992,35.5718994140625,922,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
         rawData.add("1599,\"Megiddo Airport\",\"Megido Airstrip\",\"Israel\",\\N,\"LLMG\",32.5973014831543,35.22880172729492,200,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
         rawData.add("1600,\"Bar Yehuda Airfield\",\"Metzada\",\"Israel\",\"MTZ\",\"LLMZ\",31.32819938659668,35.38859939575195,-1266,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
         rawData.add("1601,\"Nevatim Air Base\",\"Nevatim\",\"Israel\",\"VTM\",\"LLNV\",31.208299636799996,35.012298584,1330,2,\"E\",\"Asia/Jerusalem\",\"airport\",\"OurAirports\"");
@@ -1915,13 +1922,13 @@ public class RawAirportData {
         rawData.add("1941,\"Exuma International Airport\",\"Great Exuma\",\"Bahamas\",\"GGT\",\"MYEF\",23.5625991821,-75.8779983521,9,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1942,\"George Town Airport\",\"George Town\",\"Bahamas\",\\N,\"MYEG\",23.4666996002,-75.78170013430001,5,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1943,\"North Eleuthera Airport\",\"North Eleuthera\",\"Bahamas\",\"ELH\",\"MYEH\",25.474899292,-76.6835021973,13,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
-        rawData.add("1944,\"Governor\'s Harbour Airport\",\"Governor\'s Harbor\",\"Bahamas\",\"GHB\",\"MYEM\",25.2847003937,-76.3310012817,26,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
-        rawData.add("1945,\"Normans Cay Airport\",\"Norman\'s Cay\",\"Bahamas\",\"NMC\",\"MYEN\",24.59429931640625,-76.82019805908203,8,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
+        rawData.add("1944,\"Governor's Harbour Airport\",\"Governor's Harbor\",\"Bahamas\",\"GHB\",\"MYEM\",25.2847003937,-76.3310012817,26,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
+        rawData.add("1945,\"Normans Cay Airport\",\"Norman's Cay\",\"Bahamas\",\"NMC\",\"MYEN\",24.59429931640625,-76.82019805908203,8,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1946,\"Rock Sound Airport\",\"Rock Sound\",\"Bahamas\",\"RSD\",\"MYER\",24.8950787333,-76.1768817902,10,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1947,\"Staniel Cay Airport\",\"Staniel Cay\",\"Bahamas\",\"TYM\",\"MYES\",24.169099807739258,-76.43910217285156,5,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1948,\"Grand Bahama International Airport\",\"Freeport\",\"Bahamas\",\"FPO\",\"MYGF\",26.5587005615,-78.695602417,7,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1949,\"Inagua Airport\",\"Matthew Town\",\"Bahamas\",\"IGA\",\"MYIG\",20.975000381469727,-73.66690063476562,8,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
-        rawData.add("1950,\"Deadman\'s Cay Airport\",\"Dead Man\'s Cay\",\"Bahamas\",\"LGI\",\"MYLD\",23.1790008545,-75.09359741210001,9,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
+        rawData.add("1950,\"Deadman's Cay Airport\",\"Dead Man's Cay\",\"Bahamas\",\"LGI\",\"MYLD\",23.1790008545,-75.09359741210001,9,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1951,\"Stella Maris Airport\",\"Stella Maris\",\"Bahamas\",\"SML\",\"MYLS\",23.582317,-75.268621,10,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1952,\"Mayaguana Airport\",\"Mayaguana\",\"Bahamas\",\"MYG\",\"MYMM\",22.379499,-73.013494,11,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("1953,\"Lynden Pindling International Airport\",\"Nassau\",\"Bahamas\",\"NAS\",\"MYNN\",25.0389995575,-77.46620178219999,16,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
@@ -1933,8 +1940,8 @@ public class RawAirportData {
         rawData.add("1959,\"Rarotonga International Airport\",\"Avarua\",\"Cook Islands\",\"RAR\",\"NCRG\",-21.2026996613,-159.805999756,19,-10,\"U\",\"Pacific/Rarotonga\",\"airport\",\"OurAirports\"");
         rawData.add("1960,\"Nadi International Airport\",\"Nandi\",\"Fiji\",\"NAN\",\"NFFN\",-17.755399703979492,177.4429931640625,59,12,\"U\",\"Pacific/Fiji\",\"airport\",\"OurAirports\"");
         rawData.add("1961,\"Nausori International Airport\",\"Nausori\",\"Fiji\",\"SUV\",\"NFNA\",-18.04330062866211,178.5590057373047,17,12,\"U\",\"Pacific/Fiji\",\"airport\",\"OurAirports\"");
-        rawData.add("1963,\"Fua\'amotu International Airport\",\"Tongatapu\",\"Tonga\",\"TBU\",\"NFTF\",-21.241199493408203,-175.14999389648438,126,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
-        rawData.add("1964,\"Vava\'u International Airport\",\"Vava\'u\",\"Tonga\",\"VAV\",\"NFTV\",-18.58530044555664,-173.96200561523438,236,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
+        rawData.add("1963,\"Fua'amotu International Airport\",\"Tongatapu\",\"Tonga\",\"TBU\",\"NFTF\",-21.241199493408203,-175.14999389648438,126,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
+        rawData.add("1964,\"Vava'u International Airport\",\"Vava'u\",\"Tonga\",\"VAV\",\"NFTV\",-18.58530044555664,-173.96200561523438,236,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
         rawData.add("1965,\"Bonriki International Airport\",\"Tarawa\",\"Kiribati\",\"TRW\",\"NGTA\",1.3816399574279785,173.14700317382812,9,12,\"U\",\"Pacific/Tarawa\",\"airport\",\"OurAirports\"");
         rawData.add("1966,\"Tabiteuea North Airport\",\"Tabiteuea North\",\"Kiribati\",\"TBF\",\"NGTE\",-1.2244700193405151,174.7760009765625,7,12,\"U\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("1968,\"Hihifo Airport\",\"Wallis\",\"Wallis and Futuna\",\"WLS\",\"NLWW\",-13.2383003235,-176.199005127,79,12,\"U\",\"Pacific/Wallis\",\"airport\",\"OurAirports\"");
@@ -2003,7 +2010,7 @@ public class RawAirportData {
         rawData.add("2030,\"Queenstown International Airport\",\"Queenstown International\",\"New Zealand\",\"ZQN\",\"NZQN\",-45.0210990906,168.738998413,1171,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
         rawData.add("2031,\"Rotorua Regional Airport\",\"Rotorua\",\"New Zealand\",\"ROT\",\"NZRO\",-38.10919952392578,176.31700134277344,935,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
         rawData.add("2032,\"Waiouru Airport\",\"Waiouru\",\"New Zealand\",\\N,\"NZRU\",-39.4463996887207,175.6580047607422,2686,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
-        rawData.add("2033,\"South Pole Station Airport\",\"Stephen\'s Island\",\"Antarctica\",\\N,\"NZSP\",-90,0,9300,12,\"U\",\"Antarctica/South_Pole\",\"airport\",\"OurAirports\"");
+        rawData.add("2033,\"South Pole Station Airport\",\"Stephen's Island\",\"Antarctica\",\\N,\"NZSP\",-90,0,9300,12,\"U\",\"Antarctica/South_Pole\",\"airport\",\"OurAirports\"");
         rawData.add("2034,\"Tauranga Airport\",\"Tauranga\",\"New Zealand\",\"TRG\",\"NZTG\",-37.67190170288086,176.1959991455078,13,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
         rawData.add("2035,\"Timaru Airport\",\"Timaru\",\"New Zealand\",\"TIU\",\"NZTU\",-44.302799224853516,171.22500610351562,89,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
         rawData.add("2036,\"Pukaki Airport\",\"Pukaki\",\"New Zealand\",\"TWZ\",\"NZUK\",-44.2350006104,170.117996216,1575,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
@@ -2039,7 +2046,7 @@ public class RawAirportData {
         rawData.add("2066,\"Jizan Regional Airport\",\"Gizan\",\"Saudi Arabia\",\"GIZ\",\"OEGN\",16.901100158691406,42.58580017089844,20,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
         rawData.add("2067,\"Gassim Airport\",\"Gassim\",\"Saudi Arabia\",\"ELQ\",\"OEGS\",26.302799224853516,43.77439880371094,2126,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
         rawData.add("2068,\"Gurayat Domestic Airport\",\"Guriat\",\"Saudi Arabia\",\"URY\",\"OEGT\",31.412413,37.278898,1672,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
-        rawData.add("2069,\"Ha\'il Airport\",\"Hail\",\"Saudi Arabia\",\"HAS\",\"OEHL\",27.437901,41.686298,3331,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
+        rawData.add("2069,\"Ha'il Airport\",\"Hail\",\"Saudi Arabia\",\"HAS\",\"OEHL\",27.437901,41.686298,3331,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
         rawData.add("2070,\"Jubail Airport\",\"Jubail\",\"Saudi Arabia\",\"QJB\",\"OEJB\",27.038999557495117,49.40510177612305,26,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
         rawData.add("2071,\"King Faisal Naval Base\",\"Jeddah\",\"Saudi Arabia\",\\N,\"OEJF\",21.348100662231445,39.17300033569336,7,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
         rawData.add("2072,\"King Abdulaziz International Airport\",\"Jeddah\",\"Saudi Arabia\",\"JED\",\"OEJN\",21.6796,39.156502,48,3,\"U\",\"Asia/Riyadh\",\"airport\",\"OurAirports\"");
@@ -2302,7 +2309,7 @@ public class RawAirportData {
         rawData.add("2361,\"Gwangju Airport\",\"Kwangju\",\"South Korea\",\"KWJ\",\"RKJJ\",35.123173,126.805444,39,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
         rawData.add("2364,\"Jeon Ju Airport (G-703)\",\"Jhunju\",\"South Korea\",\"CHN\",\"RKJU\",35.87808,127.119112,96,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
         rawData.add("2365,\"Yeosu Airport\",\"Yeosu\",\"South Korea\",\"RSU\",\"RKJY\",34.84230041503906,127.61699676513672,53,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
-        rawData.add("2366,\"Sokcho Airport\",\"Sokch\'o\",\"South Korea\",\\N,\"RKND\",38.142601013183594,128.5989990234375,92,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
+        rawData.add("2366,\"Sokcho Airport\",\"Sokch'o\",\"South Korea\",\\N,\"RKND\",38.142601013183594,128.5989990234375,92,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
         rawData.add("2367,\"Gangneung Airport (K-18)\",\"Kangnung\",\"South Korea\",\"KAG\",\"RKNN\",37.753601,128.943915,35,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
         rawData.add("2370,\"Jeju International Airport\",\"Cheju\",\"South Korea\",\"CJU\",\"RKPC\",33.51129913330078,126.49299621582031,118,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
         rawData.add("2371,\"Jinhae Airbase/Airport (G-813/K-10)\",\"Chinhae\",\"South Korea\",\"CHF\",\"RKPE\",35.140248,128.696229,8,9,\"U\",\"Asia/Seoul\",\"airport\",\"OurAirports\"");
@@ -2678,7 +2685,7 @@ public class RawAirportData {
         rawData.add("2772,\"Yacuiba Airport\",\"Yacuiba\",\"Bolivia\",\"BYC\",\"SLYA\",-21.960899353027344,-63.65169906616211,2112,-4,\"U\",\"America/La_Paz\",\"airport\",\"OurAirports\"");
         rawData.add("2773,\"Johan Adolf Pengel International Airport\",\"Zandery\",\"Suriname\",\"PBM\",\"SMJP\",5.4528298377999995,-55.1878013611,59,-3,\"U\",\"America/Paramaribo\",\"airport\",\"OurAirports\"");
         rawData.add("2774,\"Cayenne-Rochambeau Airport\",\"Cayenne\",\"French Guiana\",\"CAY\",\"SOCA\",4.819809913639999,-52.360401153599994,26,-3,\"U\",\"America/Cayenne\",\"airport\",\"OurAirports\"");
-        rawData.add("2775,\"Saint-Georges-de-l\'Oyapock Airport\",\"St.-georges Oyapock\",\"French Guiana\",\"OYP\",\"SOOG\",3.89759993553,-51.8041000366,46,-3,\"U\",\"America/Cayenne\",\"airport\",\"OurAirports\"");
+        rawData.add("2775,\"Saint-Georges-de-l'Oyapock Airport\",\"St.-georges Oyapock\",\"French Guiana\",\"OYP\",\"SOOG\",3.89759993553,-51.8041000366,46,-3,\"U\",\"America/Cayenne\",\"airport\",\"OurAirports\"");
         rawData.add("2776,\"Huancabamba Airport\",\"Huancabamba\",\"Peru\",\\N,\"SPAB\",-5.256770133972168,-79.44290161132812,6312,-5,\"U\",\"America/Lima\",\"airport\",\"OurAirports\"");
         rawData.add("2777,\"Alferez FAP Alfredo Vladimir Sara Bauer Airport\",\"Andoas\",\"Peru\",\"AOP\",\"SPAS\",-2.79612994194,-76.46659851070001,728,-5,\"U\",\"America/Lima\",\"airport\",\"OurAirports\"");
         rawData.add("2778,\"Teniente General Gerardo Pérez Pinedo Airport\",\"Atalaya\",\"Peru\",\\N,\"SPAY\",-10.7291002274,-73.7665023804,751,-5,\"U\",\"America/Lima\",\"airport\",\"OurAirports\"");
@@ -2775,7 +2782,7 @@ public class RawAirportData {
         rawData.add("2876,\"Canefield Airport\",\"Canefield\",\"Dominica\",\"DCF\",\"TDCF\",15.336700439453125,-61.3922004699707,13,-4,\"U\",\"America/Dominica\",\"airport\",\"OurAirports\"");
         rawData.add("2877,\"Douglas-Charles Airport\",\"Dominica\",\"Dominica\",\"DOM\",\"TDPD\",15.547,-61.299999,73,-4,\"U\",\"America/Dominica\",\"airport\",\"OurAirports\"");
         rawData.add("2878,\"Martinique Aimé Césaire International Airport\",\"Fort-de-france\",\"Martinique\",\"FDF\",\"TFFF\",14.590999603271484,-61.00320053100586,16,-4,\"U\",\"America/Martinique\",\"airport\",\"OurAirports\"");
-        rawData.add("2879,\"L\'Espérance Airport\",\"St. Martin\",\"Guadeloupe\",\"SFG\",\"TFFG\",18.099899291992,-63.047199249268,7,-4,\"U\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("2879,\"L'Espérance Airport\",\"St. Martin\",\"Guadeloupe\",\"SFG\",\"TFFG\",18.099899291992,-63.047199249268,7,-4,\"U\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("2881,\"Pointe-à-Pitre Le Raizet\",\"Pointe-a-pitre\",\"Guadeloupe\",\"PTP\",\"TFFR\",16.265301,-61.531799,36,-4,\"U\",\"America/Guadeloupe\",\"airport\",\"OurAirports\"");
         rawData.add("2882,\"Point Salines International Airport\",\"Point Salines\",\"Grenada\",\"GND\",\"TGPY\",12.004199981689453,-61.78620147705078,41,-4,\"U\",\"America/Grenada\",\"airport\",\"OurAirports\"");
         rawData.add("2883,\"Cyril E. King Airport\",\"St. Thomas\",\"Virgin Islands\",\"STT\",\"TIST\",18.337299346923828,-64.97339630126953,23,-4,\"U\",\"America/St_Thomas\",\"airport\",\"OurAirports\"");
@@ -2949,7 +2956,7 @@ public class RawAirportData {
         rawData.add("3065,\"Utkela Airport\",\"Utkela\",\"India\",\\N,\"VEUK\",20.097400665283203,83.18379974365234,680,5.5,\"N\",\"Asia/Calcutta\",\"airport\",\"OurAirports\"");
         rawData.add("3066,\"Vishakhapatnam Airport\",\"Vishakhapatnam\",\"India\",\"VTZ\",\"VEVZ\",17.721200943,83.2245025635,15,5.5,\"N\",\"Asia/Calcutta\",\"airport\",\"OurAirports\"");
         rawData.add("3067,\"Ziro Airport\",\"Zero\",\"India\",\"ZER\",\"VEZO\",27.588301,93.828102,5403,5.5,\"N\",\"Asia/Calcutta\",\"airport\",\"OurAirports\"");
-        rawData.add("3068,\"Cox\'s Bazar Airport\",\"Cox\'s Bazar\",\"Bangladesh\",\"CXB\",\"VGCB\",21.452199935913086,91.96389770507812,12,6,\"U\",\"Asia/Dhaka\",\"airport\",\"OurAirports\"");
+        rawData.add("3068,\"Cox's Bazar Airport\",\"Cox's Bazar\",\"Bangladesh\",\"CXB\",\"VGCB\",21.452199935913086,91.96389770507812,12,6,\"U\",\"Asia/Dhaka\",\"airport\",\"OurAirports\"");
         rawData.add("3069,\"Shah Amanat International Airport\",\"Chittagong\",\"Bangladesh\",\"CGP\",\"VGEG\",22.24959945678711,91.81330108642578,12,6,\"U\",\"Asia/Dhaka\",\"airport\",\"OurAirports\"");
         rawData.add("3070,\"Ishurdi Airport\",\"Ishurdi\",\"Bangladesh\",\"IRD\",\"VGIS\",24.15250015258789,89.04940032958984,45,6,\"U\",\"Asia/Dhaka\",\"airport\",\"OurAirports\"");
         rawData.add("3071,\"Jessore Airport\",\"Jessore\",\"Bangladesh\",\"JSR\",\"VGJR\",23.183799743652344,89.16079711914062,20,6,\"U\",\"Asia/Dhaka\",\"airport\",\"OurAirports\"");
@@ -3205,7 +3212,7 @@ public class RawAirportData {
         rawData.add("3353,\"Christmas Island Airport\",\"Christmas Island\",\"Christmas Island\",\"XCH\",\"YPXM\",-10.450599670410156,105.69000244140625,916,7,\"U\",\"Indian/Christmas\",\"airport\",\"OurAirports\"");
         rawData.add("3354,\"Sydney Bankstown Airport\",\"Sydney\",\"Australia\",\"BWU\",\"YSBK\",-33.924400329589844,150.98800659179688,29,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
         rawData.add("3355,\"Canberra International Airport\",\"Canberra\",\"Australia\",\"CBR\",\"YSCB\",-35.30690002441406,149.19500732421875,1886,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
-        rawData.add("3356,\"Coffs Harbour Airport\",\"Coff\'s Harbour\",\"Australia\",\"CFS\",\"YSCH\",-30.3206005096,153.115997314,18,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
+        rawData.add("3356,\"Coffs Harbour Airport\",\"Coff's Harbour\",\"Australia\",\"CFS\",\"YSCH\",-30.3206005096,153.115997314,18,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
         rawData.add("3357,\"Camden Airport\",\"Camden\",\"Australia\",\"CDU\",\"YSCN\",-34.04029846191406,150.68699645996094,230,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
         rawData.add("3358,\"Dubbo City Regional Airport\",\"Dubbo\",\"Australia\",\"DBO\",\"YSDU\",-32.2167015076,148.574996948,935,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
         rawData.add("3359,\"Norfolk Island International Airport\",\"Norfolk Island\",\"Norfolk Island\",\"NLK\",\"YSNF\",-29.04159927368164,167.93899536132812,371,11,\"U\",\"Pacific/Norfolk\",\"airport\",\"OurAirports\"");
@@ -3221,12 +3228,12 @@ public class RawAirportData {
         rawData.add("3371,\"Changsha Huanghua International Airport\",\"Changcha\",\"China\",\"CSX\",\"ZGHA\",28.189199447599997,113.220001221,217,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("3372,\"Guilin Liangjiang International Airport\",\"Guilin\",\"China\",\"KWL\",\"ZGKL\",25.21809959411621,110.03900146484375,570,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("3373,\"Nanning Wuxu Airport\",\"Nanning\",\"China\",\"NNG\",\"ZGNN\",22.608299255371094,108.1719970703125,421,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
-        rawData.add("3374,\"Shenzhen Bao\'an International Airport\",\"Shenzhen\",\"China\",\"SZX\",\"ZGSZ\",22.639299392700195,113.81099700927734,13,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
+        rawData.add("3374,\"Shenzhen Bao'an International Airport\",\"Shenzhen\",\"China\",\"SZX\",\"ZGSZ\",22.639299392700195,113.81099700927734,13,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("3375,\"Zhengzhou Xinzheng International Airport\",\"Zhengzhou\",\"China\",\"CGO\",\"ZHCC\",34.519699096699995,113.841003418,495,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("3376,\"Wuhan Tianhe International Airport\",\"Wuhan\",\"China\",\"WUH\",\"ZHHH\",30.7838,114.208,113,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("3377,\"Pyongyang Sunan International Airport\",\"Pyongyang\",\"North Korea\",\"FNJ\",\"ZKPY\",39.224098,125.669998,117,8.5,\"U\",\"Asia/Pyongyang\",\"airport\",\"OurAirports\"");
         rawData.add("3378,\"Lanzhou Zhongchuan Airport\",\"Lanzhou\",\"China\",\"LHW\",\"ZLLL\",36.5152015686,103.620002747,6388,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
-        rawData.add("3379,\"Xi\'an Xianyang International Airport\",\"Xi\'an\",\"China\",\"XIY\",\"ZLXY\",34.447102,108.751999,1572,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
+        rawData.add("3379,\"Xi'an Xianyang International Airport\",\"Xi'an\",\"China\",\"XIY\",\"ZLXY\",34.447102,108.751999,1572,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("3380,\"Chinggis Khaan International Airport\",\"Ulan Bator\",\"Mongolia\",\"ULN\",\"ZMUB\",47.843102,106.766998,4364,8,\"U\",\"Asia/Ulaanbaatar\",\"airport\",\"OurAirports\"");
         rawData.add("3381,\"Xishuangbanna Gasa Airport\",\"Jinghonggasa\",\"China\",\"JHG\",\"ZPJH\",21.973899841308594,100.76000213623047,1815,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("3382,\"Kunming Changshui International Airport\",\"Kunming\",\"China\",\"KMG\",\"ZPPP\",25.1019444,102.9291667,6903,8,\"N\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
@@ -3673,7 +3680,7 @@ public class RawAirportData {
         rawData.add("3827,\"Norfolk Naval Station (Chambers Field)\",\"Norfolk\",\"United States\",\"NGU\",\"KNGU\",36.937599,-76.289299,17,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("3828,\"Westover ARB/Metropolitan Airport\",\"Chicopee Falls\",\"United States\",\"CEF\",\"KCEF\",42.19400024,-72.53479767,241,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("3829,\"Lubbock Preston Smith International Airport\",\"Lubbock\",\"United States\",\"LBB\",\"KLBB\",33.663601,-101.822998,3282,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
-        rawData.add("3830,\"Chicago O\'Hare International Airport\",\"Chicago\",\"United States\",\"ORD\",\"KORD\",41.9786,-87.9048,672,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
+        rawData.add("3830,\"Chicago O'Hare International Airport\",\"Chicago\",\"United States\",\"ORD\",\"KORD\",41.9786,-87.9048,672,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("3831,\"Boca Raton Airport\",\"Boca Raton\",\"United States\",\"BCT\",\"KBCT\",26.3784999847,-80.1076965332,13,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("3832,\"Fairbanks International Airport\",\"Fairbanks\",\"United States\",\"FAI\",\"PAFA\",64.81510162,-147.8560028,439,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
         rawData.add("3833,\"Quantico MCAF /Turner field\",\"Quantico\",\"United States\",\\N,\"KNYG\",38.50170135,-77.30529785,10,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
@@ -3809,12 +3816,12 @@ public class RawAirportData {
         rawData.add("3972,\"Kopitnari Airport\",\"Kutaisi\",\"Georgia\",\"KUT\",\"UGKO\",42.176700592,42.4826011658,223,4,\"N\",\"Asia/Tbilisi\",\"airport\",\"OurAirports\"");
         rawData.add("3973,\"Tbilisi International Airport\",\"Tbilisi\",\"Georgia\",\"TBS\",\"UGTB\",41.6692008972,44.95470047,1624,4,\"N\",\"Asia/Tbilisi\",\"airport\",\"OurAirports\"");
         rawData.add("3974,\"Mukalla International Airport\",\"Mukalla\",\"Yemen\",\"RIY\",\"OYRN\",14.662599563598633,49.375,54,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
-        rawData.add("3975,\"Ta\'izz International Airport\",\"Taiz\",\"Yemen\",\"TAI\",\"OYTZ\",13.6859998703,44.139099121099996,4838,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
+        rawData.add("3975,\"Ta'izz International Airport\",\"Taiz\",\"Yemen\",\"TAI\",\"OYTZ\",13.6859998703,44.139099121099996,4838,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
         rawData.add("3976,\"Hodeidah International Airport\",\"Hodeidah\",\"Yemen\",\"HOD\",\"OYHD\",14.753000259399414,42.97629928588867,41,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
         rawData.add("3977,\"Aden International Airport\",\"Aden\",\"Yemen\",\"ADE\",\"OYAA\",12.829500198364258,45.02880096435547,7,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
         rawData.add("3978,\"Ataq Airport\",\"Ataq\",\"Yemen\",\"AXK\",\"OYAT\",14.551300048828125,46.82619857788086,3735,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
         rawData.add("3979,\"Al Ghaidah International Airport\",\"Al Ghaidah Intl\",\"Yemen\",\"AAY\",\"OYGD\",16.191699981689453,52.17499923706055,134,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
-        rawData.add("3980,\"Sana\'a International Airport\",\"Sanaa\",\"Yemen\",\"SAH\",\"OYSN\",15.476300239562988,44.21969985961914,7216,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
+        rawData.add("3980,\"Sana'a International Airport\",\"Sanaa\",\"Yemen\",\"SAH\",\"OYSN\",15.476300239562988,44.21969985961914,7216,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
         rawData.add("3982,\"Beihan Airport\",\"Beihan\",\"Yemen\",\"BHN\",\"OYBN\",14.781999588012695,45.72010040283203,3800,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
         rawData.add("3984,\"Socotra International Airport\",\"Socotra\",\"Yemen\",\"SCT\",\"OYSQ\",12.63070011138916,53.905799865722656,146,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
         rawData.add("3985,\"Al Badie Airport\",\"Al Badie\",\"Yemen\",\\N,\"OYBA\",18.71929931640625,50.83689880371094,908,3,\"U\",\"Asia/Aden\",\"airport\",\"OurAirports\"");
@@ -3893,14 +3900,14 @@ public class RawAirportData {
         rawData.add("4063,\"Grand Junction Regional Airport\",\"Grand Junction\",\"United States\",\"GJT\",\"KGJT\",39.1223983765,-108.527000427,4858,-7,\"A\",\"America/Denver\",\"airport\",\"OurAirports\"");
         rawData.add("4064,\"St George Municipal Airport\",\"Saint George\",\"United States\",\"SGU\",\"KSGU\",37.036389,-113.510306,2941,-7,\"A\",\"America/Denver\",\"airport\",\"OurAirports\"");
         rawData.add("4065,\"David Wayne Hooks Memorial Airport\",\"Houston\",\"United States\",\"DWH\",\"KDWH\",30.0618000031,-95.55280303960001,152,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
-        rawData.add("4066,\"Port O\'Connor Private Heliport\",\"Port O\\'Connor\",\"United States\",\\N,\"XS46\",28.429725,-96.444419,8,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
+        rawData.add("4066,\"Port O'Connor Private Heliport\",\"Port O\'Connor\",\"United States\",\\N,\"XS46\",28.429725,-96.444419,8,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("4067,\"Sarasota Bradenton International Airport\",\"Sarasota\",\"United States\",\"SRQ\",\"KSRQ\",27.39539909362793,-82.55439758300781,30,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("4069,\"L.F. Wade International International Airport\",\"Bermuda\",\"Bermuda\",\"BDA\",\"TXKF\",32.36399841308594,-64.67870330810547,12,-4,\"A\",\"Atlantic/Bermuda\",\"airport\",\"OurAirports\"");
         rawData.add("4071,\"Van Nuys Airport\",\"Van Nuys\",\"United States\",\"VNY\",\"KVNY\",34.209800720215,-118.48999786377,802,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("4072,\"Quad City International Airport\",\"Moline\",\"United States\",\"MLI\",\"KMLI\",41.44850158691406,-90.50749969482422,590,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("4073,\"Panama City-Bay Co International Airport\",\"Panama City\",\"United States\",\"PFN\",\"KPFN\",30.212099,-85.6828,20,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("4074,\"Honiara International Airport\",\"Honiara\",\"Solomon Islands\",\"HIR\",\"AGGH\",-9.4280004501343,160.05499267578,28,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
-        rawData.add("4075,\"Faa\'a International Airport\",\"Papeete\",\"French Polynesia\",\"PPT\",\"NTAA\",-17.553699,-149.606995,5,-10,\"U\",\"Pacific/Tahiti\",\"airport\",\"OurAirports\"");
+        rawData.add("4075,\"Faa'a International Airport\",\"Papeete\",\"French Polynesia\",\"PPT\",\"NTAA\",-17.553699,-149.606995,5,-10,\"U\",\"Pacific/Tahiti\",\"airport\",\"OurAirports\"");
         rawData.add("4076,\"Nauru International Airport\",\"Nauru\",\"Nauru\",\"INU\",\"ANYN\",-0.547458,166.919006,22,12,\"U\",\"Pacific/Nauru\",\"airport\",\"OurAirports\"");
         rawData.add("4077,\"Funafuti International Airport\",\"Funafuti\",\"Tuvalu\",\"FUN\",\"NGFU\",-8.525,179.195999,9,12,\"U\",\"Pacific/Funafuti\",\"airport\",\"OurAirports\"");
         rawData.add("4078,\"Tolmachevo Airport\",\"Novosibirsk\",\"Russia\",\"OVB\",\"UNNT\",55.012599945068,82.650703430176,365,7,\"N\",\"Asia/Krasnoyarsk\",\"airport\",\"OurAirports\"");
@@ -3918,7 +3925,7 @@ public class RawAirportData {
         rawData.add("4092,\"Maestro Wilson Fonseca Airport\",\"Santarem\",\"Brazil\",\"STM\",\"SBSN\",-2.4247219562530518,-54.785831451416016,198,-3,\"S\",\"America/Belem\",\"airport\",\"OurAirports\"");
         rawData.add("4093,\"Sihanoukville International Airport\",\"Sihanoukville\",\"Cambodia\",\"KOS\",\"VDSV\",10.57970047,103.637001038,33,7,\"N\",\"Asia/Phnom_Penh\",\"airport\",\"OurAirports\"");
         rawData.add("4094,\"Ekati Airport\",\"Ekati\",\"Canada\",\"YOA\",\"CYOA\",64.6988983154,-110.614997864,1536,-7,\"A\",\"America/Edmonton\",\"airport\",\"OurAirports\"");
-        rawData.add("4095,\"Hawke\'s Bay Airport\",\"NAPIER\",\"New Zealand\",\"NPE\",\"NZNR\",-39.465801,176.869995,6,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
+        rawData.add("4095,\"Hawke's Bay Airport\",\"NAPIER\",\"New Zealand\",\"NPE\",\"NZNR\",-39.465801,176.869995,6,12,\"Z\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
         rawData.add("4096,\"Levuka Airfield\",\"Levuka\",\"Fiji\",\"LEV\",\"NFNB\",-17.7110996246,178.759002686,11,12,\"N\",\"Pacific/Fiji\",\"airport\",\"OurAirports\"");
         rawData.add("4097,\"Lhasa Gonggar Airport\",\"Lhasa\",\"China\",\"LXA\",\"ZULS\",29.2978000641,90.91190338130001,11713,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("4098,\"Redding Municipal Airport\",\"Redding\",\"United States\",\"RDD\",\"KRDD\",40.50899887,-122.2929993,505,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
@@ -4059,7 +4066,7 @@ public class RawAirportData {
         rawData.add("4261,\"Flagstaff Pulliam Airport\",\"Flagstaff\",\"United States\",\"FLG\",\"KFLG\",35.13850021,-111.6709976,7014,-7,\"N\",\"America/Phoenix\",\"airport\",\"OurAirports\"");
         rawData.add("4262,\"Lake Tahoe Airport\",\"South Lake Tahoe\",\"United States\",\"TVL\",\"KTVL\",38.89390182495117,-119.99500274658203,6264,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("4263,\"Joslin Field Magic Valley Regional Airport\",\"Twin Falls\",\"United States\",\"TWF\",\"KTWF\",42.4818,-114.487999,4154,-7,\"A\",\"America/Denver\",\"airport\",\"OurAirports\"");
-        rawData.add("4265,\"Martha\'s Vineyard Airport\",\"Vineyard Haven MA\",\"United States\",\"MVY\",\"KMVY\",41.3931007385,-70.6143035889,67,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
+        rawData.add("4265,\"Martha's Vineyard Airport\",\"Vineyard Haven MA\",\"United States\",\"MVY\",\"KMVY\",41.3931007385,-70.6143035889,67,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("4268,\"Concord Municipal Airport\",\"Concord NH\",\"United States\",\"CON\",\"KCON\",43.20270157,-71.50229645,342,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("4270,\"Groton New London Airport\",\"Groton CT\",\"United States\",\"GON\",\"KGON\",41.330101013183594,-72.04509735107422,9,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("4271,\"St Cloud Regional Airport\",\"Saint Cloud\",\"United States\",\"STC\",\"KSTC\",45.546600341796875,-94.05989837646484,1031,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
@@ -4076,7 +4083,7 @@ public class RawAirportData {
         rawData.add("4286,\"Wilkes Barre Scranton International Airport\",\"Scranton\",\"United States\",\"AVP\",\"KAVP\",41.338500976599995,-75.72339630130001,962,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("4287,\"Bemidji Regional Airport\",\"Bemidji\",\"United States\",\"BJI\",\"KBJI\",47.50939941,-94.93370056,1391,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("4289,\"Thangool Airport\",\"Biloela\",\"Australia\",\"THG\",\"YTNG\",-24.493900299072266,150.5760040283203,644,10,\"O\",\"Australia/Brisbane\",\"airport\",\"OurAirports\"");
-        rawData.add("4290,\"Fagali\'i Airport\",\"Apia\",\"Samoa\",\"FGI\",\"NSFI\",-13.848699569699999,-171.740005493,131,13,\"U\",\"Pacific/Apia\",\"airport\",\"OurAirports\"");
+        rawData.add("4290,\"Fagali'i Airport\",\"Apia\",\"Samoa\",\"FGI\",\"NSFI\",-13.848699569699999,-171.740005493,131,13,\"U\",\"Pacific/Apia\",\"airport\",\"OurAirports\"");
         rawData.add("4291,\"Ballina Byron Gateway Airport\",\"Ballina Byron Bay\",\"Australia\",\"BNK\",\"YBNA\",-28.8339004517,153.56199646,7,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
         rawData.add("4292,\"Hector International Airport\",\"Fargo\",\"United States\",\"FAR\",\"KFAR\",46.92070007324219,-96.81580352783203,902,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("4293,\"Charles B. Wheeler Downtown Airport\",\"Kansas City\",\"United States\",\"MKC\",\"KMKC\",39.123199462890625,-94.5927963256836,759,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
@@ -4123,7 +4130,7 @@ public class RawAirportData {
         rawData.add("4343,\"Renner Field-Goodland Municipal Airport\",\"Goodland\",\"United States\",\"GLD\",\"KGLD\",39.37060165,-101.6989975,3656,-7,\"A\",\"America/Denver\",\"airport\",\"OurAirports\"");
         rawData.add("4344,\"Yellowstone Regional Airport\",\"Cody\",\"United States\",\"COD\",\"KCOD\",44.520198822,-109.024002075,5102,-7,\"A\",\"America/Denver\",\"airport\",\"OurAirports\"");
         rawData.add("4345,\"Ørsta-Volda Airport, Hovden\",\"Orsta-Volda\",\"Norway\",\"HOV\",\"ENOV\",62.180000305176,6.0741000175476,243,1,\"E\",\"Europe/Oslo\",\"airport\",\"OurAirports\"");
-        rawData.add("4347,\"St. Mary\'s Airport\",\"ST MARY\\'S\",\"United Kingdom\",\"ISC\",\"EGHE\",49.913299560546875,-6.291669845581055,116,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
+        rawData.add("4347,\"St. Mary's Airport\",\"ST MARY\'S\",\"United Kingdom\",\"ISC\",\"EGHE\",49.913299560546875,-6.291669845581055,116,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
         rawData.add("4348,\"Springfield Branson National Airport\",\"Springfield\",\"United States\",\"SGF\",\"KSGF\",37.24570084,-93.38860321,1268,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("4349,\"Narvik Framnes Airport\",\"Narvik\",\"Norway\",\"NVK\",\"ENNK\",68.436897277832,17.386699676514,95,1,\"E\",\"Europe/Oslo\",\"airport\",\"OurAirports\"");
         rawData.add("4350,\"Berlevåg Airport\",\"Berlevag\",\"Norway\",\"BVG\",\"ENBV\",70.871399,29.034201,42,1,\"E\",\"Europe/Oslo\",\"airport\",\"OurAirports\"");
@@ -4166,7 +4173,7 @@ public class RawAirportData {
 
     private void add5000() {
         rawData.add("5404,\"Uru Harbour Airport\",\"Atoifi\",\"Solomon Islands\",\"ATD\",\"AGAT\",-8.87333,161.011002,0,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
-        rawData.add("5405,\"Gwaunaru\'u Airport\",\"Auki\",\"Solomon Islands\",\"AKS\",\"AGGA\",-8.70257,160.682007,5,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
+        rawData.add("5405,\"Gwaunaru'u Airport\",\"Auki\",\"Solomon Islands\",\"AKS\",\"AGGA\",-8.70257,160.682007,5,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
         rawData.add("5406,\"Ballalae Airport\",\"Ballalae\",\"Solomon Islands\",\"BAS\",\"AGGE\",-6.990745,155.886656,5,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
         rawData.add("5407,\"Fera/Maringe Airport\",\"Fera Island\",\"Solomon Islands\",\"FRE\",\"AGGF\",-8.1075,159.576996,0,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
         rawData.add("5408,\"Babanakira Airport\",\"Mbambanakira\",\"Solomon Islands\",\"MBU\",\"AGGI\",-9.7475004196167,159.83900451660156,0,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
@@ -4266,9 +4273,9 @@ public class RawAirportData {
         rawData.add("5508,\"Aupaluk Airport\",\"Aupaluk\",\"Canada\",\"YPJ\",\"CYLA\",59.29669952392578,-69.59970092773438,119,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("5509,\"Kimmirut Airport\",\"Kimmirut\",\"Canada\",\"YLC\",\"CYLC\",62.8499984741,-69.88330078119999,175,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("5510,\"Lansdowne House Airport\",\"Lansdowne House\",\"Canada\",\"YLH\",\"CYLH\",52.19559860229492,-87.93419647216797,834,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
-        rawData.add("5511,\"St Georges Airport\",\"Lutselk\'e\",\"Canada\",\\N,\"CYSG\",46.096401,-70.714699,893,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
+        rawData.add("5511,\"St Georges Airport\",\"Lutselk'e\",\"Canada\",\\N,\"CYSG\",46.096401,-70.714699,893,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("5512,\"Kangiqsualujjuaq (Georges River) Airport\",\"Kangiqsualujjuaq\",\"Canada\",\"XGR\",\"CYLU\",58.71139907836914,-65.9927978515625,215,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
-        rawData.add("5513,\"Mary\'s Harbour Airport\",\"Mary\'s Harbour\",\"Canada\",\"YMH\",\"CYMH\",52.302799224853516,-55.847198486328125,38,-3.5,\"A\",\"America/St_Johns\",\"airport\",\"OurAirports\"");
+        rawData.add("5513,\"Mary's Harbour Airport\",\"Mary's Harbour\",\"Canada\",\"YMH\",\"CYMH\",52.302799224853516,-55.847198486328125,38,-3.5,\"A\",\"America/St_Johns\",\"airport\",\"OurAirports\"");
         rawData.add("5514,\"Chapais Airport\",\"Chibougamau\",\"Canada\",\"YMT\",\"CYMT\",49.77190017700195,-74.5280990600586,1270,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("5515,\"Umiujaq Airport\",\"Umiujaq\",\"Canada\",\"YUD\",\"CYMU\",56.53609848022461,-76.51830291748047,250,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
         rawData.add("5516,\"Wemindji Airport\",\"Wemindji\",\"Canada\",\"YNC\",\"CYNC\",53.01060104370117,-78.83110046386719,66,-5,\"A\",\"America/Toronto\",\"airport\",\"OurAirports\"");
@@ -4327,7 +4334,7 @@ public class RawAirportData {
         rawData.add("5569,\"Sanday Airport\",\"Sanday\",\"United Kingdom\",\"NDY\",\"EGES\",59.250301361083984,-2.576669931411743,68,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
         rawData.add("5570,\"Lerwick / Tingwall Airport\",\"Lerwick\",\"United Kingdom\",\"LWK\",\"EGET\",60.192199707,-1.24361002445,43,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
         rawData.add("5571,\"Westray Airport\",\"Westray\",\"United Kingdom\",\"WRY\",\"EGEW\",59.3502998352,-2.95000004768,29,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
-        rawData.add("5572,\"Land\'s End Airport\",\"Land\'s End\",\"United Kingdom\",\"LEQ\",\"EGHC\",50.102798,-5.67056,398,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
+        rawData.add("5572,\"Land's End Airport\",\"Land's End\",\"United Kingdom\",\"LEQ\",\"EGHC\",50.102798,-5.67056,398,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
         rawData.add("5573,\"Penzance Heliport\",\"Penzance\",\"United Kingdom\",\"PZE\",\"EGHK\",50.128101,-5.51845,14,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
         rawData.add("5574,\"Anglesey Airport\",\"Angelsey\",\"United Kingdom\",\"VLY\",\"EGOV\",53.2481002808,-4.53533983231,37,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
         rawData.add("5575,\"Barra Airport\",\"Barra\",\"United Kingdom\",\"BRR\",\"EGPR\",57.0228,-7.44306,5,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
@@ -4442,7 +4449,7 @@ public class RawAirportData {
         rawData.add("5696,\"Gardabya Airport\",\"Sirt\",\"Libya\",\"SRX\",\"HLGD\",31.063499450699997,16.5949993134,267,2,\"N\",\"Africa/Tripoli\",\"airport\",\"OurAirports\"");
         rawData.add("5697,\"Gamal Abdel Nasser Airport\",\"Tobruk\",\"Libya\",\"TOB\",\"HLGN\",31.861,23.907,519,2,\"N\",\"Africa/Tripoli\",\"airport\",\"OurAirports\"");
         rawData.add("5698,\"Mitiga Airport\",\"Tripoli\",\"Libya\",\"MJI\",\"HLLM\",32.894100189208984,13.276000022888184,36,2,\"N\",\"Africa/Tripoli\",\"airport\",\"OurAirports\"");
-        rawData.add("5699,\"La Abraq Airport\",\"Al Bayda\'\",\"Libya\",\"LAQ\",\"HLLQ\",32.788700103759766,21.96430015563965,2157,2,\"N\",\"Africa/Tripoli\",\"airport\",\"OurAirports\"");
+        rawData.add("5699,\"La Abraq Airport\",\"Al Bayda'\",\"Libya\",\"LAQ\",\"HLLQ\",32.788700103759766,21.96430015563965,2157,2,\"N\",\"Africa/Tripoli\",\"airport\",\"OurAirports\"");
         rawData.add("5700,\"Atbara Airport\",\"Atbara\",\"Sudan\",\"ATB\",\"HSAT\",17.710344314575195,34.0570182800293,1181,3,\"U\",\"Africa/Khartoum\",\"airport\",\"OurAirports\"");
         rawData.add("5701,\"Nyala Airport\",\"Nyala\",\"Sudan\",\"UYL\",\"HSNN\",12.053500175476074,24.956199645996094,2106,3,\"U\",\"Africa/Khartoum\",\"airport\",\"OurAirports\"");
         rawData.add("5702,\"Port Sudan New International Airport\",\"Port Sudan\",\"Sudan\",\"PZU\",\"HSPN\",19.4335994720459,37.234100341796875,135,3,\"U\",\"Africa/Khartoum\",\"airport\",\"OurAirports\"");
@@ -4522,7 +4529,7 @@ public class RawAirportData {
         rawData.add("5779,\"Yakima Air Terminal McAllister Field\",\"Yakima\",\"United States\",\"YKM\",\"KYKM\",46.56819916,-120.5439987,1099,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("5780,\"Ercan International Airport\",\"Nicosia\",\"Cyprus\",\"ECN\",\"LCEN\",35.154701232910156,33.49610137939453,404,2,\"E\",\"Asia/Nicosia\",\"airport\",\"OurAirports\"");
         rawData.add("5781,\"Logroño-Agoncillo Airport\",\"Logroño-Agoncillo\",\"Spain\",\"RJL\",\"LELO\",42.4609534888,-2.32223510742,1161,1,\"E\",\"Europe/Madrid\",\"airport\",\"OurAirports\"");
-        rawData.add("5782,\"Île d\'Yeu Airport\",\"Île d\'Yeu\",\"France\",\"IDY\",\"LFEY\",46.71860122680664,-2.3911099433898926,79,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
+        rawData.add("5782,\"Île d'Yeu Airport\",\"Île d'Yeu\",\"France\",\"IDY\",\"LFEY\",46.71860122680664,-2.3911099433898926,79,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("5783,\"Angers-Loire Airport\",\"Angers/Marcé\",\"France\",\"ANE\",\"LFJR\",47.560299,-0.312222,194,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("5786,\"La Môle Airport\",\"La Môle\",\"France\",\"LTT\",\"LFTZ\",43.205399,6.482,59,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("5787,\"Syros Airport\",\"Syros Island\",\"Greece\",\"JSY\",\"LGSO\",37.4227981567,24.950899124099998,236,2,\"E\",\"Europe/Athens\",\"airport\",\"OurAirports\"");
@@ -4530,7 +4537,7 @@ public class RawAirportData {
         rawData.add("5789,\"Győr-Pér International Airport\",\"Győr\",\"Hungary\",\\N,\"LHPR\",47.624401,17.813601,424,1,\"N\",\"Europe/Budapest\",\"airport\",\"OurAirports\"");
         rawData.add("5790,\"Sármellék International Airport\",\"Sármellék\",\"Hungary\",\"SOB\",\"LHSM\",46.686391,17.159084,408,1,\"N\",\"Europe/Budapest\",\"airport\",\"OurAirports\"");
         rawData.add("5791,\"Aosta Airport\",\"Aosta\",\"Italy\",\"AOT\",\"LIMW\",45.738499,7.36872,1791,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
-        rawData.add("5792,\"Salerno Costa d\'Amalfi Airport\",\"Salerno\",\"Italy\",\"QSR\",\"LIRI\",40.620399,14.9113,119,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
+        rawData.add("5792,\"Salerno Costa d'Amalfi Airport\",\"Salerno\",\"Italy\",\"QSR\",\"LIRI\",40.620399,14.9113,119,1,\"E\",\"Europe/Rome\",\"airport\",\"OurAirports\"");
         rawData.add("5793,\"Corvo Airport\",\"Corvo\",\"Portugal\",\"CVU\",\"LPCR\",39.671501,-31.1136,0,-1,\"E\",\"Atlantic/Azores\",\"airport\",\"OurAirports\"");
         rawData.add("5794,\"Banja Luka International Airport\",\"Banja Luka\",\"Bosnia and Herzegovina\",\"BNX\",\"LQBK\",44.94139862060547,17.297500610351562,400,1,\"E\",\"Europe/Sarajevo\",\"airport\",\"OurAirports\"");
         rawData.add("5795,\"Uşak Airport\",\"Usak\",\"Turkey\",\"USQ\",\"LTBO\",38.68149948120117,29.47170066833496,2897,3,\"E\",\"Europe/Istanbul\",\"airport\",\"OurAirports\"");
@@ -4574,7 +4581,7 @@ public class RawAirportData {
         rawData.add("5852,\"Cayo Coco Airport\",\"Cayo Coco\",\"Cuba\",\\N,\"MUOC\",22.513200759900002,-78.51100158690001,6,-5,\"U\",\"America/Havana\",\"airport\",\"OurAirports\"");
         rawData.add("5853,\"Alberto Delgado Airport\",\"Trinidad\",\"Cuba\",\"TND\",\"MUTD\",21.788299560546875,-79.99720001220703,125,-5,\"U\",\"America/Havana\",\"airport\",\"OurAirports\"");
         rawData.add("5856,\"Congo Town Airport\",\"Andros\",\"Bahamas\",\"COX\",\"MYAK\",24.158701,-77.589798,15,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
-        rawData.add("5857,\"Arthur\'s Town Airport\",\"Arthur\'s Town\",\"Bahamas\",\"ATC\",\"MYCA\",24.6294,-75.673797,18,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
+        rawData.add("5857,\"Arthur's Town Airport\",\"Arthur's Town\",\"Bahamas\",\"ATC\",\"MYCA\",24.6294,-75.673797,18,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("5858,\"New Bight Airport\",\"Cat Island\",\"Bahamas\",\"TBI\",\"MYCB\",24.3153,-75.452301,5,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("5859,\"Colonel Hill Airport\",\"Colonel Hill\",\"Bahamas\",\"CRI\",\"MYCI\",22.745599746699998,-74.1824035645,5,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("5860,\"Nassau Paradise Island Airport\",\"Nassau\",\"Bahamas\",\"PID\",\"MYPI\",25.08300018310547,-77.30000305175781,0,-5,\"U\",\"America/Nassau\",\"airport\",\"OurAirports\"");
@@ -4598,7 +4605,7 @@ public class RawAirportData {
         rawData.add("5878,\"Savusavu Airport\",\"Savusavu\",\"Fiji\",\"SVU\",\"NFNS\",-16.8027992249,179.341003418,17,12,\"U\",\"Pacific/Fiji\",\"airport\",\"OurAirports\"");
         rawData.add("5879,\"Kaufana Airport\",\"Eua Island\",\"Tonga\",\"EUA\",\"NFTE\",-21.378299713100002,-174.957992554,325,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
         rawData.add("5880,\"Lifuka Island Airport\",\"Lifuka\",\"Tonga\",\"HPA\",\"NFTL\",-19.777000427246094,-174.34100341796875,31,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
-        rawData.add("5881,\"Mata\'aho Airport\",\"Angaha, Niuafo\'ou Island\",\"Tonga\",\"NFO\",\"NFTO\",-15.5707998276,-175.632995605,160,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
+        rawData.add("5881,\"Mata'aho Airport\",\"Angaha, Niuafo'ou Island\",\"Tonga\",\"NFO\",\"NFTO\",-15.5707998276,-175.632995605,160,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
         rawData.add("5882,\"Kuini Lavenia Airport\",\"Niuatoputapu\",\"Tonga\",\"NTT\",\"NFTP\",-15.977297,-173.791089,30,13,\"U\",\"Pacific/Tongatapu\",\"airport\",\"OurAirports\"");
         rawData.add("5883,\"Vanua Balavu Airport\",\"Vanua Balavu\",\"Fiji\",\"VBV\",\"NFVB\",-17.268999099731445,-178.9759979248047,76,12,\"U\",\"Pacific/Fiji\",\"airport\",\"OurAirports\"");
         rawData.add("5884,\"Niue International Airport\",\"Alofi\",\"Niue\",\"IUE\",\"NIUE\",-19.079030990600586,-169.92559814453125,209,-11,\"U\",\"Pacific/Niue\",\"airport\",\"OurAirports\"");
@@ -4632,7 +4639,7 @@ public class RawAirportData {
         rawData.add("5913,\"North West Santo Airport\",\"Olpoi\",\"Vanuatu\",\"OLJ\",\"NVSZ\",-14.881699562099998,166.557998657,50,11,\"U\",\"Pacific/Efate\",\"airport\",\"OurAirports\"");
         rawData.add("5914,\"Aneityum Airport\",\"Anelghowhat\",\"Vanuatu\",\"AUY\",\"NVVA\",-20.2492008209,169.770996094,7,11,\"U\",\"Pacific/Efate\",\"airport\",\"OurAirports\"");
         rawData.add("5915,\"Aniwa Airport\",\"Aniwa\",\"Vanuatu\",\"AWD\",\"NVVB\",-19.2346,169.6009,69,11,\"U\",\"Pacific/Efate\",\"airport\",\"OurAirports\"");
-        rawData.add("5916,\"Dillon\'s Bay Airport\",\"Dillon\'s Bay\",\"Vanuatu\",\"DLY\",\"NVVD\",-18.7693996429,169.00100708,630,11,\"U\",\"Pacific/Efate\",\"airport\",\"OurAirports\"");
+        rawData.add("5916,\"Dillon's Bay Airport\",\"Dillon's Bay\",\"Vanuatu\",\"DLY\",\"NVVD\",-18.7693996429,169.00100708,630,11,\"U\",\"Pacific/Efate\",\"airport\",\"OurAirports\"");
         rawData.add("5917,\"Futuna Airport\",\"Futuna Island\",\"Vanuatu\",\"FTA\",\"NVVF\",-19.516399383499998,170.231994629,95,11,\"U\",\"Pacific/Efate\",\"airport\",\"OurAirports\"");
         rawData.add("5918,\"Ipota Airport\",\"Ipota\",\"Vanuatu\",\"IPA\",\"NVVI\",-18.856389,169.283333,23,11,\"U\",\"Pacific/Efate\",\"airport\",\"OurAirports\"");
         rawData.add("5919,\"Tiga Airport\",\"Tiga\",\"New Caledonia\",\"TGJ\",\"NWWA\",-21.096099853515625,167.8040008544922,128,11,\"U\",\"Pacific/Noumea\",\"airport\",\"OurAirports\"");
@@ -5051,7 +5058,7 @@ public class RawAirportData {
         rawData.add("6364,\"Hanzhong Chenggu Airport\",\"Hanzhong\",\"China\",\"HZG\",\"ZLHZ\",33.134136,107.206014,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6365,\"Qingyang Airport\",\"Qingyang\",\"China\",\"IQN\",\"ZLQY\",35.799702,107.602997,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6366,\"Xining Caojiabu Airport\",\"Xining\",\"China\",\"XNN\",\"ZLXN\",36.5275,102.042999,7119,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
-        rawData.add("6367,\"Yan\'an Ershilipu Airport\",\"Yan\'an\",\"China\",\"ENY\",\"ZLYA\",36.636902,109.554001,3100,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
+        rawData.add("6367,\"Yan'an Ershilipu Airport\",\"Yan'an\",\"China\",\"ENY\",\"ZLYA\",36.636902,109.554001,3100,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6368,\"Yulin Yuyang Airport\",\"Yulin\",\"China\",\"UYN\",\"ZLYL\",38.35971,109.590927,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6369,\"Arvaikheer Airport\",\"Arvaikheer\",\"Mongolia\",\"AVK\",\"ZMAH\",46.250301361083984,102.802001953125,5932,8,\"U\",\"Asia/Ulaanbaatar\",\"airport\",\"OurAirports\"");
         rawData.add("6370,\"Altai Airport\",\"Altai\",\"Mongolia\",\"LTI\",\"ZMAT\",46.376399993896484,96.22109985351562,7260,8,\"U\",\"Asia/Ulaanbaatar\",\"airport\",\"OurAirports\"");
@@ -5061,7 +5068,7 @@ public class RawAirportData {
         rawData.add("6374,\"Mörön Airport\",\"Muren\",\"Mongolia\",\"MXV\",\"ZMMN\",49.663299560546875,100.0989990234375,4272,8,\"U\",\"Asia/Ulaanbaatar\",\"airport\",\"OurAirports\"");
         rawData.add("6375,\"Diqing Airport\",\"Shangri-La\",\"China\",\"DIG\",\"ZPDQ\",27.7936,99.6772,10761,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6376,\"Mangshi Airport\",\"Luxi\",\"China\",\"LUM\",\"ZPLX\",24.4011,98.5317,2890,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
-        rawData.add("6377,\"Pu\'er Simao Airport\",\"Simao\",\"China\",\"SYM\",\"ZPSM\",22.793301,100.959,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
+        rawData.add("6377,\"Pu'er Simao Airport\",\"Simao\",\"China\",\"SYM\",\"ZPSM\",22.793301,100.959,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6378,\"Zhaotong Airport\",\"Zhaotong\",\"China\",\"ZAT\",\"ZPZT\",27.325599670410156,103.75499725341797,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6379,\"Ganzhou Airport\",\"Ganzhou\",\"China\",\"KOW\",\"ZSGZ\",25.853333,114.778889,387,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6380,\"Jingdezhen Airport\",\"Jingdezhen\",\"China\",\"JDZ\",\"ZSJD\",29.3386001587,117.176002502,112,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
@@ -5115,7 +5122,7 @@ public class RawAirportData {
         rawData.add("6432,\"Jiayuguan Airport\",\"Jiayuguan\",\"China\",\"JGN\",\"ZLJQ\",39.856899,98.3414,5112,8,\"N\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6433,\"Dandong Airport\",\"Dandong\",\"China\",\"DDG\",\"ZYDD\",40.0247,124.286003,30,8,\"N\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6434,\"Ordos Ejin Horo Airport\",\"Dongsheng\",\"China\",\"DSN\",\"ZBDS\",39.49,109.861388889,4557,8,\"N\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
-        rawData.add("6435,\"Bao\'anying Airport\",\"Panzhihua\",\"China\",\"PZI\",\"ZUZH\",26.54,101.79852,1620,8,\"N\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
+        rawData.add("6435,\"Bao'anying Airport\",\"Panzhihua\",\"China\",\"PZI\",\"ZUZH\",26.54,101.79852,1620,8,\"N\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("6445,\"Bremerton National Airport\",\"Bremerton\",\"United States\",\"PWT\",\"KPWT\",47.490200042725,-122.76499938965,444,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("6446,\"Spencer Municipal Airport\",\"Spencer\",\"United States\",\"SPW\",\"KSPW\",43.165500640869,-95.202796936035,1339,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("6447,\"Jefferson City Memorial Airport\",\"Jefferson City\",\"United States\",\"JEF\",\"KJEF\",38.5912017822,-92.15609741210001,549,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
@@ -5156,7 +5163,7 @@ public class RawAirportData {
         rawData.add("6715,\"Gambell Airport\",\"Gambell\",\"United States\",\"GAM\",\"PAGM\",63.76679992675781,-171.73300170898438,27,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
         rawData.add("6716,\"Hooper Bay Airport\",\"Hooper Bay\",\"United States\",\"HPB\",\"PAHP\",61.52389908,-166.1470032,13,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
         rawData.add("6717,\"Kaltag Airport\",\"Kaltag\",\"United States\",\"KAL\",\"PAKV\",64.31909943,-158.7409973,181,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
-        rawData.add("6718,\"St Mary\'s Airport\",\"St Mary\'s\",\"United States\",\"KSM\",\"PASM\",62.0605011,-163.302002,312,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
+        rawData.add("6718,\"St Mary's Airport\",\"St Mary's\",\"United States\",\"KSM\",\"PASM\",62.0605011,-163.302002,312,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
         rawData.add("6719,\"Kivalina Airport\",\"Kivalina\",\"United States\",\"KVL\",\"PAVL\",67.73619842529297,-164.56300354003906,13,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
         rawData.add("6720,\"Mekoryuk Airport\",\"Mekoryuk\",\"United States\",\"MYU\",\"PAMY\",60.37139892578125,-166.27099609375,48,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
         rawData.add("6722,\"Ruby Airport\",\"Ruby\",\"United States\",\"RBY\",\"PARY\",64.72720337,-155.4700012,658,-9,\"A\",\"America/Anchorage\",\"airport\",\"OurAirports\"");
@@ -5390,7 +5397,7 @@ public class RawAirportData {
         rawData.add("7047,\"Whiting Field Naval Air Station South Airport\",\"Cuxhaven\",\"Germany\",\\N,\"KNDZ\",30.70439910888672,-87.02300262451172,177,-6,\"E\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("7048,\"Volk Field\",\"Camp Douglas\",\"United States\",\"VOK\",\"KVOK\",43.938999176025,-90.253402709961,912,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("7051,\"Gunnison Crested Butte Regional Airport\",\"Gunnison\",\"United States\",\"GUC\",\"KGUC\",38.53390121,-106.9329987,7680,-7,\"A\",\"America/Denver\",\"airport\",\"OurAirports\"");
-        rawData.add("7052,\"Xi\'an Xiguan Airport\",\"Xi\\'AN\",\"China\",\"SIA\",\"ZLSN\",34.376701,109.120003,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
+        rawData.add("7052,\"Xi'an Xiguan Airport\",\"Xi\'AN\",\"China\",\"SIA\",\"ZLSN\",34.376701,109.120003,0,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("7053,\"Zamperini Field\",\"Torrance\",\"United States\",\"TOA\",\"KTOA\",33.803398132324,-118.33999633789,103,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("7054,\"Manistee Co Blacker Airport\",\"Manistee\",\"United States\",\"MBL\",\"KMBL\",44.2723999,-86.24690247,621,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("7056,\"Charlotte County Airport\",\"Punta Gorda\",\"United States\",\"PGD\",\"KPGD\",26.92020035,-81.9905014,26,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
@@ -5698,7 +5705,7 @@ public class RawAirportData {
         rawData.add("7513,\"Addison Airport\",\"Addison\",\"United States\",\"ADS\",\"KADS\",32.9686012268,-96.8364028931,644,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("7514,\"Destin Executive Airport\",\"Destin\",\"United States\",\"DSI\",\"KDTS\",30.40010071,-86.47149658,23,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("7516,\"Kherson International Airport\",\"Kherson\",\"Ukraine\",\"KHE\",\"UKOH\",46.6758,32.506401,148,2,\"E\",\"Europe/Kiev\",\"airport\",\"OurAirports\"");
-        rawData.add("7517,\"Ryan\'s Creek Aerodrome\",\"Stewart Island\",\"New Zealand\",\"SZS\",\"NZRC\",-46.8997,168.100998,62,12,\"U\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
+        rawData.add("7517,\"Ryan's Creek Aerodrome\",\"Stewart Island\",\"New Zealand\",\"SZS\",\"NZRC\",-46.8997,168.100998,62,12,\"U\",\"Pacific/Auckland\",\"airport\",\"OurAirports\"");
         rawData.add("7518,\"Assumption Island Airport\",\"Assumption Island\",\"Seychelles\",\\N,\"FSAS\",-9.7422199993,46.506802,10,4,\"U\",\"Indian/Mahe\",\"airport\",\"OurAirports\"");
         rawData.add("7519,\"Zhijiang Airport\",\"Zhijiang\",\"China\",\"HJJ\",\"ZGCJ\",27.4411111111,109.7,882,8,\"U\",\"Asia/Shanghai\",\"airport\",\"OurAirports\"");
         rawData.add("7521,\"Yarmouth Airport\",\"Yarmouth\",\"Canada\",\"YQI\",\"CYQI\",43.826900482177734,-66.08809661865234,141,-4,\"A\",\"America/Halifax\",\"airport\",\"OurAirports\"");
@@ -5770,7 +5777,7 @@ public class RawAirportData {
         rawData.add("7620,\"Batuna Aerodrome\",\"Batuna\",\"Solomon Islands\",\"BPF\",\"AGBT\",-8.56202777778,158.119305556,24,11,\"U\",\"Pacific/Guadalcanal\",\"airport\",\"OurAirports\"");
         rawData.add("7621,\"Bartow Municipal Airport\",\"Bartow\",\"United States\",\"BOW\",\"KBOW\",27.943399429299998,-81.78340148930002,125,-5,\"U\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("7622,\"Dyagilevo Air Base\",\"Kostroma\",\"Russia\",\\N,\"UUBD\",54.64469909667969,39.57040023803711,440,3,\"N\",\"Europe/Moscow\",\"airport\",\"OurAirports\"");
-        rawData.add("7627,\"Fitiuta Airport\",\"Fiti\\'uta\",\"American Samoa\",\"FTI\",\"NSFQ\",-14.2172,-169.425003,110,-11,\"U\",\"Pacific/Pago_Pago\",\"airport\",\"OurAirports\"");
+        rawData.add("7627,\"Fitiuta Airport\",\"Fiti\'uta\",\"American Samoa\",\"FTI\",\"NSFQ\",-14.2172,-169.425003,110,-11,\"U\",\"Pacific/Pago_Pago\",\"airport\",\"OurAirports\"");
         rawData.add("7629,\"Livermore Municipal Airport\",\"Livermore\",\"United States\",\"LVK\",\"KLVK\",37.6934013367,-121.819999695,400,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("7630,\"Mariposa Yosemite Airport\",\"Mariposa\",\"United States\",\"RMY\",\"KMPI\",37.5108985901,-120.040000916,2254,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("7633,\"Grootfontein Airport\",\"Grootfontein\",\"Namibia\",\"GFY\",\"FYGF\",-19.60219955444336,18.122699737548828,4636,1,\"S\",\"Africa/Windhoek\",\"airport\",\"OurAirports\"");
@@ -5874,7 +5881,7 @@ public class RawAirportData {
         rawData.add("7835,\"Teuge Airport\",\"Deventer\",\"Netherlands\",\\N,\"EHTE\",52.2447013855,6.04666996002,17,1,\"E\",\"Europe/Amsterdam\",\"airport\",\"OurAirports\"");
         rawData.add("7836,\"Midden-Zeeland Airport\",\"Middelburg\",\"Netherlands\",\\N,\"EHMZ\",51.5121994019,3.73111009598,6,1,\"E\",\"Europe/Amsterdam\",\"airport\",\"OurAirports\"");
         rawData.add("7837,\"Ameland Airfield\",\"Ameland\",\"Netherlands\",\\N,\"EHAL\",53.451698,5.67722,11,1,\"E\",\"Europe/Amsterdam\",\"airport\",\"OurAirports\"");
-        rawData.add("7838,\"Saint-Cyr-l\'École Airport\",\"Saint-Cyr\",\"France\",\\N,\"LFPZ\",48.8114013671875,2.0747199058532715,371,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
+        rawData.add("7838,\"Saint-Cyr-l'École Airport\",\"Saint-Cyr\",\"France\",\\N,\"LFPZ\",48.8114013671875,2.0747199058532715,371,1,\"E\",\"Europe/Paris\",\"airport\",\"OurAirports\"");
         rawData.add("7839,\"Lawrence J Timmerman Airport\",\"Milwaukee\",\"United States\",\"MWC\",\"KMWC\",43.110401,-88.034401,745,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("7840,\"Southern Wisconsin Regional Airport\",\"Janesville\",\"United States\",\"JVL\",\"KJVL\",42.620300293,-89.0416030884,808,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("7841,\"Mantsonyane Airport\",\"Mantsonyane\",\"Lesotho\",\\N,\"FXMN\",-29.546100616455078,28.270999908447266,7100,2,\"U\",\"Africa/Maseru\",\"airport\",\"OurAirports\"");
@@ -6564,7 +6571,7 @@ public class RawAirportData {
         rawData.add("9186,\"Eastern Slopes Regional Airport\",\"Fryeburg\",\"United States\",\"FRY\",\"KIZG\",43.991100311299995,-70.9478988647,454,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("9187,\"Coral Creek Airport\",\"Placida\",\"United States\",\\N,\"FA54\",26.85449981689453,-82.2511978149414,4,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("9188,\"Lakefront Airport\",\"New Orleans\",\"United States\",\"NEW\",\"KNEW\",30.042400360107,-90.028297424316,8,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
-        rawData.add("9189,\"Coeur D\'Alene - Pappy Boyington Field\",\"Coeur d\'Alene\",\"United States\",\"COE\",\"KCOE\",47.77429962,-116.8199997,2320,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
+        rawData.add("9189,\"Coeur D'Alene - Pappy Boyington Field\",\"Coeur d'Alene\",\"United States\",\"COE\",\"KCOE\",47.77429962,-116.8199997,2320,-8,\"A\",\"America/Los_Angeles\",\"airport\",\"OurAirports\"");
         rawData.add("9190,\"Beaumont Municipal Airport\",\"Beaumont\",\"United States\",\"BMT\",\"KBMT\",30.0706996918,-94.21579742430002,32,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("9191,\"Vermilion Regional Airport\",\"Danville\",\"United States\",\"DNV\",\"KDNV\",40.19919968,-87.59590149,697,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("9193,\"Coonabarabran Airport\",\"Coonabarabran\",\"Australia\",\"COJ\",\"YCBB\",-31.332500457763672,149.26699829101562,2117,10,\"O\",\"Australia/Sydney\",\"airport\",\"OurAirports\"");
@@ -6649,7 +6656,7 @@ public class RawAirportData {
         rawData.add("9429,\"Colorado Springs East Airport\",\"Ellicott\",\"United States\",\\N,\"KA50\",38.8744010925293,-104.41000366210938,6145,-7,\"A\",\"America/Denver\",\"airport\",\"OurAirports\"");
         rawData.add("9447,\"Crystal Airport\",\"Crystal\",\"United States\",\\N,\"KMIC\",45.0620002746582,-93.35389709472656,869,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
         rawData.add("9448,\"Clarke County Airport\",\"Quitman\",\"United States\",\\N,\"K23M\",32.0849,-88.738897,320,-6,\"A\",\"America/Chicago\",\"airport\",\"OurAirports\"");
-        rawData.add("9450,\"W H \'Bud\' Barron Airport\",\"Dublin\",\"United States\",\"DBN\",\"KDBN\",32.56439972,-82.98529816,309,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
+        rawData.add("9450,\"W H 'Bud' Barron Airport\",\"Dublin\",\"United States\",\"DBN\",\"KDBN\",32.56439972,-82.98529816,309,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
         rawData.add("9474,\"Pukarua Airport\",\"Pukarua\",\"French Polynesia\",\"PUK\",\"NTGQ\",-18.29560089111328,-137.01699829101562,5,-10,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("9475,\"Kabale Airport\",\"Kabale\",\"Uganda\",\\N,\"HUKB\",-1.226111,29.96,6000,3,\"N\",\"Africa/Kampala\",\"airport\",\"OurAirports\"");
         rawData.add("9481,\"Guatuso Airport\",\"Marigot\",\"France\",\\N,\"MRGT\",10.683333396911621,-84.83333587646484,164,-6,\"N\",\"America/Costa_Rica\",\"airport\",\"OurAirports\"");
@@ -6675,7 +6682,7 @@ public class RawAirportData {
         rawData.add("9751,\"Washabo Airport\",\"Washabo\",\"Suriname\",\"WSO\",\"SMWS\",5.215277,-57.185302,68,-3,\"N\",\"America/Paramaribo\",\"airport\",\"OurAirports\"");
         rawData.add("9753,\"Popham Airfield\",\"Popham\",\"United Kingdom\",\\N,\"EGHP\",51.193901,-1.23472,550,0,\"E\",\"Europe/London\",\"airport\",\"OurAirports\"");
         rawData.add("9754,\"Causey Airport\",\"Liberty\",\"United States\",\\N,\"K2A5\",35.911800384521484,-79.61759948730469,723,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
-        rawData.add("9759,\"Abaco I Walker C Airport\",\"Walker\'s Cay\",\"Bahamas\",\"WKR\",\"MYAW\",27.266700744628906,-78.39969635009766,10,-5,\"A\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("9759,\"Abaco I Walker C Airport\",\"Walker's Cay\",\"Bahamas\",\"WKR\",\"MYAW\",27.266700744628906,-78.39969635009766,10,-5,\"A\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("9760,\"Black Point Airstrip\",\"Black Point\",\"Bahamas\",\\N,\"MYEB\",24.089488448799997,-76.3979172707,10,-5,\"A\",\"America/Nassau\",\"airport\",\"OurAirports\"");
         rawData.add("9761,\"Bartica A Airport\",\"Bartica\",\"Guyana\",\"GFO\",\"SYBT\",6.358864,-58.655207,3,-4,\"N\",\"America/Guyana\",\"airport\",\"OurAirports\"");
         rawData.add("9763,\"Doylestown Airport\",\"Doylestown\",\"United States\",\"DYL\",\"KDYL\",40.3330001831,-75.1222991943,394,-5,\"A\",\"America/New_York\",\"airport\",\"OurAirports\"");
@@ -6865,13 +6872,14 @@ public class RawAirportData {
         rawData.add("10938,\"Kaili Airport\",\"Kaili\",\"China\",\"KJH\",\"ZUKJ\",26.972,107.988,3115,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("10939,\"Shennongjia Hongping Airport\",\"Shennongjia\",\"China\",\"HPG\",\"ZHSN\",31.626,110.34,8365,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("10940,\"Zhangjiakou Ningyuan Airport\",\"Zhangjiakou\",\"China\",\"ZQZ\",\"ZBZJ\",40.7386016846,114.930000305,2347,8,\"N\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("10941,\"Arxan Yi\'ershi Airport\",\"Arxan\",\"China\",\"YIE\",\"ZBES\",47.3106,119.9117,2925,8,\"N\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("10941,\"Arxan Yi'ershi Airport\",\"Arxan\",\"China\",\"YIE\",\"ZBES\",47.3106,119.9117,2925,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("10942,\"Hengyang Nanyue Airport\",\"Hengyang\",\"China\",\"HNY\",\"ZGHY\",26.9053,112.627998,0,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("10943,\"Hongyuan Airport\",\"Ngawa\",\"China\",\"AHJ\",\"ZUHY\",32.53154,102.35224,11600,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("10949,\"Wonsan Kalma International Airport\",\"Wonsan\",\"North Korea\",\"WOS\",\"ZKWS\",39.166801,127.486,7,8.5,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("10951,\"Mestia Queen Tamar Airport\",\"Mestia\",\"Georgia\",\\N,\"UGMS\",43.053597,42.749012,4778,5,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("10952,\"Magas Airport\",\"Magas\",\"Russia\",\"IGT\",\"URMS\",43.322299957300004,45.0125999451,1165,3,\"N\",\"Europe/Moscow\",\"airport\",\"OurAirports\"");
     }
+
     private void add11000() {
         rawData.add("11004,\"Talladega Municipal Airport\",\"Talladega\",\"United States\",\"ASN\",\"KASN\",33.569900512699995,-86.05090332030001,529,-5,\"A\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("11005,\"Greenville Downtown Airport\",\"Greenville\",\"United States\",\"GMU\",\"KGMU\",34.847900390599996,-82.34999847410002,1048,-4,\"A\",\\N,\"airport\",\"OurAirports\"");
@@ -6892,7 +6900,7 @@ public class RawAirportData {
         rawData.add("11035,\"Meriden Markham Municipal Airport\",\"Meriden\",\"United States\",\\N,\"KMMK\",41.50870132446289,-72.82949829101562,103,-5,\"A\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("11038,\"Flinders Island Airport\",\"Elliston\",\"Australia\",\\N,\"YFLS\",-33.730989,134.501,0,9.5,\"O\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("11048,\"Luzern-Beromunster Airport\",\"Lucerne\",\"Switzerland\",\\N,\"LSZO\",47.189998626708984,8.204719543457031,2146,1,\"E\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("11049,\"La Grand\'combe Airport\",\"La Grand\'Combe\",\"France\",\\N,\"LFTN\",44.24440002441406,4.0122199058532715,1647,1,\"E\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("11049,\"La Grand'combe Airport\",\"La Grand'Combe\",\"France\",\\N,\"LFTN\",44.24440002441406,4.0122199058532715,1647,1,\"E\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("11051,\"Hamad International Airport\",\"Doha\",\"Qatar\",\"DOH\",\"OTHH\",25.273056,51.608056,13,3,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("11053,\"Fort Mackay / Horizon Airport\",\"Wood Buffalo\",\"Canada\",\"HZP\",\"CYNR\",57.3816986084,-111.700996399,916,-7,\"A\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("11054,\"Canmore Municipal Heliport\",\"Canmore\",\"Canada\",\\N,\"CEW9\",51.07780075069999,-115.337997437,4296,-7,\"A\",\\N,\"airport\",\"OurAirports\"");
@@ -7236,7 +7244,7 @@ public class RawAirportData {
         rawData.add("11930,\"Chafei Amsei Airport\",\"Barretos\",\"Brazil\",\"BAT\",\"SBBT\",-20.584499359131,-48.594100952148,1898,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("11931,\"Base de Aviação de Taubaté Airport\",\"Taubaté\",\"Brazil\",\"QHP\",\"SBTA\",-23.04010009765625,-45.51599884033203,1908,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("11932,\"Barriles Airport\",\"Tocopilla\",\"Chile\",\"TOQ\",\"SCBE\",-22.14109992980957,-70.06289672851562,3475,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
-        rawData.add("11933,\"Schroeder\'s field\",\"Cochrane\",\"Chile\",\\N,\"SCHR\",35.071718,-91.738801,0,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
+        rawData.add("11933,\"Schroeder's field\",\"Cochrane\",\"Chile\",\\N,\"SCHR\",35.071718,-91.738801,0,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("11934,\"Chañaral Airport\",\"Chañaral\",\"Chile\",\"CNR\",\"SCRA\",-26.332500457763672,-70.6072998046875,97,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("11935,\"Panguilemo Airport\",\"Talca\",\"Chile\",\"TLX\",\"SCTL\",-35.37779998779297,-71.60169982910156,371,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("11936,\"Victoria Airport\",\"Victoria\",\"Chile\",\"ZIC\",\"SCTO\",-38.245601654052734,-72.34860229492188,1148,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
@@ -7425,6 +7433,7 @@ public class RawAirportData {
         rawData.add("12984,\"Finke Airport\",\"Finke\",\"Australia\",\"FIK\",\"YFNE\",-25.5946998596,134.582992554,0,9.5,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("12987,\"Humberto Ghizzo Bortoluzzi Regional Airport\",\"Jaguaruna\",\"Brazil\",\"JJG\",\"SBJA\",-28.6753,-49.0596,120,-3,\"S\",\\N,\"airport\",\"OurAirports\"");
     }
+
     private void add13000() {
         rawData.add("13004,\"Nypari Airport\",\"Angatja Homeland\",\"Australia\",\\N,\"YNYP\",-26.200000762939453,130.23300170898438,0,9.5,\"O\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13006,\"Ihtiman Airfield\",\"Ihtiman\",\"Bulgaria\",\\N,\"LBHT\",42.42189,23.767221,2113,2,\"E\",\\N,\"airport\",\"OurAirports\"");
@@ -7476,12 +7485,12 @@ public class RawAirportData {
         rawData.add("13188,\"Nogliki Airport\",\"Nogliki\",\"Russia\",\"NGK\",\"UHSN\",51.780102,143.139008,109,11,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13189,\"Santa Ynez Airport\",\"Santa Ynez\",\"United States\",\"SQA\",\"KIZA\",34.60680008,-120.0759964,674,-8,\"A\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13192,\"Delingha Airport\",\"Haixi\",\"China\",\"HXD\",\"ZLDL\",37.125286,97.268658,9843,8,\"N\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13193,\"Qionghai Bo\'ao Airport\",\"Qionghai\",\"China\",\"BAR\",\"ZJQH\",19.13824,110.454775,30,8,\"N\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13193,\"Qionghai Bo'ao Airport\",\"Qionghai\",\"China\",\"BAR\",\"ZJQH\",19.13824,110.454775,30,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13199,\"Northeim Airport\",\"Northeim\",\"Germany\",\\N,\"EDVN\",51.706390380859375,10.039722442626953,404,1,\"E\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13209,\"Reggio Emilia Airport\",\"Reggio Emilia\",\"Italy\",\\N,\"LIDE\",44.698299,10.6628,152,1,\"E\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13210,\"Bowen Airport\",\"Bowen\",\"Australia\",\"ZBO\",\"YBWN\",-20.018299102783203,148.21499633789062,8,10,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13211,\"Ulanqab Jining Airport\",\"Wulanchabu\",\"China\",\"UCB\",\"ZBUC\",41.129722,113.108056,0,8,\"N\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13212,\"Odienne Airport\",\"Odienne\",\"Cote d\'Ivoire\",\"KEO\",\"DIOD\",9.5,-7.566999912261963,1365,0,\"U\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13212,\"Odienne Airport\",\"Odienne\",\"Cote d'Ivoire\",\"KEO\",\"DIOD\",9.5,-7.566999912261963,1365,0,\"U\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13214,\"Siguiri Airport\",\"Siguiri\",\"Guinea\",\"GII\",\"GUSI\",11.432999610901,-9.1669998168945,1296,0,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13215,\"Nzérékoré Airport\",\"Nzerekore\",\"Guinea\",\"NZE\",\"GUNZ\",7.8060193061829,-8.7017974853516,1657,0,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13227,\"Boolgeeda\",\"Brockman\",\"Australia\",\"OCM\",\"YBGD\",-22.54,117.275,1871,8,\"O\",\\N,\"airport\",\"OurAirports\"");
@@ -7558,7 +7567,7 @@ public class RawAirportData {
         rawData.add("13403,\"Poeketi Airstrip\",\"Poeketi\",\"Suriname\",\\N,\"SMPE\",4.126389,-54.623611,0,-3,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13404,\"Godo Holo Airstrip\",\"Pikienkondre of Miranda\",\"Suriname\",\\N,\"SMGH\",4.0583,-54.7861,280,-3,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13405,\"Anholt Airport\",\"Anholt\",\"Denmark\",\\N,\"EKAT\",56.698898315399994,11.5558996201,23,1,\"E\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13411,\"St Pierre d\'Oléron Airfield\",\"Saint Pierre d\'Oleron\",\"France\",\\N,\"LFDP\",45.959202,-1.31611,20,-1,\"E\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13411,\"St Pierre d'Oléron Airfield\",\"Saint Pierre d'Oleron\",\"France\",\\N,\"LFDP\",45.959202,-1.31611,20,-1,\"E\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13412,\"Semur En Auxois Airfield\",\"Semur en Auxois\",\"France\",\\N,\"LFGQ\",47.481899,4.34417,1053,-1,\"E\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13415,\"Urzhar Airport\",\"Urzhar\",\"Kazakhstan\",\"UZR\",\"UASU\",47.09115,81.66521,0,6,\"U\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13416,\"Pyramiden Heliport\",\"Pyramiden\",\"Norway\",\\N,\"ENPY\",78.652322,16.337208,6,1,\"E\",\\N,\"airport\",\"OurAirports\"");
@@ -7597,7 +7606,7 @@ public class RawAirportData {
         rawData.add("13467,\"Moshi Airport\",\"Moshi\",\"Tanzania\",\"QSI\",\"HTMS\",-3.3633298873901367,37.326900482177734,2801,3,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13468,\"Mansa Airport\",\"Mansa\",\"Zambia\",\"MNS\",\"FLMA\",-11.13700008392334,28.872600555419922,4101,2,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13469,\"Ghazni Airport\",\"Ghazni\",\"Afghanistan\",\"GZI\",\"OAGN\",33.5312004089,68.412902832,7150,4.5,\"N\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13470,\"Baicheng Chang\'an Airport\",\"Baicheng\",\"China\",\"DBC\",\"ZYBA\",45.505278,123.019722,480,8,\"N\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13470,\"Baicheng Chang'an Airport\",\"Baicheng\",\"China\",\"DBC\",\"ZYBA\",45.505278,123.019722,480,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13471,\"Longnan Chengzhou Airport\",\"Longnan\",\"China\",\"LNL\",\"ZLLN\",33.788,105.797,3707,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13472,\"Shangrao Sanqingshan Airport\",\"Shangrao\",\"China\",\"SQD\",\"ZSSR\",28.3797,117.9643,340,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13473,\"Songyuan Chaganhu Airport\",\"Songyuan\",\"China\",\"YSQ\",\"ZYSQ\",44.938114,124.550178,459,8,\"N\",\\N,\"airport\",\"OurAirports\"");
@@ -7620,7 +7629,7 @@ public class RawAirportData {
         rawData.add("13493,\"Fazenda Spartacus Airport\",\"COLNIZA\",\"Brazil\",\\N,\"SIXZ\",-24,-48.608333587646484,2346,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13494,\"Xinzhou Wutaishan Airport\",\"Xinzhou\",\"China\",\"WUT\",\"ZBXZ\",38.597456,112.969173,2527,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13496,\"Chengjisihan Airport\",\"Zhalantun\",\"China\",\"NZL\",\"ZBZL\",47.865833,122.767503,928,8,\"N\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13497,\"Fazenda Mequens Airport\",\"ALTA FLORESTA D\'OESTE\",\"Brazil\",\\N,\"SJTF\",-13.061944007873535,-62.25749969482422,552,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13497,\"Fazenda Mequens Airport\",\"ALTA FLORESTA D'OESTE\",\"Brazil\",\\N,\"SJTF\",-13.061944007873535,-62.25749969482422,552,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13498,\"Prainha Airport\",\"APUI\",\"Brazil\",\\N,\"SWYN\",-7.17287015914917,-59.839599609375,197,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13499,\"Mostardas Airport\",\"SANTO ANTONIO DO MATUPI\",\"Brazil\",\\N,\"SSMT\",-31.103599548339844,-50.910301208496094,59,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13500,\"Santo Domingo Airport\",\"CONSELVAN\",\"Brazil\",\\N,\"SCSN\",-33.65639877319336,-71.6144027709961,246,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
@@ -7659,7 +7668,7 @@ public class RawAirportData {
         rawData.add("13584,\"Maasin Airport\",\"Maasin\",\"Philippines\",\\N,\"RPSM\",10.187299728393555,124.78199768066406,328,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13592,\"Bantayan Airport\",\"Bantayan\",\"Philippines\",\\N,\"RPSB\",11.1624,123.7848,60,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13593,\"Biliran Airport\",\"Biliran\",\"Philippines\",\\N,\"RPVQ\",11.5159178299,124.428985119,0,8,\"N\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13595,\"Fazenda Várzea Funda Airport\",\"PRIMAVERA D\'OESTE\",\"Brazil\",\\N,\"SIEL\",-16.58361053466797,-57.73222351074219,709,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13595,\"Fazenda Várzea Funda Airport\",\"PRIMAVERA D'OESTE\",\"Brazil\",\\N,\"SIEL\",-16.58361053466797,-57.73222351074219,709,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13597,\"Primavera do Leste Airport\",\"PRIMAVERA DO LESTE\",\"Brazil\",\\N,\"SWPY\",-15.565555572509766,-54.33777618408203,2149,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13598,\"Croker Island Airport\",\"Croker Island\",\"Australia\",\"CKI\",\"YCKI\",-11.164999961853027,132.48300170898438,16,9.5,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13599,\"The Granites Airport\",\"The Granites\",\"Australia\",\\N,\"YTGT\",-20.54829978942871,130.3470001220703,0,9.5,\"N\",\\N,\"airport\",\"OurAirports\"");
@@ -7691,7 +7700,7 @@ public class RawAirportData {
         rawData.add("13648,\"West Melton Aerodrome\",\"West Melton\",\"New Zealand\",\\N,\"NZWL\",-43.47669982910156,172.39700317382812,312,12,\"Z\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13649,\"Rangiora Airfield\",\"Rangiora\",\"New Zealand\",\\N,\"NZRT\",-43.290000915527344,172.54200744628906,180,12,\"U\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13668,\"Fazenda Jatobasso Airport\",\"JARU\",\"Brazil\",\\N,\"SIDG\",-22.429166793823242,-55.53333282470703,2152,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13669,\"FIC Heliport\",\"MACHADINHO D\'OESTE\",\"Brazil\",\\N,\"SIMC\",-22.711389541625977,-47.141109466552734,1985,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13669,\"FIC Heliport\",\"MACHADINHO D'OESTE\",\"Brazil\",\\N,\"SIMC\",-22.711389541625977,-47.141109466552734,1985,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13671,\"Noonkanbah Airport\",\"Noonkanbah\",\"Australia\",\"NKB\",\"YNKA\",-18.4946994781,124.851997375,0,8,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13677,\"Algeciras Heliport\",\"Algeciras\",\"Spain\",\"AEI\",\"LEAG\",36.12888,-5.441118,98,-2,\"E\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13681,\"Chepelevka Airport\",\"Uzyn\",\"Ukraine\",\\N,\"UKKH\",49.79059982299805,30.4414005279541,568,2,\"E\",\\N,\"airport\",\"OurAirports\"");
@@ -7702,7 +7711,7 @@ public class RawAirportData {
         rawData.add("13695,\"Sunchales Aeroclub Airport\",\"Sunchales\",\"Argentina\",\"NCJ\",\"SAFS\",-30.9575,-61.5283,311,-3,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13696,\"Istanbul Airport\",\"Istanbul\",\"Turkey\",\"IST\",\"LTFM\",41.275278,28.751944,325,3,\"E\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13707,\"Seldovia Airport\",\"Seldovia\",\"United States\",\"SOV\",\"PASO\",59.442401885986,-151.70399475098,29,-9,\"A\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13711,\"Lutselk\'e Airport\",\"Lutselk\'e\",\"Canada\",\"YSG\",\"CYLK\",62.418303,-110.681998,596,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13711,\"Lutselk'e Airport\",\"Lutselk'e\",\"Canada\",\"YSG\",\"CYLK\",62.418303,-110.681998,596,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("13712,\"Engeløy Airport\",\"Engeløy\",\"Norway\",\\N,\"ENEN\",67.967222,14.9925,0,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("13713,\"Dwangwa Airport\",\"Dwangwa\",\"Malawi\",\"DWA\",\"FWDW\",-12.5183,34.131901,1605,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("13714,\"Paloich Airport, Heliport\",\"Higleig\",\"South Sudan\",\"HGI\",\"HSFA\",10.529167,32.500556,1290,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
@@ -7741,7 +7750,7 @@ public class RawAirportData {
         rawData.add("13808,\"Mchauru Airport\",\"Geita\",\"Tanzania\",\"GIT\",\"HTRU\",-2.813667,32.172472,3955,3,\"N\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13821,\"Gitega Airport\",\"Gitega\",\"Burundi\",\"GID\",\"HBBE\",-3.417209,29.911308,5741,2,\"U\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13829,\"Región de Murcia International Airport\",\"Murcia\",\"Spain\",\"RMU\",\"LEMI\",37.803,-1.125,632,1,\"E\",\\N,\"airport\",\"OurAirports\"");
-        rawData.add("13830,\"Fazenda Kajussol Airport\",\"Alta Floresta D\'Oeste\",\"Brazil\",\\N,\"SJYD\",-11.9647216796875,-61.686668395996094,636,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
+        rawData.add("13830,\"Fazenda Kajussol Airport\",\"Alta Floresta D'Oeste\",\"Brazil\",\\N,\"SJYD\",-11.9647216796875,-61.686668395996094,636,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13880,\"Pelee Island Airport\",\"Pelee\",\"Canada\",\\N,\"CYPT\",41.780399322509766,-82.6780014038086,572,-5,\"A\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13881,\"Costa Marques Airport\",\"COSTA MARQUES\",\"Brazil\",\"CQS\",\"SWCQ\",-12.421099662780762,-64.25160217285156,555,-4,\"S\",\\N,\"airport\",\"OurAirports\"");
         rawData.add("13891,\"Mangalore Airport\",\"Mangalore\",\"Australia\",\\N,\"YMNG\",-36.888301849365234,145.1840057373047,467,10,\"O\",\\N,\"airport\",\"OurAirports\"");
@@ -7762,7 +7771,7 @@ public class RawAirportData {
         rawData.add("14098,\"Jakkur Aerodrome\",\"Bengaluru\",\"India\",\\N,\"VOJK\",13.07674,77.597645,3013,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("14099,\"Jalal-Abad Airport\",\"Jalal-Abad\",\"Kyrgyzstan\",\\N,\"UAFJ\",40.944401,72.977798,2591,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("14100,\"Ramon Airport\",\"Eilat\",\"Israel\",\"ETM\",\"LLER\",29.723694,35.011416,288,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
-        rawData.add("14101,\"Rustaq Airport\",\"Al Masna\'ah\",\"Oman\",\"MNH\",\"OORQ\",23.640556,57.4875,349,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
+        rawData.add("14101,\"Rustaq Airport\",\"Al Masna'ah\",\"Oman\",\"MNH\",\"OORQ\",23.640556,57.4875,349,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("14102,\"Laguindingan Airport\",\"Cagayan de Oro City\",\"Philippines\",\"CGY\",\"RPMY\",8.612203,124.456496,190,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("14103,\"Kostomuksha Airport\",\"Kostomuksha\",\"Russia\",\\N,\"ULPM\",64.61799621579999,30.687000274699997,681,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
         rawData.add("14104,\"Privolzhskiy Air Base\",\"Astrakhan\",\"Russia\",\\N,\"XRAP\",46.396,47.893,-66,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
@@ -7774,6 +7783,9 @@ public class RawAirportData {
         rawData.add("14110,\"Melitopol Air Base\",\"Melitopol\",\"Ukraine\",\\N,\"UKDM\",46.880001,35.305,0,\\N,\\N,\\N,\"airport\",\"OurAirports\"");
     }
 
+    /**
+     * @return The raw data for the airports.
+     */
     public ArrayList<String> getRawData() {
         return this.rawData;
     }

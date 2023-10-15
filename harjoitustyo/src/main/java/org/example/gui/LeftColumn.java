@@ -19,6 +19,10 @@ public class LeftColumn {
     int height;
     private ArrayList<Airport> route;
 
+    /**
+     * @param height The window height
+     * @param route The route to be displayed
+     */
     public LeftColumn(int height, ArrayList<Airport> route) {
         this.height = height;
         this.route = route;
@@ -26,10 +30,16 @@ public class LeftColumn {
         refresh();
     }
 
+    /**
+     * @return JPanel object for the left column
+     */
     public JPanel getPanel() {
         return panel;
     }
 
+    /**
+     * Refresh the display panel.
+     */
     public void refresh() {
         panel = new JPanel();
 

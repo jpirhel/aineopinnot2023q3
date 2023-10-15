@@ -41,12 +41,22 @@ public class Map {
     private JXMapViewer mapViewer;
     private Set<Waypoint> waypoints;
 
+    /**
+     * Constructor for Map class.
+     *
+     * @param airportData The airport data
+     * @param route The calculated route
+     * @param displayAirports If set, display all airports instead of the route
+     */
     public Map(AirportData airportData, ArrayList<Airport> route, Boolean displayAirports) {
         this.airportData = airportData;
         this.route = route;
         this.displayAirports = displayAirports;
     }
 
+    /**
+     * Initializes the map.
+     */
     public void initMap() {
         initMapPanel();
         initMapTileset();
@@ -60,6 +70,10 @@ public class Map {
         }
     }
 
+    /**
+     * Initializes the route.
+     * Converts the list of route airports to GeoPosition objects.
+     */
     public void initRoute() {
         if (route == null) {
             return;
@@ -83,6 +97,9 @@ public class Map {
         restoreWaypoints();
     }
 
+    /**
+     * Redisplays the list of waypoints on the map.
+     */
     private void restoreWaypoints() {
         WaypointPainter<Waypoint> waypointPainter = new WaypointPainter<>();
         waypointPainter.setWaypoints(waypoints);
@@ -90,12 +107,19 @@ public class Map {
         mapViewer.setOverlayPainter(waypointPainter);
     }
 
+    /**
+     * Initializes the Map position to the default values.
+     * Centers the Map to show most of the Earth with airports.
+     */
     private void initMapPosition() {
         GeoPosition defaultMapCenter = new GeoPosition(DEFAULT_MAP_LATITUDE, DEFAULT_MAP_LONGITUDE);
         mapViewer.setZoom(DEFAULT_ZOOM_LEVEL);
         mapViewer.setAddressLocation(defaultMapCenter);
     }
 
+    /**
+     * Initializes the map to use OpenStreetMaps tiles.
+     */
     private void initMapTileset() {
         TileFactoryInfo osmInfo = new OSMTileFactoryInfo();
         TileFactory osmInfoFactory = new DefaultTileFactory(osmInfo);
@@ -105,6 +129,9 @@ public class Map {
         mapViewer.setTileFactory(osmInfoFactory);
     }
 
+    /**
+     * Initializes the Map panel using the jxmapviewer2 object.
+     */
     private void initMapPanel() {
         //noinspection UnnecessaryLocalVariable
         JXMapViewer mapViewer = new JXMapViewer();
@@ -112,6 +139,9 @@ public class Map {
         this.mapViewer = mapViewer;
     }
 
+    /**
+     * Initializes the map events for zooming with the mouse wheel etc.
+     */
     private void initMapEvents() {
         MouseInputListener mia = new PanMouseInputListener(mapViewer);
 
@@ -123,6 +153,10 @@ public class Map {
         mapViewer.addKeyListener(new PanKeyListener(mapViewer));
     }
 
+    /**
+     * Initializes the map using the airport data.
+     * Shows all the airports.
+     */
     private void initAirports() {
         ArrayList<GeoPosition> airportGeoPositions = new ArrayList<>();
 
@@ -145,10 +179,18 @@ public class Map {
         mapViewer.setOverlayPainter(waypointPainter);
     }
 
+    /**
+     * @return The map object. It is a subclass of JPanel.
+     */
     public JPanel getPanel() {
         return this.mapViewer;
     }
 
+    /**
+     * Converts an Airport object to a GeoPosition object used by the map.
+     * @param airport The airport to be converted
+     * @return GeoPosition object.
+     */
     private GeoPosition getAirportGeoPosition(Airport airport) {
         Double latitude = airport.getLatitude();
         Double longitude = airport.getLongitude();

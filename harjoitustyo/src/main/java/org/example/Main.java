@@ -1,11 +1,15 @@
 package org.example;
 
+//CHECKSTYLE.OFF: AvoidStarImport
+
 import java.util.ArrayList;
 
 import org.example.data.*;
 import org.example.geo.GeoUtil;
 import org.example.gui.MainWindow;
 import org.example.logic.DijkstraSearch;
+
+//CHECKSTYLE.ON: AvoidStarImport
 
 public class Main {
     private AirportData airportData;
@@ -21,11 +25,20 @@ public class Main {
         Main main = new Main();
 
         // generate initial dataset - this is unfortunately redundant
-        main.generateData(417, 500);
+        main.generateData(417, 501);
 
+        // read command line parameters
+
+        // the actual command to be performed by the program
         String command = "";
+
+        // ICAO code of start airport
         String startIcao = "";
+
+        // ICAO code of destination airport
         String destIcao = "";
+
+        // the range of the plane used
         int rangeInKm = 0;
 
         try {
@@ -35,7 +48,15 @@ public class Main {
             System.exit(1);
         }
 
-        if (command.equals("dijkstra")) {
+        // show all airports on a map
+
+        if (command.equals("airports")) {
+            main.initGuiWithAirports();
+        }
+
+        // parse command line arguments for searches
+
+        if (command.equals("dijkstra") || command.equals("idastar")) {
             try {
                 startIcao = args[1];
                 destIcao = args[2];
@@ -44,22 +65,39 @@ public class Main {
                 usage();
                 System.exit(1);
             }
+        }
 
+        // perform a dijkstra search
+
+        if (command.equals("dijkstra")) {
             main.dijkstraSearchIcao(startIcao, destIcao, rangeInKm);
+        }
+
+        // perform a IDA* search
+
+        if (command.equals("idastar")) {
+            main.idastarSearchIcao(startIcao, destIcao, rangeInKm);
+        }
+
+        // show search results on a map
+
+        if (command.equals("dijkstra") || command.equals("idastar")) {
             main.initGui();
         }
-
-        if (command.equals("airports")) {
-            main.initGuiWithAirports();
-        }
-
-
     }
 
+    private void idastarSearchIcao(String startIcao, String destIcao, int rangeInKm) {
+        // FIXME to be implemented
+    }
+
+    /**
+     * Prints program usage to standard output.
+     */
     private static void usage() {
         //CHECKSTYLE.OFF: LineLength
 
         System.out.println("Usage:");
+        System.out.println("./gradlew run --args='icao <SEARCH_STRING>'");
         System.out.println("./gradlew run --args='dijkstra <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
         System.out.println("./gradlew run --args='idastar <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
         System.out.println("./gradlew run --args='airports'");
@@ -67,6 +105,13 @@ public class Main {
         //CHECKSTYLE.ON: LineLength
     }
 
+    /**
+     * Performs a search of the shortest route between airports using Dijkstra's algorithm.
+     *
+     * @param startIcao ICAO code of start airport
+     * @param destIcao ICAO code of destination airport
+     * @param rangeInKm Range of plane (in kilometers)
+     */
     private void dijkstraSearchIcao(String startIcao, String destIcao, int rangeInKm) {
         int startAirportId = airportData.getIcaoIndex().get(startIcao).getId();
         int destAirportId = airportData.getIcaoIndex().get(destIcao).getId();
@@ -75,11 +120,17 @@ public class Main {
         Airport destAirport = airportData.getAirports().get(destAirportId);
 
         generateData(startAirportId, rangeInKm);
-        route = dijkstraSearch(startAirport, destAirport, rangeInKm);
+
+        route = dijkstraSearch(startAirport, destAirport);
 
         printRoute(route);
     }
 
+    /**
+     * Prints the calculated route to standard output.
+     *
+     * @param route The calculated route
+     */
     private void printRoute(ArrayList<Airport> route) {
         System.out.println("Route:");
 
@@ -111,6 +162,12 @@ public class Main {
         //CHECKSTYLE.ON: LineLength
     }
 
+    /**
+     * Generates airport dataset & graph used by the program.
+     *
+     * @param fromAirportId The start airport ID.
+     * @param rangeInKm The range of the plane in kilometers.
+     */
     private void generateData(int fromAirportId, int rangeInKm) {
         Importer importer = new Importer(new RawAirportData());
         ArrayList<Airport> airports = importer.importAirports();
@@ -129,11 +186,17 @@ public class Main {
         this.airportGraph = airportGraph;
     }
 
+    /**
+     * Initializes the program GUI and shows all airports in the data set.
+     */
     private void initGuiWithAirports() {
         MainWindow mainWindow = new MainWindow(airportData, route, true);
         mainWindow.show();
     }
 
+    /**
+     * Initializes the program GUI by creating the main window.
+     */
     private void initGui() {
         if (route == null) {
             return;
@@ -143,10 +206,16 @@ public class Main {
         mainWindow.show();
     }
 
+    /**
+     * Performs the actual Dijkstra's algoritm search for the shortest route between airports.
+     *
+     * @param startAirport The start Airport object
+     * @param destAirport The destination Airport object
+     * @return ArrayList of airports from the start to the destination
+     */
     private ArrayList<Airport> dijkstraSearch(
             Airport startAirport,
-            Airport destAirport,
-            int rangeInKm) {
+            Airport destAirport) {
         DijkstraSearch dijkstraSearch = new DijkstraSearch(
                 airportData.getAirports(),
                 airportData.getAirportDistances());
