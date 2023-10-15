@@ -36,7 +36,16 @@ dependencies {
     implementation(files("lib/jxmapviewer2-2.6.jar"))
 }
 
+tasks.compileJava {
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+
+    finalizedBy(tasks.jar)
+}
+
 tasks.jar {
+    dependsOn(tasks.compileJava)
+
     manifest.attributes["Main-Class"] = "org.example.Main"
 
     val dependencies = configurations
@@ -46,6 +55,7 @@ tasks.jar {
     from(dependencies)
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
 }
 
 tasks.test {
