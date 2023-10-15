@@ -36,6 +36,18 @@ dependencies {
     implementation(files("lib/jxmapviewer2-2.6.jar"))
 }
 
+tasks.jar {
+    manifest.attributes["Main-Class"] = "org.example.Main"
+
+    val dependencies = configurations
+            .runtimeClasspath
+            .get()
+            .map(::zipTree)
+    from(dependencies)
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 tasks.test {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
