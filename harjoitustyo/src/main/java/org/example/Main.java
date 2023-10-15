@@ -142,6 +142,8 @@ public class Main {
 
         if (found.isEmpty()) {
             System.out.println("No matches for search keyword '" + icaoSearch + "'.");
+        } else {
+            System.out.println("\n" + found.size() + " matches.");
         }
     }
 
