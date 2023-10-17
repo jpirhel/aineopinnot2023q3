@@ -1,12 +1,14 @@
 package org.example.data;
 
 //CHECKSTYLE.OFF: AvoidStarImport
+
 import static org.junit.jupiter.api.Assertions.*;
-//CHECKSTYLE.ON: AvoidStarImport
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
+
+//CHECKSTYLE.ON: AvoidStarImport
 
 class AirportGraphTest {
     private final AirportDataGenerator airportDataGenerator;

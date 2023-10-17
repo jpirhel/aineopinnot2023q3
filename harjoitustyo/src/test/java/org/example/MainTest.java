@@ -1,11 +1,15 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
+//CHECKSTYLE.OFF: AvoidStarImport
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+//CHECKSTYLE.ON: AvoidStarImport
 
 class MainTest {
     @Test
