@@ -1,9 +1,13 @@
 package org.example.geo;
 
+//CHECKSTYLE.OFF: AvoidStarImport
+
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+//CHECKSTYLE.ON: AvoidStarImport
 
 /**
  * Test class for class Coord.
