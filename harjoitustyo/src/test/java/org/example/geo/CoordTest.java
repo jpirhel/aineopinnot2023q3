@@ -9,9 +9,6 @@ import org.junit.jupiter.api.Test;
 
 //CHECKSTYLE.ON: AvoidStarImport
 
-/**
- * Test class for class Coord.
- */
 class CoordTest {
     private Coord coord;
 
@@ -25,17 +22,11 @@ class CoordTest {
         this.coord = coord;
     }
 
-    /**
-     * Tests the Latitude getter.
-     */
     @Test
     void getLat() {
         assertEquals(this.coord.getLat(), 60.17207950745159);
     }
 
-    /**
-     * Tests the longitude getter.
-     */
     @Test
     void getLon() {
         assertEquals(this.coord.getLon(), 24.941344450549877);

@@ -24,11 +24,9 @@ public class LeftColumn {
     private final ArrayList<Airport> route;
 
     /**
-     * @param height The window height
      * @param route The route to be displayed
      */
-    public LeftColumn(int height, ArrayList<Airport> route) {
-        this.height = height;
+    public LeftColumn(ArrayList<Airport> route) {
         this.route = route;
 
         refresh();
@@ -48,7 +46,7 @@ public class LeftColumn {
     public void refresh() {
         panel = new JPanel();
 
-        panel.setPreferredSize(new Dimension(LEFT_COLUMN_WIDTH, height));
+        panel.setPreferredSize(new Dimension(LEFT_COLUMN_WIDTH, LEFT_COLUMN_HEIGHT));
         panel.setBackground(Color.WHITE);
 
         int totalDistance = GeoUtil.routeTotalDistance(route, false);
@@ -70,7 +68,7 @@ public class LeftColumn {
         routePanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         routePanel.setBackground(Color.WHITE);
 
-        routePanel.setPreferredSize(new Dimension(LEFT_COLUMN_WIDTH, height + 500));
+        routePanel.setPreferredSize(new Dimension(LEFT_COLUMN_WIDTH, LEFT_COLUMN_HEIGHT));
 
         // header information
 

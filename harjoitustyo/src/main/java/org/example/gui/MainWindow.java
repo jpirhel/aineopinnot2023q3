@@ -68,7 +68,7 @@ public class MainWindow {
 
         if (!displayAirports) {
             // display left hand panel for the list of airports on the route
-            LeftColumn leftColumn = new LeftColumn((int) frame.getSize().getHeight(), route);
+            LeftColumn leftColumn = new LeftColumn(route);
             panel.add(leftColumn.getPanel(), BorderLayout.LINE_START);
         }
 
