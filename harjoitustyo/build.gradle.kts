@@ -63,6 +63,10 @@ tasks.test {
     useJUnitPlatform()
     finalizedBy(tasks.jacocoTestReport)
     outputs.upToDateWhen { false } // always run test task, even when it is "up-to-date"
+    maxHeapSize = "2G"
+//    testLogging {
+//        events("passed")
+//    }
 }
 
 tasks.jacocoTestReport {
