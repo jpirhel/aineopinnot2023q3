@@ -2,6 +2,8 @@ package org.example.gui;
 
 //CHECKSTYLE.OFF: AvoidStarImport
 
+import static org.example.gui.GuiUtil.*;
+
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -9,8 +11,6 @@ import javax.swing.border.EmptyBorder;
 
 import org.example.data.Airport;
 import org.example.geo.GeoUtil;
-
-import static org.example.gui.GuiUtil.*;
 
 //CHECKSTYLE.ON: AvoidStarImport
 
@@ -58,7 +58,9 @@ public class LeftColumn {
         JPanel headerPanel = new JPanel();
         headerPanel.setBackground(Color.WHITE);
         headerPanel.setPreferredSize(new Dimension(LEFT_COLUMN_WIDTH, HEADER_LABEL_HEIGHT));
-        JLabel headerLabel = new JLabel("Route distance: " + totalDistance + " km, hops: " + route.size());
+        JLabel headerLabel = new JLabel("Route distance: "
+                + totalDistance + " km, hops: "
+                + route.size());
         headerPanel.add(headerLabel);
 
         // panel for the calculated route
@@ -84,7 +86,10 @@ public class LeftColumn {
 
         // start airport
 
-        String text = "(START) " + start.getName() + ", " + start.getCity() + ", " + start.getCountry();
+        String text = "(START) "
+                + start.getName()
+                + ", " + start.getCity()
+                + ", " + start.getCountry();
         JLabel airportLabel = new JLabel(text);
         routePanel.add(airportLabel);
 
@@ -99,7 +104,11 @@ public class LeftColumn {
 
                 distanceToPrevHop = GeoUtil.distanceInKm(a.getCoord(), prev.getCoord());
 
-                text = "(" + distanceToPrevHop + " km) " + a.getName() + ", " + a.getCity() + ", " + a.getCountry();
+                text = "("
+                        + distanceToPrevHop + " km) "
+                        + a.getName()
+                        + ", " + a.getCity()
+                        + ", " + a.getCountry();
                 airportLabel = new JLabel(text);
                 routePanel.add(airportLabel);
             }
@@ -110,7 +119,11 @@ public class LeftColumn {
             Airport dest = route.get(route.size() - 1);
 
             int distanceToLastHop = GeoUtil.distanceInKm(prev.getCoord(), dest.getCoord());
-            text = "(" + distanceToLastHop + " km) " + dest.getName() + ", " + dest.getCity() + ", " + dest.getCountry();
+
+            text = "(" + distanceToLastHop + " km) "
+                    + dest.getName()
+                    + ", " + dest.getCity()
+                    + ", " + dest.getCountry();
 
             airportLabel = new JLabel(text);
             routePanel.add(airportLabel);

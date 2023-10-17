@@ -1,8 +1,9 @@
 package org.example.geo;
 
+import java.util.ArrayList;
+
 import org.example.data.Airport;
 
-import java.util.ArrayList;
 
 /**
  * Geographic utility functions
@@ -53,29 +54,56 @@ public class GeoUtil {
         return (int) kilometers;
     }
 
+    /**
+     * Calculates the total flight distance of the route.
+     *
+     * @param route The calculated route.
+     * @param output If set, print route information to standard output.
+     * @return The calculated total route length.
+     */
     public static int routeTotalDistance(ArrayList<Airport> route, boolean output) {
+        // null route total distance is 0
+
+        if (route == null) {
+            if (output) {
+                System.out.println("total distance: 0 km, number of hops: 0");
+            }
+
+            return 0;
+        }
+
         int totalDistance = 0;
 
         Airport destAirport = route.get(route.size() - 1);
 
         for (int i = 0; i < route.size() - 1; i++) {
-            Airport curr = route.get(i);
-            Airport next = route.get(i + 1);
+            Airport curr = route.get(i); // current airport
+            Airport next = route.get(i + 1); // next hop
+
+            // calculate distance to next hop
 
             int distance = GeoUtil.distanceInKm(curr.getCoord(), next.getCoord());
 
             if (output) {
+                //CHECKSTYLE.OFF: LineLength
+
                 System.out.println("ICAO: " + curr.getIcao() + ", " + curr.getName() + ", " + curr.getCity() + ", " + curr.getCountry() + ", coordinates: " + curr.getCoord());
                 System.out.println("-> distance to next hop: " + distance + " km");
+
+                //CHECKSTYLE.ON: LineLength
             }
 
             totalDistance += distance;
         }
 
         if (output) {
+            //CHECKSTYLE.OFF: LineLength
+
             System.out.println("ICAO: " + destAirport.getIcao() + ", " + destAirport.getName() + ", " + destAirport.getCity() + ", " + destAirport.getCountry() + ", coordinates: " + destAirport.getCoord());
             System.out.println();
             System.out.println("total distance: " + totalDistance + " km" + ", number of hops: " + route.size());
+
+            //CHECKSTYLE.ON: LineLength
         }
 
         return totalDistance;
