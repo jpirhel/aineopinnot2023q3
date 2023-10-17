@@ -12,9 +12,15 @@ import org.example.logic.DijkstraSearch;
 //CHECKSTYLE.ON: AvoidStarImport
 
 public class Main {
+    private final String[] args;
+
     private AirportData airportData;
     private AirportGraph airportGraph;
     private ArrayList<Airport> route;
+
+    public Main(String[] args) {
+        this.args = args;
+    }
 
     /**
      * Main entry point to the program.
@@ -22,10 +28,14 @@ public class Main {
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
-        Main main = new Main();
+        Main main = new Main(args);
 
+        main.run();
+    }
+
+    private void run() {
         // generate initial dataset - this is unfortunately redundant
-        main.generateData(417, 501);
+        this.generateData(417, 501);
 
         // read command line parameters
 
@@ -52,7 +62,7 @@ public class Main {
         // show all airports on a map
 
         if (command.equals("airports")) {
-            main.initGuiWithAirports();
+            this.initGuiWithAirports();
         }
 
         // parse command line arguments for searches
@@ -70,19 +80,19 @@ public class Main {
         // perform a dijkstra search
 
         if (command.equals("dijkstra")) {
-            main.dijkstraSearchIcao(startIcao, destIcao, rangeInKm);
+            this.dijkstraSearchIcao(startIcao, destIcao, rangeInKm);
         }
 
         // perform a IDA* search
 
         if (command.equals("idastar")) {
-            main.idastarSearchIcao(startIcao, destIcao, rangeInKm);
+            this.idastarSearchIcao(startIcao, destIcao, rangeInKm);
         }
 
         // show search results on a map
 
         if (command.equals("dijkstra") || command.equals("idastar")) {
-            main.initGui();
+            this.initGui();
         }
 
         // perform a string search of airports (name, city, country) to get the ICAO code
@@ -94,11 +104,11 @@ public class Main {
                 exitUsage();
             }
 
-            main.icaoSearch(icaoSearch);
+            this.icaoSearch(icaoSearch);
         }
 
         if (command.equals("planes")) {
-            main.planeData();
+            this.planeData();
         }
     }
 
@@ -285,7 +295,7 @@ public class Main {
     }
 
     /**
-     * Performs the actual Dijkstra's algoritm search for the shortest route between airports.
+     * Performs the actual Dijkstra's algorithm search for the shortest route between airports.
      *
      * @param startAirport The start Airport object
      * @param destAirport  The destination Airport object
