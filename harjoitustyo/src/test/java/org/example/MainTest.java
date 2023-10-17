@@ -2,12 +2,15 @@ package org.example;
 
 //CHECKSTYLE.OFF: AvoidStarImport
 
+import static org.example.Main.main;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
+
 
 //CHECKSTYLE.ON: AvoidStarImport
 
@@ -19,15 +22,12 @@ class MainTest {
 
         String[] args = new String[]{"icao", "helsinki"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("Helsinki Vantaa");
 
         assertEquals(true, matches);
-
-        assertEquals(0, exitCode);
     }
 
     @Test
@@ -37,15 +37,12 @@ class MainTest {
 
         String[] args = new String[]{"icao", "finland"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("Helsinki Vantaa");
 
         assertEquals(true, matches);
-
-        assertEquals(0, exitCode);
     }
 
     @Test
@@ -55,15 +52,12 @@ class MainTest {
 
         String[] args = new String[]{"icao", "ZZZZZZ"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("No matches");
 
         assertEquals(true, matches);
-
-        assertEquals(0, exitCode);
     }
 
     @Test
@@ -73,15 +67,12 @@ class MainTest {
 
         String[] args = new String[]{"icao"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("Usage:");
 
         assertEquals(true, matches);
-
-        assertEquals(1, exitCode);
     }
 
     @Test
@@ -91,15 +82,12 @@ class MainTest {
 
         String[] args = new String[]{"planes"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("Cessna");
 
         assertEquals(true, matches);
-
-        assertEquals(0, exitCode);
     }
 
     @Test
@@ -109,15 +97,12 @@ class MainTest {
 
         String[] args = new String[]{"nonexistent"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("Usage:");
 
         assertEquals(true, matches);
-
-        assertEquals(1, exitCode);
     }
 
     @Test
@@ -128,24 +113,20 @@ class MainTest {
         String[] args = null;
 
         //noinspection ConstantValue
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
 
         Boolean matches = captured.contains("Usage:");
 
-        assertEquals(1, exitCode);
+        assertEquals(true, matches);
     }
 
     @Test
     void runAirports() {
         String[] args = new String[]{"airports"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
-
-        assertEquals(0, exitCode); // succeeded
+        main(args);
     }
 
 
@@ -156,15 +137,12 @@ class MainTest {
 
         String[] args = new String[]{"dijkstra", "EFHK", "CYVR", "500"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("Vancouver International");
 
         assertEquals(true, matches);
-
-        assertEquals(0, exitCode);
     }
 
     @Test
@@ -174,15 +152,12 @@ class MainTest {
 
         String[] args = new String[]{"dijkstra", "EFHK", "CYVR", "300"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("No route found");
 
         assertEquals(true, matches);
-
-        assertEquals(0, exitCode); // no route found is still a success
     }
 
     @Test
@@ -192,14 +167,11 @@ class MainTest {
 
         String[] args = new String[]{"dijkstra"};
 
-        Main main = new Main(args);
-        int exitCode = main.run();
+        main(args);
 
         String captured = out.toString();
         Boolean matches = captured.contains("Usage:");
 
         assertEquals(true, matches);
-
-        assertEquals(1, exitCode);
     }
 }

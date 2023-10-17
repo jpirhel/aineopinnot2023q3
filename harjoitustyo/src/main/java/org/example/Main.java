@@ -13,15 +13,9 @@ import org.example.logic.DijkstraSearch;
 //CHECKSTYLE.ON: AvoidStarImport
 
 public class Main {
-    private final String[] args;
-
     private AirportData airportData;
     private AirportGraph airportGraph;
     private ArrayList<Airport> route;
-
-    public Main(String[] args) {
-        this.args = args;
-    }
 
     /**
      * Main entry point to the program.
@@ -29,14 +23,8 @@ public class Main {
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
-        Main main = new Main(args);
+        Main main = new Main();
 
-        int exitCode = main.run();
-
-        System.exit(exitCode);
-    }
-
-    public int run() {
         // read command line parameters
 
         // the actual command to be performed by the program
@@ -57,7 +45,6 @@ public class Main {
             command = args[0];
         } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
             usage();
-            return 1;
         }
 
         // check that the command is valid
@@ -65,18 +52,23 @@ public class Main {
         ArrayList<String> validCommands = new ArrayList<>(
                 Arrays.asList("icao", "airports", "dijkstra", "idastar", "planes", "airports"));
 
-        if (! validCommands.contains(command)) {
+        if (!validCommands.contains(command)) {
             usage();
-            return 1;
         }
 
-        // generate initial dataset - this is unfortunately redundant
-        this.generateData(417, 501);
+        // generate initial dataset for commands that need it
+        // this is unfortunately redundant
+        if (command.equals("dijkstra")
+                || command.equals("idastar")
+                || command.equals("icao")
+                || command.equals("airports")) {
+            main.generateData(417, 501);
+        }
 
         // show all airports on a map
 
         if (command.equals("airports")) {
-            this.initGuiWithAirports();
+            main.initGuiWithAirports();
         }
 
         // parse command line arguments for searches
@@ -86,28 +78,25 @@ public class Main {
                 startIcao = args[1];
                 destIcao = args[2];
                 rangeInKm = Integer.parseInt(args[3]);
+
+                // perform a dijkstra search
+
+                if (command.equals("dijkstra")) {
+                    main.dijkstraSearchIcao(startIcao, destIcao, rangeInKm);
+                }
+
+                // perform a IDA* search
+
+                if (command.equals("idastar")) {
+                    main.idastarSearchIcao(startIcao, destIcao, rangeInKm);
+                }
+
+                // show search results on a map
+
+                main.initGui();
             } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
                 usage();
-                return 1;
             }
-        }
-
-        // perform a dijkstra search
-
-        if (command.equals("dijkstra")) {
-            this.dijkstraSearchIcao(startIcao, destIcao, rangeInKm);
-        }
-
-        // perform a IDA* search
-
-        if (command.equals("idastar")) {
-            this.idastarSearchIcao(startIcao, destIcao, rangeInKm);
-        }
-
-        // show search results on a map
-
-        if (command.equals("dijkstra") || command.equals("idastar")) {
-            this.initGui();
         }
 
         // perform a string search of airports (name, city, country) to get the ICAO code
@@ -115,21 +104,17 @@ public class Main {
         if (command.equals("icao")) {
             try {
                 icaoSearch = args[1];
-            } catch (ArrayIndexOutOfBoundsException ex) {
+                main.icaoSearch(icaoSearch);
+            } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
                 usage();
-                return 1;
             }
-
-            this.icaoSearch(icaoSearch);
         }
 
         // print plane ranges
 
         if (command.equals("planes")) {
-            this.planeData();
+            main.planeData();
         }
-
-        return 0;
     }
 
     private void planeData() {
