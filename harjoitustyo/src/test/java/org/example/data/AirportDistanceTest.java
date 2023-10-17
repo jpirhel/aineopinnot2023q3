@@ -1,11 +1,13 @@
 package org.example.data;
 
 //CHECKSTYLE.OFF: AvoidStarImport
+
 import static org.junit.jupiter.api.Assertions.*;
-//CHECKSTYLE.ON: AvoidStarImport
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+//CHECKSTYLE.ON: AvoidStarImport
 
 class AirportDistanceTest {
     private AirportDistance airportDistance;
