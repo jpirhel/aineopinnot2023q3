@@ -14,11 +14,14 @@ import static org.example.gui.GuiUtil.*;
 
 //CHECKSTYLE.ON: AvoidStarImport
 
+/**
+ * Class to display the left column information on the route, next to the map.
+ */
 public class LeftColumn {
     JPanel panel;
 
     int height;
-    private ArrayList<Airport> route;
+    private final ArrayList<Airport> route;
 
     /**
      * @param height The window height
@@ -40,6 +43,7 @@ public class LeftColumn {
 
     /**
      * Refresh the display panel.
+     * Includes information on the route.
      */
     public void refresh() {
         panel = new JPanel();
@@ -106,7 +110,7 @@ public class LeftColumn {
             Airport dest = route.get(route.size() - 1);
 
             int distanceToLastHop = GeoUtil.distanceInKm(prev.getCoord(), dest.getCoord());
-            text = "(" + distanceToLastHop + "km) " + dest.getName() + ", " + dest.getCity() + ", " + dest.getCountry();
+            text = "(" + distanceToLastHop + " km) " + dest.getName() + ", " + dest.getCity() + ", " + dest.getCountry();
 
             airportLabel = new JLabel(text);
             routePanel.add(airportLabel);

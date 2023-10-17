@@ -15,6 +15,9 @@ import org.example.data.AirportData;
 
 //CHECKSTYLE.ON: AvoidStarImport
 
+/**
+ * Class for displaying the main window. Includes the map and left column route information.
+ */
 public class MainWindow {
     private final AirportData airportData;
     private final Map map;
