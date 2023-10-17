@@ -96,6 +96,19 @@ public class Main {
 
             main.icaoSearch(icaoSearch);
         }
+
+        if (command.equals("planes")) {
+            main.planeData();
+        }
+    }
+
+    private void planeData() {
+        System.out.println("Some aeroplane ranges:");
+        System.out.println();
+        System.out.println("768   km - Cessna 152 (small plane)");
+        System.out.println("1639  km - Cessna 172 Turbo Skyhawk JT-A (small plane)");
+        System.out.println("6500  km - Cessna Citation Longitude (business jet)");
+        System.out.println("14800 km - Airbus A380 (large body commercial jet)");
     }
 
     /**
@@ -163,10 +176,26 @@ public class Main {
         //CHECKSTYLE.OFF: LineLength
 
         System.out.println("Usage:");
-        System.out.println("./gradlew run --args='icao <SEARCH_STRING>'");
+        System.out.println();
+
+        System.out.println("./gradlew run --args='planes'");
+        System.out.println("*** display information about aeroplane ranges");
+        System.out.println();
+
+        System.out.println("./gradlew run --args='icao <SEARCH_STRING>' - search for airports");
+        System.out.println("*** search for airport ICAO codes (matches airport name, city, country");
+        System.out.println();
+
         System.out.println("./gradlew run --args='dijkstra <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
+        System.out.println("*** find shortest path using Dijkstra's algoritm");
+        System.out.println();
+
         System.out.println("./gradlew run --args='idastar <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
+        System.out.println("*** find shortest path using IDA* algorithm");
+        System.out.println();
+
         System.out.println("./gradlew run --args='airports'");
+        System.out.println("*** display all airports on a map");
 
         //CHECKSTYLE.ON: LineLength
     }
