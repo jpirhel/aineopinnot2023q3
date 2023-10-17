@@ -3,6 +3,7 @@ plugins {
     id("application") apply true
     id("jacoco")
     id("checkstyle")
+    id("com.adarshr.test-logger") version "4.0.0"
 }
 
 group = "org.example"
