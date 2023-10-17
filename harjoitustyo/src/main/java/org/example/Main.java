@@ -3,6 +3,7 @@ package org.example;
 //CHECKSTYLE.OFF: AvoidStarImport
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.example.data.*;
 import org.example.geo.GeoUtil;
@@ -30,13 +31,12 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main(args);
 
-        main.run();
+        int exitCode = main.run();
+
+        System.exit(exitCode);
     }
 
-    private void run() {
-        // generate initial dataset - this is unfortunately redundant
-        this.generateData(417, 501);
-
+    public int run() {
         // read command line parameters
 
         // the actual command to be performed by the program
@@ -55,9 +55,23 @@ public class Main {
 
         try {
             command = args[0];
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            exitUsage();
+        } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
+            usage();
+            return 1;
         }
+
+        // check that the command is valid
+
+        ArrayList<String> validCommands = new ArrayList<>(
+                Arrays.asList("icao", "airports", "dijkstra", "idastar", "planes", "airports"));
+
+        if (! validCommands.contains(command)) {
+            usage();
+            return 1;
+        }
+
+        // generate initial dataset - this is unfortunately redundant
+        this.generateData(417, 501);
 
         // show all airports on a map
 
@@ -73,7 +87,8 @@ public class Main {
                 destIcao = args[2];
                 rangeInKm = Integer.parseInt(args[3]);
             } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
-                exitUsage();
+                usage();
+                return 1;
             }
         }
 
@@ -101,15 +116,20 @@ public class Main {
             try {
                 icaoSearch = args[1];
             } catch (ArrayIndexOutOfBoundsException ex) {
-                exitUsage();
+                usage();
+                return 1;
             }
 
             this.icaoSearch(icaoSearch);
         }
 
+        // print plane ranges
+
         if (command.equals("planes")) {
             this.planeData();
         }
+
+        return 0;
     }
 
     private void planeData() {
@@ -127,16 +147,6 @@ public class Main {
      * @param icaoSearch The search string for finding the relevant airports.
      */
     private void icaoSearch(String icaoSearch) {
-        if (icaoSearch == null) {
-            exitUsage();
-        }
-
-        assert icaoSearch != null;
-
-        if (icaoSearch.isEmpty()) {
-            exitUsage();
-        }
-
         RawAirportData rawAirportData = new RawAirportData();
 
         String search = icaoSearch.toLowerCase();
@@ -168,11 +178,6 @@ public class Main {
         } else {
             System.out.println("\n" + found.size() + " matches.");
         }
-    }
-
-    private static void exitUsage() {
-        usage();
-        System.exit(1);
     }
 
     private void idastarSearchIcao(String startIcao, String destIcao, int rangeInKm) {
