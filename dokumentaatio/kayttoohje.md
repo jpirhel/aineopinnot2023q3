@@ -2,12 +2,20 @@
 
 Ohjelma suoritetaan seuraavasti:
 
+## Lentokoneiden kantamat
+
+```
+./gradlew run --args='planes'
+```
+
+Antaa listauksen joidenkin lentokoneiden tyypeistä ja kantamista.
+
 ## ICAO
 
 ```
 ./gradlew run --args='icao <lentokentan_nimi>'
 ```
-(EI VIELÄ IMPLEMENTOITU) Etsii lentokentän ICAO-koodin nimen perusteella (case insensitive) 
+lentokentän ICAO-koodin nimen perusteella (case insensitive) 
 
 ## Dijkstra
 
@@ -30,6 +38,14 @@ Esimerkki:
 ```
 
 (EI VIELÄ IMPLEMENTOITU) Etsii lyhimmän reitin käyttäen IDA*-algoritmia lähtökentältä kohdekentälle. Kentät annetaan käyttäen ICAO-koodeja. Kantama annetaan kilometreissä.
+
+## Lentokentät
+
+```
+./gradlew run --args='airports' 
+```
+
+Näyttää kaikki datasetissä olevat lentokentät kartalla.
 
 ## Lentokoneet
 
