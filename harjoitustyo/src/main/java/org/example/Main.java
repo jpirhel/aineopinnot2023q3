@@ -203,24 +203,7 @@ public class Main {
         //CHECKSTYLE.OFF: LineLength
 
         if (route != null) {
-            int totalDistance = 0;
-
-            Airport destAirport = route.get(route.size() - 1);
-
-            for (int i = 0; i < route.size() - 1; i++) {
-                Airport curr = route.get(i);
-                Airport next = route.get(i + 1);
-
-                int distance = GeoUtil.distanceInKm(curr.getCoord(), next.getCoord());
-
-                System.out.println("ICAO: " + curr.getIcao() + ", " + curr.getName() + ", " + curr.getCity() + ", " + curr.getCountry() + ", coordinates: " + curr.getCoord());
-                System.out.println("-> distance to next hop: " + distance + " km");
-
-                totalDistance += distance;
-            }
-            System.out.println("ICAO: " + destAirport.getIcao() + ", " + destAirport.getName() + ", " + destAirport.getCity() + ", " + destAirport.getCountry() + ", coordinates: " + destAirport.getCoord());
-            System.out.println();
-            System.out.println("total distance: " + totalDistance + " km" + ", number of hops: " + route.size());
+            GeoUtil.routeTotalDistance(route, true);
         } else {
             System.out.println("No route found!");
         }

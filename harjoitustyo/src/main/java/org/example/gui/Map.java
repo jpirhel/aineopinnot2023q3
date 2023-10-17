@@ -122,11 +122,15 @@ public class Map {
      */
     private void initMapTileset() {
         TileFactoryInfo osmInfo = new OSMTileFactoryInfo();
-        TileFactory osmInfoFactory = new DefaultTileFactory(osmInfo);
+
+        DefaultTileFactory osmInfoFactory = new DefaultTileFactory(osmInfo);
+        osmInfoFactory.setThreadPoolSize(8); // parallel load tiles
 
         mapViewer.setLayout(new BorderLayout());
 
         mapViewer.setTileFactory(osmInfoFactory);
+
+
     }
 
     /**
