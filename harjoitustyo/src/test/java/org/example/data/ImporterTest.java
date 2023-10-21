@@ -12,7 +12,8 @@ class ImporterTest {
     private final Importer importer;
 
     public ImporterTest() {
-        RawAirportData rawAirportData = new RawAirportData();
+        RawAirportData rawAirportData = new RawAirportDataWorld();
+
         //noinspection UnnecessaryLocalVariable
         Importer importer = new Importer(rawAirportData);
 
@@ -22,6 +23,7 @@ class ImporterTest {
     @Test
     void importAirports() {
         ArrayList<Airport> airports = importer.importAirports();
+
         assertEquals(7698, airports.size());
     }
 }

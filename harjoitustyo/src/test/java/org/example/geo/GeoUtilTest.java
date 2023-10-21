@@ -36,14 +36,20 @@ class GeoUtilTest {
         assertEquals(correctDistanceInKm, distance);
     }
 
-    @Test
-    void routeTotalDistance() {
-        // generate airport graph
+    AirportDataGenerator airportDataGenerator(RawAirportData rawAirportData) {
+        Importer importer = new Importer(rawAirportData);
 
-        Importer importer = new Importer(new RawAirportData());
         ArrayList<Airport> airports = importer.importAirports();
 
         AirportDataGenerator airportDataGenerator = new AirportDataGenerator(airports);
+
+        return airportDataGenerator;
+    }
+
+    @Test
+    void routeTotalDistanceWorld() {
+        // generate airport graph
+        AirportDataGenerator airportDataGenerator = airportDataGenerator(new RawAirportDataWorld());
 
         AirportData airportData = airportDataGenerator.getAirportData();
 
@@ -104,6 +110,88 @@ class GeoUtilTest {
         String capturedOutput = out.toString();
 
         String correctInfoString = "total distance: 12163 km, number of hops: 34";
+
+        Boolean hasMatch = capturedOutput.contains(correctInfoString);
+
+        assertEquals(true, hasMatch);
+
+        ByteArrayOutputStream out2 = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out2));
+
+        //noinspection unused,ConstantValue
+        int unused2 = GeoUtil.routeTotalDistance(nullRoute, true);
+
+        String capturedOutput2 = out2.toString();
+
+        String correctNullInfoString = "total distance: 0 km, number of hops: 0";
+
+        Boolean hasMatchNull = capturedOutput2.contains(correctNullInfoString);
+
+        assertEquals(true, hasMatchNull);
+    }
+
+    @Test
+    void routeTotalDistanceFinland() {
+        // generate airport graph
+        AirportDataGenerator airportDataGenerator = airportDataGenerator(new RawAirportDataFinland());
+
+        AirportData airportData = airportDataGenerator.getAirportData();
+
+        // Helsinki-Vantaa Airport
+        Airport startAirport = airportData.getIcaoIndex().get("EFHK");
+
+        // Rovaniemi airport
+        Airport destAirport = airportData.getIcaoIndex().get("EFRO");
+
+        int rangeInKm = 500;
+
+        AirportGraph airportGraph = airportDataGenerator.generateAirportGraph(
+                startAirport,
+                rangeInKm);
+
+        // search for the shortest path
+
+        DijkstraSearch dijkstraSearch = new DijkstraSearch(
+                airportData.getAirports(),
+                airportData.getAirportDistances());
+
+        ArrayList<Airport> normalizedRoute = dijkstraSearch.normalizedSearch(
+                startAirport.getId(),
+                destAirport.getId(),
+                airportGraph);
+
+        // calculate total distance
+
+        int totalDistance = GeoUtil.routeTotalDistance(normalizedRoute, false);
+
+        // correct distance is the sum of the hop distances
+
+        int correctTotalDistance = 38 + 476 + 183;
+
+        assertEquals(correctTotalDistance, totalDistance);
+
+        // test null route distance
+
+        ArrayList<Airport> nullRoute = null;
+
+        //noinspection ConstantValue
+        int nullRouteDistance = GeoUtil.routeTotalDistance(nullRoute, false);
+
+        assertEquals(nullRouteDistance, 0);
+
+        // check printed output
+
+        // redirect standard output for capture
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        //noinspection unused
+        int unused = GeoUtil.routeTotalDistance(normalizedRoute, true);
+
+        String capturedOutput = out.toString();
+
+        String correctInfoString = "total distance: 697 km, number of hops: 4";
 
         Boolean hasMatch = capturedOutput.contains(correctInfoString);
 

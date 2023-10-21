@@ -14,7 +14,7 @@ class AirportGraphTest {
     private final AirportDataGenerator airportDataGenerator;
 
     public AirportGraphTest() {
-        RawAirportData rawAirportData = new RawAirportData();
+        RawAirportData rawAirportData = new RawAirportDataWorld();
         Importer importer = new Importer(rawAirportData);
         ArrayList<Airport> airports = importer.importAirports();
 
@@ -38,7 +38,5 @@ class AirportGraphTest {
         assertNotNull(graph);
 
         // TODO more tests to ensure correctness of the graph
-
-
     }
 }

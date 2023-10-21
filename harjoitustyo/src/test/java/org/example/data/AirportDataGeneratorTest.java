@@ -12,8 +12,9 @@ class AirportDataGeneratorTest {
     private final AirportDataGenerator airportDataGenerator;
 
     public AirportDataGeneratorTest() {
-        RawAirportData rawAirportData = new RawAirportData();
-        Importer importer = new Importer(rawAirportData);
+        RawAirportData rawAirportDataWorld = new RawAirportDataWorld();
+
+        Importer importer = new Importer(rawAirportDataWorld);
         ArrayList<Airport> airports = importer.importAirports();
 
         //noinspection UnnecessaryLocalVariable

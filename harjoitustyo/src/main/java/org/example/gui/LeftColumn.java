@@ -96,7 +96,7 @@ public class LeftColumn {
         if (route != null) {
             // display information on hops, including distance to previous hop
 
-            for (int i = 1; i < route.size() - 2; i++) {
+            for (int i = 1; i < route.size() - 1; i++) {
                 Airport prev = route.get(i - 1);
                 Airport a = route.get(i);
 

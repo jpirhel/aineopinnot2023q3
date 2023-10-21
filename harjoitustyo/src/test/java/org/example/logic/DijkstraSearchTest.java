@@ -20,7 +20,7 @@ class DijkstraSearchTest {
     private final Airport airportTo;
 
     public DijkstraSearchTest() {
-        RawAirportData rawAirportData = new RawAirportData();
+        RawAirportData rawAirportData = new RawAirportDataWorld();
         Importer importer = new Importer(rawAirportData);
         ArrayList<Airport> airports = importer.importAirports();
 

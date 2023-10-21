@@ -62,9 +62,9 @@ public class GeoUtil {
      * @return The calculated total route length.
      */
     public static int routeTotalDistance(ArrayList<Airport> route, boolean output) {
-        // null route total distance is 0
+        // null or empty route total distance is 0
 
-        if (route == null) {
+        if (route == null || route.isEmpty()) {
             if (output) {
                 System.out.println("total distance: 0 km, number of hops: 0");
             }

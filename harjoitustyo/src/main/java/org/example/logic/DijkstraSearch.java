@@ -16,7 +16,7 @@ public class DijkstraSearch {
 
 
     /**
-     * Implementation of Dijkstra's algorithm to find shortest path between airports.
+     * Implementation of Dijkstra's algorithm to find the shortest path between airports.
      * Uses a priority queue.
      *
      * @param airports List of airports

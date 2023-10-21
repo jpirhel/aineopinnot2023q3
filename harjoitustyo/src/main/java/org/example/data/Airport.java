@@ -171,15 +171,7 @@ public class Airport {
     @ExcludeFromGeneratedJacocoReport
     @Override
     public String toString() {
-        return "Airport{"
-                + "id=" + id
-                + ", dataId='" + dataId + '\''
-                + ", name='" + name + '\''
-                + ", city='" + city + '\''
-                + ", country='" + country + '\''
-                + ", icao='" + icao + '\''
-                + ", latitude=" + latitude
-                + ", longitude=" + longitude + '}';
+        return name;
     }
 
     @ExcludeFromGeneratedJacocoReport

@@ -9,6 +9,7 @@ import org.example.data.*;
 import org.example.geo.GeoUtil;
 import org.example.gui.MainWindow;
 import org.example.logic.DijkstraSearch;
+import org.example.logic.IdastarSearch;
 
 //CHECKSTYLE.ON: AvoidStarImport
 
@@ -62,7 +63,7 @@ public class Main {
                 || command.equals("idastar")
                 || command.equals("icao")
                 || command.equals("airports")) {
-            main.generateData(417, 501);
+            main.generateData(417, 501, "world");
         }
 
         // show all airports on a map
@@ -81,14 +82,22 @@ public class Main {
 
                 // perform a dijkstra search
 
+                String dataSet = "world";
+
+                try {
+                    dataSet = args[3];
+                } catch (ArrayIndexOutOfBoundsException ex) {
+                    // nothing
+                }
+
                 if (command.equals("dijkstra")) {
-                    main.dijkstraSearchIcao(startIcao, destIcao, rangeInKm);
+                    main.dijkstraSearchIcao(startIcao, destIcao, rangeInKm, dataSet);
                 }
 
                 // perform a IDA* search
 
                 if (command.equals("idastar")) {
-                    main.idastarSearchIcao(startIcao, destIcao, rangeInKm);
+                    main.idastarSearchIcao(startIcao, destIcao, rangeInKm, dataSet);
                 }
 
                 // show search results on a map
@@ -104,7 +113,13 @@ public class Main {
         if (command.equals("icao")) {
             try {
                 icaoSearch = args[1];
-                main.icaoSearch(icaoSearch);
+                String dataSet = "world";
+                try {
+                    dataSet = args[2];
+                } catch (ArrayIndexOutOfBoundsException ex) {
+                    // nothing
+                }
+                main.icaoSearch(icaoSearch, dataSet);
             } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
                 usage();
             }
@@ -131,8 +146,14 @@ public class Main {
      *
      * @param icaoSearch The search string for finding the relevant airports.
      */
-    private void icaoSearch(String icaoSearch) {
-        RawAirportData rawAirportData = new RawAirportData();
+    private void icaoSearch(String icaoSearch, String dataSet) {
+        RawAirportData rawAirportData;
+
+        if (dataSet.equals("finland")) {
+            rawAirportData = new RawAirportDataFinland();
+        } else {
+            rawAirportData = new RawAirportDataWorld();
+        }
 
         String search = icaoSearch.toLowerCase();
 
@@ -165,10 +186,6 @@ public class Main {
         }
     }
 
-    private void idastarSearchIcao(String startIcao, String destIcao, int rangeInKm) {
-        // FIXME to be implemented
-    }
-
     /**
      * Prints program usage to standard output.
      */
@@ -186,12 +203,12 @@ public class Main {
         System.out.println("*** search for airport ICAO codes (matches airport name, city, country");
         System.out.println();
 
-        System.out.println("./gradlew run --args='dijkstra <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
-        System.out.println("*** find shortest path using Dijkstra's algoritm");
+        System.out.println("./gradlew run --args='dijkstra <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM> (<DATASET>)'");
+        System.out.println("*** find shortest path using Dijkstra's algorithm. Parameter <DATASET> is optional, and can be set to 'finland'.");
         System.out.println();
 
-        System.out.println("./gradlew run --args='idastar <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM>'");
-        System.out.println("*** find shortest path using IDA* algorithm");
+        System.out.println("./gradlew run --args='idastar <START_AIRPORT_ICAO> <END_AIRPORT_ICAO> <RANGE_IN_KM> (<DATASET>)'");
+        System.out.println("*** find shortest path using IDA* algorithm. Parameter <DATASET> is optional, and can be set to 'finland'.");
         System.out.println();
 
         System.out.println("./gradlew run --args='airports'");
@@ -207,16 +224,51 @@ public class Main {
      * @param destIcao  ICAO code of destination airport
      * @param rangeInKm Range of plane (in kilometers)
      */
-    private void dijkstraSearchIcao(String startIcao, String destIcao, int rangeInKm) {
-        int startAirportId = airportData.getIcaoIndex().get(startIcao).getId();
-        int destAirportId = airportData.getIcaoIndex().get(destIcao).getId();
+    private void dijkstraSearchIcao(
+            String startIcao,
+            String destIcao,
+            int rangeInKm,
+            String dataSet) {
+        int startAirportId = getAirportIdFromIcao(startIcao);
+        int destAirportId = getAirportIdFromIcao(destIcao);
 
         Airport startAirport = airportData.getAirports().get(startAirportId);
         Airport destAirport = airportData.getAirports().get(destAirportId);
 
-        generateData(startAirportId, rangeInKm);
+        generateData(startAirportId, rangeInKm, dataSet);
 
         route = dijkstraSearch(startAirport, destAirport);
+
+        printRoute(route);
+    }
+
+    private int getAirportIdFromIcao(String icao) {
+        int airportId = 0;
+
+        try {
+            airportId = airportData.getIcaoIndex().get(icao).getId();
+        } catch (NullPointerException ex) {
+            System.out.println("Check start and destination airport ICAO codes.");
+            System.exit(1);
+        }
+
+        return airportId;
+    }
+
+    private void idastarSearchIcao(
+            String startIcao,
+            String destIcao,
+            int rangeInKm,
+            String dataSet) {
+        int startAirportId = getAirportIdFromIcao(startIcao);
+        int destAirportId = getAirportIdFromIcao(destIcao);
+
+        Airport startAirport = airportData.getAirports().get(startAirportId);
+        Airport destAirport = airportData.getAirports().get(destAirportId);
+
+        generateData(startAirportId, rangeInKm, dataSet);
+
+        route = idastarSearch(startAirport, destAirport);
 
         printRoute(route);
     }
@@ -229,15 +281,11 @@ public class Main {
     private void printRoute(ArrayList<Airport> route) {
         System.out.println("Route:");
 
-        //CHECKSTYLE.OFF: LineLength
-
-        if (route != null) {
+        if (route != null && route.size() > 1) {
             GeoUtil.routeTotalDistance(route, true);
         } else {
             System.out.println("No route found!");
         }
-
-        //CHECKSTYLE.ON: LineLength
     }
 
     /**
@@ -245,9 +293,19 @@ public class Main {
      *
      * @param fromAirportId The start airport ID.
      * @param rangeInKm     The range of the plane in kilometers.
+     * @param dataSet       The airport dataset used - "finland" or "world"
      */
-    private void generateData(int fromAirportId, int rangeInKm) {
-        Importer importer = new Importer(new RawAirportData());
+    private void generateData(int fromAirportId, int rangeInKm, String dataSet) {
+        RawAirportData rawAirportData;
+
+        // use Finland dataset
+        if (dataSet.equals("finland")) {
+            rawAirportData = new RawAirportDataFinland();
+        } else {
+            rawAirportData = new RawAirportDataWorld();
+        }
+
+        Importer importer = new Importer(rawAirportData);
         ArrayList<Airport> airports = importer.importAirports();
 
         AirportDataGenerator airportDataGenerator = new AirportDataGenerator(airports);
@@ -276,7 +334,7 @@ public class Main {
      * Initializes the program GUI by creating the main window.
      */
     private void initGui() {
-        if (route == null) {
+        if (route == null || route.isEmpty()) {
             return;
         }
 
@@ -302,6 +360,20 @@ public class Main {
         ArrayList<Airport> normalizedPath = dijkstraSearch.normalizedSearch(
                 startAirport.getId(),
                 destAirport.getId(),
+                airportGraph);
+
+        return normalizedPath;
+    }
+
+    private ArrayList<Airport> idastarSearch(
+            Airport startAirport,
+            Airport destAirport) {
+        IdastarSearch idastarSearch = new IdastarSearch(airportData);
+
+        //noinspection UnnecessaryLocalVariable
+        ArrayList<Airport> normalizedPath = idastarSearch.normalizedSearch(
+                startAirport,
+                destAirport,
                 airportGraph);
 
         return normalizedPath;
