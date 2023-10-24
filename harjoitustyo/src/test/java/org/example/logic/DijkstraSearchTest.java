@@ -21,6 +21,7 @@ class DijkstraSearchTest {
     private final AirportDataGenerator airportDataGeneratorFinland;
     private final Airport airportFromFinland;
     private final Airport airportToFinland;
+    private final AirportData airportDataFinland;
 
     public DijkstraSearchTest() {
         // world data set
