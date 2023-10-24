@@ -48,7 +48,8 @@ class IdastarSearchTest {
         ArrayList<Airport> airportsFinland = importerFinland.importAirports();
 
         //noinspection UnnecessaryLocalVariable
-        AirportDataGenerator airportDataGeneratorFinland = new AirportDataGenerator(airportsFinland);
+        AirportDataGenerator airportDataGeneratorFinland = new AirportDataGenerator(
+                airportsFinland);
         this.airportDataGeneratorFinland = airportDataGeneratorFinland;
 
         AirportData airportDataFinland = airportDataGenerator.getAirportData();
