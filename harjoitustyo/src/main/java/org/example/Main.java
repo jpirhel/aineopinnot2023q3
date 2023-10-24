@@ -279,7 +279,7 @@ public class Main {
             airportId = airportData.getIcaoIndex().get(icao).getId();
         } catch (NullPointerException ex) {
             System.out.println("Check start and destination airport ICAO codes.");
-            System.exit(1);
+            System.exit(0);
         }
 
         return airportId;
