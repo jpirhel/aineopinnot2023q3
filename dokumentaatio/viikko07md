@@ -1,0 +1,16 @@
+# Viikkoraportti ennen loppupalautusta
+
+## Käytetty aika
+
+- 2023-10-17 6h ohjelmointi (testaus etc.)
+- 2023-10-21 6h ohjelmointi (IDA* etc.)
+- 2023-10-24 6h ohjelmointi (testaus etc.)
+
+## Mitä olet tehnyt tällä viikolla
+
+Tällä viikolla olen implementoinut IDA*-algoritmin ja parantanut testausta, sekä tehnyt loppusilauksia ohjelmaan.
+Lisäksi olen parantanut dokumentaatiota kirjoittamalla puuttuvat dokkarit.
+
+## Mikä jäi epäselväksi ja mikä on tuottanut vaikeuksia
+
+IDA* jäi kyllä algoritmina epäselväksi, enkä täysin ymmärtänyt miten se toimii. En saanut selvää, miksi se epäonnistuu (timeouttaa) joillain parametreillä.
