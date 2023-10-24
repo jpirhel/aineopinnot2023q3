@@ -76,6 +76,51 @@ class MainTest {
     }
 
     @Test
+    void runIcaoNoDataSet() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        String[] args = new String[]{"icao", "helsinki"};
+
+        main(args);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("Helsinki Vantaa");
+
+        assertEquals(true, matches);
+    }
+
+    @Test
+    void runIcaoFinlandDataSet() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        String[] args = new String[]{"icao", "helsinki", "finland"};
+
+        main(args);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("Helsinki Vantaa");
+
+        assertEquals(true, matches);
+    }
+
+    @Test
+    void runIcaoBogusDataSet() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        String[] args = new String[]{"icao", "helsinki", "bogus"};
+
+        main(args);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("Helsinki Vantaa");
+
+        assertEquals(true, matches);
+    }
+
+    @Test
     void runPlanes() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
