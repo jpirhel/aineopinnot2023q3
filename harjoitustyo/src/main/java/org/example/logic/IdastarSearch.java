@@ -16,7 +16,7 @@ public class IdastarSearch {
     private static final Integer TIMEOUT = -2;
     private static final Integer FOUND = -1;
     private static final Integer NOT_FOUND = Integer.MAX_VALUE;
-    private static final Double TIMEOUT_VALUE = 20000000000D; // 20 seconds
+    private static final Double TIMEOUT_VALUE = 10000000000D; // 10 seconds
     private final AirportData airportData;
     private final int[][] airportDistances;
     private int iterationCount;
