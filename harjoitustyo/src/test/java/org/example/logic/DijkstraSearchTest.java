@@ -2,8 +2,11 @@ package org.example.logic;
 
 //CHECKSTYLE.OFF: AvoidStarImport
 
+import static org.example.Main.main;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import org.example.data.*;
@@ -255,5 +258,20 @@ class DijkstraSearchTest {
                 testRangeInKm);
 
         assertNull(normalizedPath);
+    }
+
+    @Test
+    void mainSearchIcao() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        String[] args = new String[]{"dijkstra", "EFHK", "EFRO", "300"};
+
+        main(args);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("total distance: 700 km, number of hops: 4");
+
+        assertEquals(true, matches);
     }
 }
