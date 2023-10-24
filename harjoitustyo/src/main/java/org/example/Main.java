@@ -57,13 +57,35 @@ public class Main {
             usage();
         }
 
+        // check data set - used by Dijkstra and IDA*
+
+        String dataSet = "world";
+
+        try {
+            dataSet = args[4];
+        } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
+            // nothing - dataSet argument is optional
+        }
+
+        ArrayList<String> validDataSets = new ArrayList<>(Arrays.asList("world", "finland"));
+
+        if (! validDataSets.contains(dataSet)) {
+            dataSet = "world"; // default to world data set
+        }
+
         // generate initial dataset for commands that need it
         // this is unfortunately redundant
         if (command.equals("dijkstra")
                 || command.equals("idastar")
                 || command.equals("icao")
                 || command.equals("airports")) {
-            main.generateData(1, 501, "world");
+            if (dataSet.equals("finland")) {
+                // start at first airport in the data set
+                main.generateData(1, 501, "finland");
+            } else {
+                // start at Helsinki-Vantaa
+                main.generateData(417, 501, "world");
+            }
         }
 
         // show all airports on a map
@@ -81,20 +103,6 @@ public class Main {
                 rangeInKm = Integer.parseInt(args[3]);
 
                 // perform a dijkstra search
-
-                String dataSet = "world";
-
-                try {
-                    dataSet = args[4];
-                } catch (ArrayIndexOutOfBoundsException ex) {
-                    // nothing - dataSet argument is optional
-                }
-
-                ArrayList<String> validDataSets = new ArrayList<>(Arrays.asList("world", "finland"));
-
-                if (! validDataSets.contains(dataSet)) {
-                    dataSet = "world"; // default to world data set
-                }
 
                 if (command.equals("dijkstra")) {
                     main.dijkstraSearchIcao(startIcao, destIcao, rangeInKm, dataSet);
@@ -119,13 +127,15 @@ public class Main {
         if (command.equals("icao")) {
             try {
                 icaoSearch = args[1];
-                String dataSet = "world";
+
+                String icaoDataSet = "world";
+
                 try {
-                    dataSet = args[2];
+                    icaoDataSet = args[2];
                 } catch (ArrayIndexOutOfBoundsException ex) {
                     // nothing
                 }
-                main.icaoSearch(icaoSearch, dataSet);
+                main.icaoSearch(icaoSearch, icaoDataSet);
             } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
                 usage();
             }
@@ -388,6 +398,13 @@ public class Main {
         return normalizedPath;
     }
 
+    /**
+     * Perform a IDA* search of routes between airports.
+     *
+     * @param startAirport The Start airport
+     * @param destAirport The Destination airport
+     * @return List of the airports on the found route
+     */
     private ArrayList<Airport> idastarSearch(
             Airport startAirport,
             Airport destAirport) {
