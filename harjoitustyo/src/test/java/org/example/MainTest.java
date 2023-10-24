@@ -254,7 +254,7 @@ class MainTest {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        String[] args = new String[]{"dijkstra", "XXXX", "XXXX", "500"};
+        String[] args = new String[]{"dijkstra", "XZXZ", "XZXZ", "500"};
 
         main(args);
 
