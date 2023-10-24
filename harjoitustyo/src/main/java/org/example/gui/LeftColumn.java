@@ -56,9 +56,12 @@ public class LeftColumn {
         JPanel headerPanel = new JPanel();
         headerPanel.setBackground(Color.WHITE);
         headerPanel.setPreferredSize(new Dimension(LEFT_COLUMN_WIDTH, HEADER_LABEL_HEIGHT));
+
         JLabel headerLabel = new JLabel("Route distance: "
                 + totalDistance + " km, hops: "
                 + route.size());
+        headerLabel.setBorder(new EmptyBorder(0, 10, 0, 10));
+        headerLabel.setPreferredSize(new Dimension(LEFT_COLUMN_WIDTH, HEADER_LABEL_HEIGHT));
         headerPanel.add(headerLabel);
 
         // panel for the calculated route
@@ -93,6 +96,7 @@ public class LeftColumn {
 
         int distanceToPrevHop;
 
+        //noinspection ConstantValue
         if (route != null) {
             // display information on hops, including distance to previous hop
 
