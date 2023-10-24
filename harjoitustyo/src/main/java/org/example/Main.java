@@ -135,6 +135,11 @@ public class Main {
                 } catch (ArrayIndexOutOfBoundsException ex) {
                     // nothing
                 }
+
+                if (! validDataSets.contains(icaoDataSet)) {
+                    icaoDataSet = "world"; // default to world data set
+                }
+
                 main.icaoSearch(icaoSearch, icaoDataSet);
             } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
                 usage();
