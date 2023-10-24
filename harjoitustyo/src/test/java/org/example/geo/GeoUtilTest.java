@@ -212,4 +212,54 @@ class GeoUtilTest {
 
         assertEquals(true, hasMatchNull);
     }
+
+    @Test
+    void routeTotalDistanceNullRouteNoOutput() {
+        ArrayList<Airport> route = null;
+
+        //noinspection ConstantValue
+        int totalDistance = GeoUtil.routeTotalDistance(route, false);
+
+        assertEquals(0, totalDistance);
+    }
+
+    @Test
+    void routeTotalDistanceNullRouteOutput() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        ArrayList<Airport> route = null;
+
+        //noinspection ConstantValue
+        int totalDistance = GeoUtil.routeTotalDistance(route, true);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("total distance: 0 km, number of hops: 0");
+
+        assertEquals(true, matches);
+    }
+
+    @Test
+    void routeTotalDistanceZeroLengthRouteNoOutput() {
+        ArrayList<Airport> route = new ArrayList<>();
+
+        int totalDistance = GeoUtil.routeTotalDistance(route, false);
+
+        assertEquals(0, totalDistance);
+    }
+
+    @Test
+    void routeTotalDistanceZeroLengthRouteOutput() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        ArrayList<Airport> route = new ArrayList<>();
+
+        int totalDistance = GeoUtil.routeTotalDistance(route, true);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("total distance: 0 km, number of hops: 0");
+
+        assertEquals(true, matches);
+    }
 }
