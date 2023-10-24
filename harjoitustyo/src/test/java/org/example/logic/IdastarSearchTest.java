@@ -7,23 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 import org.example.data.*;
-
 import org.junit.jupiter.api.Test;
 
 //CHECKSTYLE.ON: AvoidStarImport
 
-class DijkstraSearchTest {
+class IdastarSearchTest {
     private final AirportDataGenerator airportDataGenerator;
     private final AirportData airportData;
-
     private final Airport airportFrom;
     private final Airport airportTo;
     private final AirportDataGenerator airportDataGeneratorFinland;
+    private final AirportData airportDataFinland;
     private final Airport airportFromFinland;
     private final Airport airportToFinland;
-    private final AirportData airportDataFinland;
 
-    public DijkstraSearchTest() {
+    public IdastarSearchTest() {
         // world data set
 
         RawAirportData rawAirportData = new RawAirportDataWorld();
@@ -49,20 +47,20 @@ class DijkstraSearchTest {
         Importer importerFinland = new Importer(rawAirportDataFinland);
         ArrayList<Airport> airportsFinland = importerFinland.importAirports();
 
-        AirportDataGenerator airportDataGeneratorFinland = new AirportDataGenerator(
-                airportsFinland);
+        //noinspection UnnecessaryLocalVariable
+        AirportDataGenerator airportDataGeneratorFinland = new AirportDataGenerator(airportsFinland);
         this.airportDataGeneratorFinland = airportDataGeneratorFinland;
 
-        //noinspection UnnecessaryLocalVariable
-        AirportData airportDataFinland = airportDataGeneratorFinland.getAirportData();
+        AirportData airportDataFinland = airportDataGenerator.getAirportData();
 
         this.airportDataFinland = airportDataFinland;
 
         int startAirportIdFinland = 5; // Helsinki-Vantaa
         int destAirportIdFinland = 37; // Rovaniemi Airport
 
-        this.airportFromFinland = airportData.getAirports().get(startAirportIdFinland);
-        this.airportToFinland = airportData.getAirports().get(destAirportIdFinland);
+        this.airportFromFinland = airportDataFinland.getAirports().get(startAirportIdFinland);
+        this.airportToFinland = airportDataFinland.getAirports().get(destAirportIdFinland);
+
     }
 
     private AirportGraph generateAirportGraph(
