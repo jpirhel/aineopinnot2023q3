@@ -129,6 +129,35 @@ class MainTest {
         main(args);
     }
 
+    @Test
+    void runDijkstraWithFinlandDataSet() {
+        String[] args = new String[]{"dijkstra", "EFHK", "EFRO", "500", "finland"};
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        main(args);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("total distance: 697 km, number of hops: 4");
+
+        assertEquals(true, matches);
+    }
+
+    @Test
+    void runDijkstraWithBogusDataSet() {
+        String[] args = new String[]{"dijkstra", "EFHK", "EFRO", "500", "bogus"};
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        main(args);
+
+        String captured = out.toString();
+        Boolean matches = captured.contains("total distance: 697 km, number of hops: 4");
+
+        assertEquals(true, matches);
+    }
 
     @Test
     void runDijkstraWithRouteFound() {

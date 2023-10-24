@@ -133,7 +133,8 @@ class GeoUtilTest {
     @Test
     void routeTotalDistanceFinland() {
         // generate airport graph
-        AirportDataGenerator airportDataGenerator = airportDataGenerator(new RawAirportDataFinland());
+        AirportDataGenerator airportDataGenerator = airportDataGenerator(
+                new RawAirportDataFinland());
 
         AirportData airportData = airportDataGenerator.getAirportData();
 
