@@ -63,7 +63,7 @@ public class Main {
                 || command.equals("idastar")
                 || command.equals("icao")
                 || command.equals("airports")) {
-            main.generateData(417, 501, "world");
+            main.generateData(1, 501, "world");
         }
 
         // show all airports on a map
@@ -85,9 +85,15 @@ public class Main {
                 String dataSet = "world";
 
                 try {
-                    dataSet = args[3];
+                    dataSet = args[4];
                 } catch (ArrayIndexOutOfBoundsException ex) {
-                    // nothing
+                    // nothing - dataSet argument is optional
+                }
+
+                ArrayList<String> validDataSets = new ArrayList<>(Arrays.asList("world", "finland"));
+
+                if (! validDataSets.contains(dataSet)) {
+                    dataSet = "world"; // default to world data set
                 }
 
                 if (command.equals("dijkstra")) {
@@ -237,11 +243,20 @@ public class Main {
 
         generateData(startAirportId, rangeInKm, dataSet);
 
+
         route = dijkstraSearch(startAirport, destAirport);
 
-        printRoute(route);
+        System.out.println("data set: " + dataSet);
+
+        printRoute(route, dataSet);
     }
 
+    /**
+     * Search for an airport matching the given ICAO code.
+     *
+     * @param icao The Icao Code
+     * @return The airport object, if found.
+     */
     private int getAirportIdFromIcao(String icao) {
         int airportId = 0;
 
@@ -255,6 +270,13 @@ public class Main {
         return airportId;
     }
 
+    /**
+     * Performs a search of the shortest route between airports using IDA* algorithm.
+     *
+     * @param startIcao ICAO code of start airport
+     * @param destIcao  ICAO code of destination airport
+     * @param rangeInKm Range of plane (in kilometers)
+     */
     private void idastarSearchIcao(
             String startIcao,
             String destIcao,
@@ -270,16 +292,17 @@ public class Main {
 
         route = idastarSearch(startAirport, destAirport);
 
-        printRoute(route);
+        printRoute(route, dataSet);
     }
 
     /**
      * Prints the calculated route to standard output.
      *
      * @param route The calculated route
+     * @param dataSet The data set used
      */
-    private void printRoute(ArrayList<Airport> route) {
-        System.out.println("Route:");
+    private void printRoute(ArrayList<Airport> route, String dataSet) {
+        System.out.println("Data set: " + dataSet + ", Route:");
 
         if (route != null && route.size() > 1) {
             GeoUtil.routeTotalDistance(route, true);
