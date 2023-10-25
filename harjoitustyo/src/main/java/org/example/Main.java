@@ -58,7 +58,7 @@ public class Main {
                         "dijkstra",
                         "idastar",
                         "planes",
-                        "airports");
+                        "airports"));
 
         if (!validCommands.contains(command)) {
             usage();
@@ -77,7 +77,7 @@ public class Main {
 
         ArrayList<String> validDataSets = new ArrayList<>(Arrays.asList("world", "finland"));
 
-        if (! validDataSets.contains(dataSet)) {
+        if (!validDataSets.contains(dataSet)) {
             dataSet = "world"; // default to world data set
         }
 
@@ -145,7 +145,7 @@ public class Main {
                     // nothing
                 }
 
-                if (! validDataSets.contains(icaoDataSet)) {
+                if (!validDataSets.contains(icaoDataSet)) {
                     icaoDataSet = "world"; // default to world data set
                 }
 
@@ -321,7 +321,7 @@ public class Main {
     /**
      * Prints the calculated route to standard output.
      *
-     * @param route The calculated route
+     * @param route   The calculated route
      * @param dataSet The data set used
      */
     private void printRoute(ArrayList<Airport> route, String dataSet) {
@@ -415,7 +415,7 @@ public class Main {
      * Perform a IDA* search of routes between airports.
      *
      * @param startAirport The Start airport
-     * @param destAirport The Destination airport
+     * @param destAirport  The Destination airport
      * @return List of the airports on the found route
      */
     private ArrayList<Airport> idastarSearch(
