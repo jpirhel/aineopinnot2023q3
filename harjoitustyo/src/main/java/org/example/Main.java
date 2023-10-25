@@ -58,8 +58,7 @@ public class Main {
                         "dijkstra",
                         "idastar",
                         "planes",
-                        "airports",
-                        "test"));
+                        "airports");
 
         if (!validCommands.contains(command)) {
             usage();
@@ -87,8 +86,7 @@ public class Main {
         if (command.equals("dijkstra")
                 || command.equals("idastar")
                 || command.equals("icao")
-                || command.equals("airports")
-                || command.equals("test")) {
+                || command.equals("airports")) {
             if (dataSet.equals("finland")) {
                 // start at first airport in the data set
                 main.generateData(1, 501, "finland");
@@ -163,17 +161,6 @@ public class Main {
         if (command.equals("planes")) {
             main.planeData();
         }
-
-        if (command.equals("test")) {
-            main.test();
-        }
-    }
-
-    /**
-     * Function for testing.
-     */
-    private void test() {
-        System.out.println("Test functionality - currently unimplemented.");
     }
 
     private void planeData() {
