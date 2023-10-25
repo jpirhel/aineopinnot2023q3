@@ -46,6 +46,7 @@ public class Main {
             command = args[0];
         } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
             usage();
+            return;
         }
 
         // check that the command is valid
@@ -55,6 +56,7 @@ public class Main {
 
         if (!validCommands.contains(command)) {
             usage();
+            return;
         }
 
         // check data set - used by Dijkstra and IDA*
@@ -119,6 +121,7 @@ public class Main {
                 main.initGui();
             } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
                 usage();
+                return;
             }
         }
 
@@ -143,6 +146,7 @@ public class Main {
                 main.icaoSearch(icaoSearch, icaoDataSet);
             } catch (ArrayIndexOutOfBoundsException | NullPointerException ex) {
                 usage();
+                return;
             }
         }
 
