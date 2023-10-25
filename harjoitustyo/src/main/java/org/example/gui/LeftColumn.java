@@ -97,7 +97,7 @@ public class LeftColumn {
         int distanceToPrevHop;
 
         //noinspection ConstantValue
-        if (route != null) {
+        if (route != null && route.size() > 1) {
             // display information on hops, including distance to previous hop
 
             for (int i = 1; i < route.size() - 1; i++) {

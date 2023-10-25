@@ -376,7 +376,7 @@ public class Main {
      * Initializes the program GUI by creating the main window.
      */
     private void initGui() {
-        if (route == null || route.isEmpty()) {
+        if (route == null || route.size() < 2) {
             return;
         }
 
