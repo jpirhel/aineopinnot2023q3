@@ -4,11 +4,11 @@ package org.example.logic;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.example.data.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 //CHECKSTYLE.ON: AvoidStarImport
 
