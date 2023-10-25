@@ -12,6 +12,7 @@ public class AirportDistance implements Comparable<AirportDistance> {
 
     /**
      * Constructor for AirportDistance
+     *
      * @param fromAirport
      * @param toAirport
      * @param distance
@@ -24,6 +25,7 @@ public class AirportDistance implements Comparable<AirportDistance> {
 
     /**
      * "From" airport
+     *
      * @return Airport
      */
     public Airport getFromAirport() {
@@ -32,6 +34,7 @@ public class AirportDistance implements Comparable<AirportDistance> {
 
     /**
      * "To" Airport
+     *
      * @return Airport
      */
     public Airport getToAirport() {
@@ -40,6 +43,7 @@ public class AirportDistance implements Comparable<AirportDistance> {
 
     /**
      * Distance between airports
+     *
      * @return Distance
      */
     public Integer getDistance() {

@@ -56,7 +56,11 @@ public class DijkstraSearch {
 
         // priority queue to hold distance-weighted airports in the search queue
 
-        PriorityQueue<AirportDistance> queue = new PriorityQueue<>();
+        // built-in Java priority queue used for testing
+        // PriorityQueue<AirportDistance> queue = new PriorityQueue<>();
+
+        // use own implementation of priority queue
+        OwnPriorityQueue queue = new OwnPriorityQueue(numAirports);
 
         // start airport
 
