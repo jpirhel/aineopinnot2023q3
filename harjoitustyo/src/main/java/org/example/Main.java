@@ -284,8 +284,6 @@ public class Main {
 
         route = dijkstraSearch(startAirport, destAirport);
 
-        System.out.println("data set: " + dataSet);
-
         printRoute(route, dataSet);
     }
 

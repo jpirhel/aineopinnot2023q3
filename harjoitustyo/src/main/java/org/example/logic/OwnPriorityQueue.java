@@ -41,7 +41,6 @@ public class OwnPriorityQueue {
 
         arr[lastIndex] = airportDistance;
 
-
         int i = lastIndex;
 
         while (i != 0) {
@@ -73,6 +72,13 @@ public class OwnPriorityQueue {
      */
     public Boolean isEmpty() {
         return lastIndex == -1;
+    }
+
+    /**
+     * @return The size of the queue
+     */
+    public int size() {
+        return lastIndex + 1;
     }
 
     /**
@@ -112,6 +118,7 @@ public class OwnPriorityQueue {
 
     /**
      * Heapifies the current subtree. Ensures that the min-heap property is satisfied.
+     *
      * @param i The index to be heapified
      */
     private void heapify(int i) {
@@ -126,8 +133,10 @@ public class OwnPriorityQueue {
 
         if (left <= lastIndex) {
             int distance = arr[left].getDistance();
+
             if (distance < smallestDistance) {
                 smallestIndex = left;
+
                 // update the smallest distance if it has changed
                 smallestDistance = distance;
             }
@@ -137,6 +146,7 @@ public class OwnPriorityQueue {
 
         if (right <= lastIndex) {
             int distance = arr[right].getDistance();
+
             if (distance < smallestDistance) {
                 smallestIndex = right;
             }
