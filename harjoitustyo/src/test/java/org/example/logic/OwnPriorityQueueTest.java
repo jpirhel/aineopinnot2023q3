@@ -89,5 +89,8 @@ class OwnPriorityQueueTest {
 
         assertNotNull(smallest);
 
+        int smallestDistance = smallest.getDistance();
+
+        assertEquals(8, smallestDistance);
     }
 }
