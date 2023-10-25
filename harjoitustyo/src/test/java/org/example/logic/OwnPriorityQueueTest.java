@@ -93,4 +93,10 @@ class OwnPriorityQueueTest {
 
         assertEquals(8, smallestDistance);
     }
+
+    @Test
+    void pollEmpty() {
+        AirportDistance smallest = queue.poll();
+        assertNull(smallest);
+    }
 }
