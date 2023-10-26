@@ -71,7 +71,7 @@ public class OwnPriorityQueue {
      * @return True if the queue is empty
      */
     public Boolean isEmpty() {
-        return lastIndex == -1;
+        return lastIndex == -1; // indexes start at 0
     }
 
     /**
