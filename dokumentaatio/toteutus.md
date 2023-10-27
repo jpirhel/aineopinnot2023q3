@@ -33,6 +33,7 @@ Tarkempaa O-analyysiä ei tehty.
 ## Suorituskyky- ja O-analyysivertailu
 
 IDA*-algoritmissä käytetty heuristiikka löytyy metodista org.example.logic.IdastarSearch.heuristic, ja lasketaan ko. lentokentän suorasta etäisyydestä kohdekenttään. Tällöin heuristiikka on "admissible", eli aina pienempi kuin varsinaisen reitin pituus. Algoritmin tulisi siis löytää lyhin reitti.  
+
 Huomionarvoista on se, että joillain syötteillä IDA* räjähtää niin, että sen tekemä laskenta on huomattavasti hitaampaa kuin Dijkstran vastaava. Dijkstra vaikutti toimivan kaikilla syötteillä, eli joko löysi reitin nopeasti tai sitten, jos reittiä ei ollut, palautti tämänkin vastauksen nopeasti. IDA* käytti joihinkin tapauksiin niin pitkän aikaa, että en jäänyt odottelemaan laskennan valmistumista. Timeout on IDA*:lla 10 sekuntia, ja tätä timeoutia ei tarvittu Dijkstrassa.
 
 En testannut, mutta arvelisin tämän johtuvan siitä, että IDA* on haavoittuvainen isolle branching factorille. Lentokentällä voi olla useita kymmeniä kohdelentokenttiä reitin seuraavaa pistettä varten.
