@@ -1,5 +1,9 @@
 # Toteutus
 
+## Laajojen kielimallien käyttö
+
+Laajoja kielimalleja ei käytetty lainkaan projektin minkään osan toteutuksessa (lähdekoodi, dokumentaatio jne.).
+
 ## Ohjelman yleisrakenne
 
 Ohjelma on jaettu useampaan osioon lähdekoodin tasolla:
