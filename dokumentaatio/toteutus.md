@@ -22,6 +22,10 @@ Algoritmit on toteutettu käyttäen Wikipedian pseudokoodia ko. algoritmin sivui
 - [2] https://en.wikipedia.org/wiki/Iterative_deepening_A*#Pseudocode
 - [3] https://www.geeksforgeeks.org/binary-heap/
 
+## Huomio käytetyn datasetin tallentamisesta
+
+Alunperin ohjelmassa oli importteri, joka luki lentokenttien tiedot tekstitiedostosta. Tämä vaihdettiin melko rumasti toteutettuun Java-luokkaan siitä syystä, että saatiin helposti aikaan Gradlella "Fat Jar", joka sisälsi kaiken ohjelman suorituksessa tarvittavat tiedot samassa jar-tiedostossa.
+
 ## Saavutetut aika- ja tilavaativuudet
 
 Kun Dijkstraa testattiin välillä Helsinki-Vantaa -> Miyazaki, Japani, se löysi reitin kaikilla kantamilla alle sekunnissa. IDA* suoriutui useista reittihauista alle sekunnissa, mutta joissain tapauksissa reitin laskemiseen kului aikaa useita sekunteja. IDA*:n timeout oli kymmenessä sekunnissa, ja useissa tapauksissa laskenta ylitti tämän. Tämä saattaa johtua siitä, että IDA* ei pidä kirjaa jo läpikäydyistä solmuista, vaan käy joissain tapauksissa verkkoa uudestaan ja uudestaan läpi.
