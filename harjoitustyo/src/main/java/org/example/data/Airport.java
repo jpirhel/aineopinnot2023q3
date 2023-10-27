@@ -55,7 +55,7 @@ public class Airport {
 
     /**
      * Function for cleaning airport data parts. Removes quotes.
-     * @param part
+     * @param part A part of the airport data line
      * @return Cleaned string
      */
     private static String clean(String part) {
@@ -76,14 +76,14 @@ public class Airport {
     private final Double longitude;
 
     /**
-     * @param id
-     * @param dataId
-     * @param name
-     * @param city
-     * @param country
-     * @param icao
-     * @param latitude
-     * @param longitude
+     * @param id The airport ID
+     * @param dataId The airport ID in the data set
+     * @param name Name of the airport
+     * @param city City of the airport
+     * @param country Country of the airport
+     * @param icao ICAO code of the airport
+     * @param latitude Airport latitude in decimal degrees
+     * @param longitude Airport longitude in decimal degrees
      */
     public Airport(
             int id,

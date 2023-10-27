@@ -14,10 +14,10 @@ public class AirportData {
     private final HashMap<String, Airport> icaoIndex;
 
     /**
-     * @param airports
-     * @param airportMap
-     * @param airportDistances
-     * @param icaoIndex
+     * @param airports The list of airports
+     * @param airportMap Map of airport IDs to airport objects
+     * @param airportDistances Matrix of airport distances
+     * @param icaoIndex Map of ICAO codes to airport objects
      */
     public AirportData(
             ArrayList<Airport> airports,

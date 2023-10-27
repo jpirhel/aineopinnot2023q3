@@ -12,8 +12,8 @@ public class Coord {
     private final Double lon;
 
     /**
-     * @param lat
-     * @param lon
+     * @param lat Latitude in decimal degrees
+     * @param lon Longitude in decimal degrees
      */
     public Coord(Double lat, Double lon) {
         this.lat = lat;

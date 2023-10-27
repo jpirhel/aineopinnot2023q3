@@ -13,9 +13,9 @@ public class AirportDistance implements Comparable<AirportDistance> {
     /**
      * Constructor for AirportDistance
      *
-     * @param fromAirport
-     * @param toAirport
-     * @param distance
+     * @param fromAirport The start airport
+     * @param toAirport The destination airport
+     * @param distance The distance between start and destination airports
      */
     public AirportDistance(Airport fromAirport, Airport toAirport, Integer distance) {
         this.fromAirport = fromAirport;

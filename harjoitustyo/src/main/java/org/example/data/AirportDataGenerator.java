@@ -19,7 +19,7 @@ public class AirportDataGenerator {
     private HashMap<String, Airport> icaoIndex;
 
     /**
-     * @param airports
+     * @param airports The list of airports
      */
     public AirportDataGenerator(ArrayList<Airport> airports) {
         this.airports = airports;
@@ -101,8 +101,8 @@ public class AirportDataGenerator {
     /**
      * Generates Airport graph using maxDistanceInKm as the cutoff
      * for distance and a single airport as the source.
-     * @param airportFrom
-     * @param maxDistanceInKm
+     * @param airportFrom The start airport
+     * @param maxDistanceInKm Plane range in kilometers
      * @return AirportGraph
      */
     public AirportGraph generateAirportGraph(Airport airportFrom, int maxDistanceInKm) {

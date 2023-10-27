@@ -9,7 +9,7 @@ public class AirportGraph {
     private final ArrayList<AirportDistance>[] graph;
 
     /**
-     * @param graph
+     * @param graph The airport graph
      */
     public AirportGraph(ArrayList<AirportDistance>[] graph) {
         this.graph = graph;
