@@ -11,7 +11,7 @@
 
 [Toteutusdokumentti](dokumentaatio/toteutus.md)
 
-[Toteutusdokumentti](dokumentaatio/testaus.md)
+[Testausdokumentti](dokumentaatio/testaus.md)
 
 ## Viikkoraportit
 
