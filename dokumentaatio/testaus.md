@@ -22,7 +22,7 @@ Algoritmien osalta sekä Dijkstran että IDA*:n testaus on identtistä. Testataa
 
 ## Minkälaisilla syötteillä testaus tehtiin?
 
-Testaus tehtiin Dijkstran ja IDA* -algiritmien osalta hakemalla reittejä samoilla lähtö- ja kohdekentillä. Käytettävät lähtö- ja kohdelentokentät ovat samat, ja riippuvat käytetystä datasetistä (world tai Finland).
+Testaus tehtiin Dijkstran ja IDA* -algoritmien osalta hakemalla reittejä samoilla lähtö- ja kohdekentillä. Käytettävät lähtö- ja kohdelentokentät ovat samat, ja riippuvat käytetystä datasetistä (world tai Finland).
 
 Mikäli käytössä on datasetti world, lähtökenttä on Helsinki-Vantaa ja kohdekenttä on Vancouver International. Reittiä ei löydy, jos kantama on 200km. Muilla testattavilla rangeilla reitti löytyy, ja tarkistetaan, että kun kantamaa kasvatetaan, reitin välilaskujen (hop) määrä vähenee.
 
