@@ -9,6 +9,8 @@
 
 [Käyttöohje](dokumentaatio/kayttoohje.md)
 
+[Toteutusdokumentti](dokumentaatio/toteutus.md)
+
 ## Viikkoraportit
 
 [Viikko 1](dokumentaatio/viikko01.md)
