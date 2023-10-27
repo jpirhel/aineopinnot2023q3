@@ -167,8 +167,6 @@ public class AirportDataGenerator {
                 reachable.add(airportDistance);
             }
 
-            // Collections.sort(reachable);
-
             graph[curr] = reachable;
         }
 
