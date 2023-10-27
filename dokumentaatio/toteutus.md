@@ -16,6 +16,12 @@ Kun ohjelman reitinlaskentaan käytettävä toiminnallisuus käynnistetään, oh
 
 Kun graafi on laskettu, käynnistetään Dijkstra tai IDA* -haku, jotka löytyvät luokista org.example.Logic.{DijkstraSearch,IdastarSearch}. Jos reitti löytyy, näytetään lopputulos graafisena karttaesityksenä käyttäen org.example.gui.* -luokkia.
 
+Algoritmit on toteutettu käyttäen Wikipedian pseudokoodia ko. algoritmin sivuilla, Dijkstra: [1], IDA*: [2]. Lisäksi oman Priority Queue -implementaationa inspiraationa on toiminut Binary Heap [3].
+
+- [1] https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Using_a_priority_queue
+- [2] https://en.wikipedia.org/wiki/Iterative_deepening_A*#Pseudocode
+- [3] https://www.geeksforgeeks.org/binary-heap/
+
 ## Saavutetut aika- ja tilavaativuudet
 
 
@@ -29,7 +35,7 @@ En testannut, mutta arvelisin tämän johtuvan siitä, että IDA* on haavoittuva
 
 Toinen huomionarvoinen seikka on se, että IDA* löysi Dijkstran kanssa yhtä lyhyitä reittejä, mutta Dijkstra suosi pienempiä välilaskumääriä kuin IDA*. Esim. alla olevassa Helsinki-Vantaa -> Miyazaki -reitissä 1500km kantamalla Dijkstra löysi reitin, jossa oli 8 lentokenttää, kun IDA* löysi reitin, jossa oli 13 lentokenttää. Reittien pituudet kilometreissä olivat kuitenkin identtiset. Tämä johtunee siitä, että IDA*-algoritmissä Priority Queue:ssa tutkitaan ensin seuraavan pisteen lentokenttiä, jotka ovat mahdollisimman lähellä reitin edellistä lentokenttää.  
 
-## Löydettyjä polkuja
+## Löydettyjä reittejä
 
 ### Dijkstra: Helsinki-Vantaa -> Miyazaki, Japani, range: 500km
 
@@ -55,7 +61,7 @@ Ei löytänyt reittiä - timeout (10 sekuntia).
 
 ## Puutteet ja parannusehdotukset
 
-Ohjelman puutteeksi voidaan laskea se, että suuri osa toiminnallisuudesta on toteutettu komentoriviargumentteina, ja graafista käyttöliittymää ei ole hiottu. Kaikki toiminnallisuus olisi hyvä implementoida UI-elementteinä, jos oltaisiin tekemässä "varsinaista" ohjelmistoa.
+Ohjelman puutteeksi voidaan laskea se, että suuri osa toiminnallisuudesta on toteutettu komentoriviargumentteina, ja graafista käyttöliittymää ei ole hiottu. Kaikki toiminnallisuus olisi hyvä implementoida UI-elementteinä, jos oltaisiin tekemässä "varsinaista" ohjelmistoa. Esim. lentokone olisi hyvä pystyä valitsemaan dropdown-menusta tai vastaavasta.
 
 Kartan puutteita ovat:
 
