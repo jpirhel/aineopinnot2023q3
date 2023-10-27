@@ -1,5 +1,33 @@
 # Käyttöohje
 
+## joitain testattavia komentorivejä (jar)
+
+ICAOt:
+
+- EFHK = Helsinki-Vantaa
+- EFRO = Rovaniemi
+- RJFM = Miyazaki Airport, Japani
+
+```
+java -jar harjoitustyo-1.0-SNAPSHOT.jar dijkstra EFHK RJFM 200  # ei löydä reittiä
+
+java -jar harjoitustyo-1.0-SNAPSHOT.jar dijkstra EFHK RJFM 250  # löytää reitin
+java -jar harjoitustyo-1.0-SNAPSHOT.jar idastar EFHK RJFM 250  # räjähtää
+
+java -jar harjoitustyo-1.0-SNAPSHOT.jar dijkstra EFHK RJFM 1500  # löytää reitin
+java -jar harjoitustyo-1.0-SNAPSHOT.jar idastar EFHK RJFM 1500  # löytää reitin
+
+java -jar build\libs\harjoitustyo-1.0-SNAPSHOT.jar dijkstra EFHK EFRO 150  # löytää reitin
+java -jar build\libs\harjoitustyo-1.0-SNAPSHOT.jar idastar EFHK EFRO 150  # löytää reitin
+
+# löytää reitin ilman välilaskuja kuten pitääkin
+java -jar harjoitustyo-1.0-SNAPSHOT.jar dijkstra EFHK EFRO 1500
+
+# löytää reitin, mutta kahdella välilaskulla - pitäisi löytää suora lento
+java -jar harjoitustyo-1.0-SNAPSHOT.jar idastar EFHK EFRO 1500  
+```
+
+
 ## Kartan käyttöliittymä
 
 Kun ohjelma käynnistää karttanäkymän (komennot airports, dijkstra, idastar) karttaa voi siirtää klikkaamalla hiiren napin pohjaan ja siirtämällä hiirtä. Kartan zoom-tasoa voi muuttaa hiiren rullalla.
