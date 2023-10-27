@@ -16,7 +16,15 @@ Kun testit on ajettu, automaattisesti generoitunut Jacoco-raportti (HTML) löyty
 
 ## Mitä testattiin ja miten?
 
-Ohjelman toiminnallisuutta on testattu varsin laajasti, kenties algoritmeja lukuunottamatta. Komentorivitoiminnallisuutta testataan luokassa org.example.MainTest, Geografisen laskennan toiminnallisuutta luokassa org.example.geo.GeoUtilTest ja myös org.example.data.Airport* -luokkien toiminnallisuus testataan. Näiden avulla saadaan varsin suuri yksikkötestien kattavuus koko lähdekoodin osalta.
+Ohjelman toiminnallisuutta on testattu varsin laajasti, kenties algoritmeja lukuunottamatta. 
+
+Komentorivitoiminnallisuutta testataan luokassa org.example.MainTest. Tämä testiluokka testaa esim. komentoriviparametrien oikeellisuutta.
+
+Geografisen laskennan toiminnallisuutta luokassa org.example.geo.GeoUtilTest. Nämä testit testaavat esim. sitä, että pisteiden välinen etäisyys lasketaan oikein, ja reittien kokonaispituus lasketaan oikein.  
+
+Myös org.example.data.Airport* -luokkien toiminnallisuus testataan. Käytetyt dataluokat ja niiden oikea toiminnallisuus testataan esim. vertailemalla generoidun lentokenttiä sisältävän HashMap:in kokoa lentokenttien oikeaan määrään.  
+
+Näiden avulla saadaan varsin suuri yksikkötestien kattavuus koko lähdekoodin osalta.
 
 Algoritmien osalta sekä Dijkstran että IDA*:n testaus on identtistä. Testataan kahta asiaa: sitä, että reittiä ei löydy, ja reitin etsimistä erilaisilla rangeilla. 
 
@@ -30,7 +38,7 @@ Kun datasetti on Finland, lähtökenttä on Helsinki-Vantaa ja kohdekenttä on R
 
 ## Testien toistettavuus
 
-Testit ovat sikäli toistettavia, että niissä ei käytetä satunnaissyötteitä. Täten testien pitäisi antaa identtiset tulokset kaikilla suorituskerroilla.
+Testit ovat sikäli toistettavia, että niissä ei käytetä satunnaissyötteitä. Täten testien tulisi antaa identtiset tulokset kaikilla suorituskerroilla.
 
 ## Testien puutteita
 
